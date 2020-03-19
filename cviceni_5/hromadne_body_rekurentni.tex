@@ -1,0 +1,39 @@
+\begin{enumerate}
+
+	\item Najděte všechny hromadné body posloupnosti $(a_n)$ zadané rekurencí
+		$$a_{n+1} = \frac{1}{2} (a_n + 1/a_n)$$
+		a první hodnotou $a_1 = 3/2$. 
+
+		\solution{
+			Naznačme postup.
+			Prvních pár členů 
+			$$
+				(a_n) = \left(\frac{3}{2}, \frac{13}{12}, \frac{313}{312}, \dots \right)
+			$$
+			naznačuje, že se hodnoty budou blížit jedné.
+			A opravdu, nejprve jednoduše dle AG nerovnosti $(x+y)/2 \geq \sqrt{xy}$ ukážeme, že $a_n \geq 1$.
+			Potom ukážeme, že $(a_n)$ je klesající pokud odhadneme $a_{n+1}-a_n > 0$.
+			Pak, neboť $(a_n)$ je omezená klesající posloupnost, tak musí mít limitu, nazvěme ji $L$.
+			Toto $L$ musí splňovat rovnici $L = \frac12 (L + 1/L)$, kterou převedeme na rovnost $L^2 = 1$.
+			Proto tedy $L=1$, neboť $(a_n)$ je zdola odhadnutá hodnotou $1$.
+			A tedy $H = \{1\}$ a $\limsup a_n = \liminf a_n = 1$.
+		}
+
+	\item Jaká je množina hromadných bodů posloupnosti, jejíž první člen je $a_1 = 1$ a další členy jsou dány vztahem $a_n = \min \{k \in \mathbb{N} : k > 1, k \text{ dělí } n\}$.
+
+		\solution{
+			Spočteme si prvích pár členů posloupnosti
+			$$
+					(a_n) = (1, 2, 3, 2, 5, 2, 7, 2, 3, 2, 11, 2, 13, 2, 3, \dots).
+			$$
+			Jak vidno z prvních pár členů, $a_{2k} = 2$, $a_{6k-3} = 3$, $a_{30k-25} = 5$ a najdou se i hodnoty $7, 11, 13, 17, 19, \dots$.
+			Zkusíme tedy ukázat, $H$ je množina všech prvočísel (a jedničky).
+
+			Všimneme si, že pro libovolné prvočíslo $p$ platí $a_{p^k} = p$ pro libovolné $k \in \mathbb{N}$.
+			Proto $p \in H$.
+			Naopak, pokud $p$ není prvočíslo, pak má rozhodně dělitele $d$ splňující $1 < d < p$, a proto pro libovolné $n \in \mathbb{N}$ nemůže platit $a_n = p$, neboť $d$ je vždy lepší kandidát na minimum, než $p$.
+			Howk.
+		}
+
+\end{enumerate}
+

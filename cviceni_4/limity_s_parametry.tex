@@ -1,0 +1,80 @@
+Spočete v závislosti na $k,l\in\mathbb{N}$
+\begin{enumerate}
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}$,
+
+		\solution{
+			Pomocí binomické věty rozvedeme $(n-1)^{l}$ do řady.
+			Dostáváme
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{n^{k}-\sum_{m=0}^{l}\binom{l}{m}(-1)^{m}n^{l-m}}{n^k+n^{l}}.$$
+
+			Pokud $k>l$, tak je nejrychleji rostoucí člen $n^{k}$, a proto ho z čitatele i jmenovatele vytkneme.
+			Dostaneme
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{1-\sum_{m=0}^{l}\binom{l}{m}(-1)^{m}n^{l-m-k}}{1+n^{l-k}}.$$
+			Protože $k>l$, tak $\forall m\in\mathbb{N}\cup\{0\} :l-m-k<0$ a $l-k<0$ a z VOAL $n^{l-m-k}\rightarrow0$ a $n^{l-k}\rightarrow0$.
+			Celkem tedy z VOAL
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\frac{1-0}{1+0}=1.$$
+
+			Pokud $k=l$, tak se nám v čitateli odečte $n^{k}$. Dostaneme
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{-\sum_{m=1}^{k}\binom{l}{m}(-1)^{m}n^{l-m}}{2n^k}.$$
+			Ze zbylých vidíme, že nám nejrychleji roste $n^{k}$, a proto ho z čitatele i jmenovatele vytkneme. Dostáváme
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{-\sum_{m=1}^{k}\binom{l}{m}(-1)^{m}n^{l-m-k}}{2}.$$
+			Protože $k=l$, tak $\forall m\in\mathbb{N} :l-m-k<0$ a z VOAL $n^{l-m-k}\rightarrow0$.
+			Celkem tedy z VOAL
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{0}{2}=0.$$
+				
+			Pokud $k<l$, tak je nejrychleji rostoucí člen $n^{l}$, a proto ho z čitatele i jmenovatele vytkneme. Dostaneme
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\underset{n\rightarrow\infty}{\lim} \frac{n^{k-l}-\sum_{m=0}^{l}\binom{l}{m}(-1)^{m}n^{l-m-l}}{n^{k-l}+1}.$$
+			Protože $k<l$, tak $\forall m\in\mathbb{N} :l-m-l<0$, $k-l<0$ a z VOAL $n^{l-m-l}\rightarrow0$ a $n^{k-l}\rightarrow0$.\\
+			Navíc pro $m=0$ je $\binom{l}{m}(-1)^{m}n^{l-m-l}=1$.
+			Celkem tedy z VOAL
+			$$\underset{n\rightarrow\infty}{\lim} \frac{n^k-(n-1)^l}{n^k+n^l}=\frac{0-1}{0+1}=-1.$$
+		}
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}$.
+
+		\solution{
+			Pomocí binomické věty rozvedeme $(n+1)^{k}$ a $(n-1)^{k}$ do řady a aplikujeme $(-n)^{l}=(-1)^{l}n^{l}$. Dostáváme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{\sum_{m=0}^{k}\binom{k}{m}n^{k-m}+(-1)^{l}n^{l}}{\sum_{m=0}^{k}\binom{k}{m}(-1)^{m}n^{k-m}-n^l}.$$
+				
+			Pokud $k>l$, tak je nejrychleji rostoucí člen $n^{k}$, a proto ho z čitatele i jmenovatele vytkneme. Dostaneme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{\sum_{m=0}^{k}\binom{k}{m}n^{k-m-k}+(-1)^{l}n^{l-k}}{\sum_{m=0}^{k}\binom{k}{m}(-1)^{m}n^{k-m-k}-n^{l-k}}.$$
+			Protože $k>l$, tak  $\forall m\in\mathbb{N} :k-m-k<0$ a $l-k<0$ a z VOAL $n^{k-m-k}\rightarrow0$ a $n^{l-k}\rightarrow0$.\\
+			Navíc pro $m=0$ je $\binom{k}{m}(-1)^{m}n^{k-m-k}=1=\binom{k}{m}n^{k-m-k}$.
+			Celkem tedy z VOAL
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}= \frac{1+0}{1-0}=1.$$
+			
+			Pokud $k=l$ a jsou liché, tak se nám v čitateli i jmenovateli odečte $n^{k}$. Dostaneme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{\sum_{m=1}^{k}\binom{k}{m}n^{k-m}+}{\sum_{m=1}^{k}\binom{k}{m}(-1)^{m}n^{k-m}}.$$
+			V čitateli i jmenovateli nám v tuto chvíli nejrychleji roste $n^{k-1}$, a proto ho vytkneme. Dostáváme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{\sum_{m=1}^{k}\binom{k}{m}n^{k-m-k+1}+}{\sum_{m=1}^{k}\binom{k}{m}(-1)^{m}n^{k-m-k+1}}.$$
+			Protože $\forall m\in\mathbb{N}, m\geq 2 :k-m-k+1<0$, tak z VOAL $n^{k-m-k+1}\rightarrow0$.\\
+			Navíc pro $m=1$ je $\binom{k}{m}(-1)^{m}n^{k-m-k+1}=-k$ a $\binom{k}{m}n^{k-m-k+1}=k$.
+			Celkem tedy z VOAL
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}=\frac{k}{-k}=-1.$$
+				
+			Pokud $k=l$ a jsou sudé, tak se nám ve jmenovateli odečte $n^{k}$. Dostaneme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{2n^{k}+\sum_{m=1}^{k}\binom{k}{m}n^{k-m}+}{\sum_{m=1}^{k}\binom{k}{m}(-1)^{m}n^{k-m}}.$$
+			Vytknutím $n^{k-1}$ dostáváme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{2n+\sum_{m=1}^{k}\binom{k}{m}n^{k-m-k+1}+}{\sum_{m=1}^{k}\binom{k}{m}(-1)^{m}n^{k-m-k+1}}.$$
+			Protože $\forall m\in\mathbb{N}, m\geq 2 :k-m-k+1<0$, tak z VOAL $n^{k-m-k+1}\rightarrow0$.\\
+			Navíc pro $m=1$ je $\binom{k}{m}(-1)^{m}n^{k-m-k+1}=-k$ a $\binom{k}{m}n^{k-m-k+1}=k$.
+			Celkem tedy z VOAL
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}=\frac{2\cdot\infty+k}{-k}=-\infty.$$
+				
+			Pokud $k<l$, tak je nejrychleji rostoucí člen $n^{l}$, a proto ho z čitatele i jmenovatele vytkneme. Dostaneme
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}
+				= \frac{\sum_{m=0}^{k}\binom{k}{m}n^{k-m-l}+(-1)^{l}}{\sum_{m=0}^{k}\binom{k}{m}(-1)^{m}n^{k-m-l}-1}.$$
+			Protože $k<l$, tak  $\forall m\in\mathbb{N}\cup\{0\} :k-m-l<0$ a z VOAL $n^{k-m-l}\rightarrow0$.
+			Celkem tedy z VOAL
+			$$\lim_{n\rightarrow\infty} \frac{(n+1)^k+(-n)^l}{(n-1)^k-n^l}= \frac{0+(-1)^{l}}{0-1}=(-1)^{l+1}.$$
+		}
+
+\end{enumerate}
+

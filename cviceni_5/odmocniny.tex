@@ -1,0 +1,60 @@
+Spočtěte limity:
+\begin{itemize}
+
+	\item  $\lim_{n \rightarrow \infty} \sqrt[n]{n}$ (spíš těžší teoretický bonus, můžete využívat dále),
+
+		\solution{
+			$\lim_{n \rightarrow \infty} \sqrt[n]{n} = 1$
+
+			Platí $\forall n \in \mathbb{N}: \sqrt[n]{n}>1$, ale
+			$\forall c>1 \  \exists n_0 \  \forall n \geq n_0\colon n < c^n$
+			takže $\sqrt[n]{n}<c$.
+			Takže nás může napadnout, že $1$ je ta správná limita.
+
+			Uvažme posloupnost $a_n$ takovou, že $\sqrt[n]{n}=1+a_n$. Tato $a_n$ jsou kladná a my ukážeme, že jdou k $0$.
+
+			Umocníme na $n$-tou a dostaneme
+			$$n = (1+a_n)^n = \sum_{j=0}^n \binom{n}{j} a_n^j \geq \frac{n(n-1)}{2} a_n^2.$$
+
+			Takže
+			\begin{eqnarray*}
+			n &\geq& \frac{n(n-1)}{2} a_n^2 \\
+			1 &\geq& \frac{n-1}{2} a_n^2 \\
+			\frac{2}{n-1} &\geq& a_n^2 \\
+			\end{eqnarray*}
+			a tím pádem máme $0 \leq a_n \leq \sqrt{\frac{2}{n-1}}$ a $\lim_{n \rightarrow \infty} a_n = 0$.
+		}
+
+	\item  $\lim_{n \rightarrow \infty} \sqrt[n]{2}$,
+
+		\solution{
+			Obdobně jako v předchozím příkladě usoudíme, že
+			$\lim_{n \rightarrow \infty} \sqrt[n]{2} = 1$.
+		}
+
+	\item $\lim_{n \rightarrow \infty} \sqrt[n]{n^2 + 2^n}$,
+
+		\solution{
+			Pokusíme se odhadnout sdola konstantou a shora posloupností a použít větu o dvou policajtech (Věta~\ref{thm:dva_policajti}).
+
+			\begin{itemize}
+
+				\item  Nejprve $\sqrt[n]{n^2 + 2^n} \geq \sqrt[n]{2^n} = 2$ a máme dolní odhad.
+
+				\item  Pro $n \geq 4$ je $2^n \geq n^2$ a tedy $\sqrt[n]{n^2 + 2^n}
+					\leq \sqrt[n]{2 \cdot 2^n} = 2 \sqrt[n]{2}$ a jelikož posloupnost
+					$\sqrt[n]{2}$ jde k $1$, máme horní odhad také $2$.
+
+			\end{itemize}
+		}
+
+	\item $\lim_{n \rightarrow \infty} \sqrt[n]{a^n + b^n + c^n}$ pro $a,b,c$ nezáporná reálná.
+
+		\solution{
+			Předpokládejme $a\leq b \leq c$, pak podobně jako v předchozí úloze dostáváme
+			$\sqrt[n]{a^n + b^n + c^n} \geq \sqrt[n]{c^n} = c$ jako dolní odhad a
+			$\sqrt[n]{a^n + b^n + c^n} \leq \sqrt[n]{3c^n} \leq c\sqrt[n]{3}$ jako horní odhad jdoucí také k $c$.
+		}
+
+\end{itemize}
+

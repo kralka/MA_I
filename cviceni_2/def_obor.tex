@@ -1,0 +1,20 @@
+Určete definiční obor následující funkce $\frac{1}{\sqrt{5 - \log_2(x^2 - 9)}}$.
+
+\solution{
+	Logaritmus je definovaný jen pro kladná reálná čísla, tedy $x^2 - 9 > 0$, z čehož plyne první podmínka $x \in (-\infty, -3) \cup (3, \infty)$.
+
+	Odmocnina je definovaná pro nezáporná čísla, ale dělíme jejím výsledkem, takže ani nesmí vyjít nula, dohromady tedy máme:
+	\begin{align*}
+		5 - \log_2(x^2 - 9) &> 0 \\
+		5 &> \log_2(x^2 - 9) \tag{$2^y$ je rostoucí funkce} \\
+		2^5 &> x^2 - 9 \\
+		41 &> x^2
+	\end{align*}
+	Tedy druhá podmínka je: $x \in (-\sqrt{41}, \sqrt{41})$.
+
+	Obě podmínky musí platit zároveň a dostáváme výsledek:
+	$$x \in (-\sqrt{41}, -3) \cup (3, \sqrt{41}).$$
+
+	Pozor, že ve všech řešeních netriviálně využíváte toho, že dvojkový logaritmus je rostoucí funkce nebo že dva na něco je rostoucí funkce.
+}
+

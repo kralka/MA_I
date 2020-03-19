@@ -1,0 +1,46 @@
+\begin{definition}[Definice konvergence řad]
+	Říkáme, že řada $\sum a_n$ konverguje, pokud konverguje posloupnost částečných součtů $(s_n)$ zadaná vztahem $s_n = a_1 + a_2 + \dots + a_n$. 
+	\label{def:konvergentni_rada}
+\end{definition}
+
+\subsection{Základní řady:}
+
+\begin{equation}
+	\sum_{n=1}^{\infty} q^n =
+	\begin{cases}
+		\frac{1}{1-q}			& \text{pro } |q| < 1, \\
+		+\infty 	   			& \text{pro } q \geq 1, \\
+		\text{neexistuje} & \text{pro } q \leq -1,
+	\end{cases}
+	\label{eq:rada_q_na_n}
+\end{equation}
+
+\begin{equation}
+	\sum_{n=1}^{\infty} n^{-\alpha} =
+	\begin{cases}
+		\text{konverguje}  & \text{pro } \alpha > 1, \\
+		\text{diverguje}   & \text{pro } \alpha \leq 1.
+	\end{cases}
+	\label{eq:rada_n_na_alpha}
+\end{equation}
+
+
+\subsection{Další kritéria na konvergenci řad:}
+
+\begin{theorem}[Další kritéria konvergence řad]
+	Nechť $\sum a_n$, $\sum b_n$ jsou řady s nezápornými koeficienty. 
+	\begin{itemize}
+
+		\item[(NPK)] \emph{Nutná podmínka konvergence:} \label{thm:konvergence_kriterium_nutna_podminka_konvergence}
+			Pokud řada $\sum a_n$ konverguje, pak $\lim a_n = 0$.
+
+		\item[(SK)] \label{thm:konvergence_kriterium_SK}
+			Pokud $a_n < b_n$ a $\sum b_n$ konverguje, pak i $\sum a_n$ konverguje. \\ 
+			Pokud $a_n < b_n$ a $\sum a_n$ diverguje, pak i $\sum b_n$ diverguje.
+
+		\item[(LSK)] \label{thm:konvergence_kriterium_LSK}
+			Definujme $\lim \frac{a_n}{b_n} = \ell$. Pak pro $0 < \ell < \infty$ platí, že $\sum a_n$ konverguje $\Leftrightarrow$ $\sum b_n$ konverguje.
+	\end{itemize}
+	\label{thm:konvergence_rad}
+\end{theorem}
+

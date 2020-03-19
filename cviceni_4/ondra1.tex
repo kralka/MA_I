@@ -1,0 +1,26 @@
+Spočtěte limity:
+\begin{itemize}
+
+	\item $\lim_{n \rightarrow \infty} \frac{5^n-3^n}{5^n+3^n}$,
+
+		\solution{
+			Zlomek rošíříme výrazem $\frac{1}{5^n}$ a upravíme
+			$$\lim_{n \rightarrow \infty} \frac{5^n-3^n}{5^n+3^n} =
+			\lim_{n \rightarrow \infty} \frac{\frac{5^n}{5^n}-\frac{3^n}{5^n}}{\frac{5^n}{5^n}+\frac{3^n}{5^n}} = 
+			\lim_{n \rightarrow \infty} \frac{(\frac{5}{5})^n-(\frac{3}{5})^n}{(\frac{5}{5})^n+(\frac{3}{5})^n} \ .$$
+			Dále využijeme faktu, že $\lim_{n \rightarrow \infty} a^n = 0$ pro $a \in (-1,1)$ a aritmetiky limit
+			$$\lim_{n \rightarrow \infty} \frac{(\frac{5}{5})^n-(\frac{3}{5})^n}{(\frac{5}{5})^n+(\frac{3}{5})^n} = 
+			\frac{1-0}{1+0} = 1 \ .$$
+		}
+
+	\item $\lim_{n\rightarrow \infty} \frac{2^n+3^n+5^n}{2^{n+1}+3^{n+1}+5^{n+1}}$.
+
+		\solution{
+			Zlomek rošíříme opět výrazem $\frac{1}{5^n}$ a postupujeme podobně
+			$$\lim_{n\rightarrow \infty} \frac{2^n+3^n+5^n}{2^{n+1}+3^{n+1}+5^{n+1}} = 
+			\lim_{n\rightarrow \infty} \frac{(2/5)^n+(3/5)^n+(5/5)^n}{2(2/5)^n+3(3/5)^n+5(5/5)^n} = 
+			\frac{0+0+1}{2\cdot 0 + 3\cdot 0 + 5 \cdot 1} = \frac{1}{5} \ .$$
+		}
+
+\end{itemize}
+

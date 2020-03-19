@@ -1,0 +1,96 @@
+\begin{theorem}[Bolzano-Weierstrass (BW)]
+	Každá posloupnost $(a_n)_{n=1}^{\infty}$ má podposloupnost $(b_n)_{n=1}^{\infty}$, která je monotónní.
+	\label{thm:bolzano_weierstrass}
+\end{theorem}
+
+\begin{theorem}[(EDL)]
+	$\lim_{n \rightarrow \infty} a_n = a \Leftrightarrow \lim_{n \rightarrow \infty}(a_n - a) = 0 \Leftrightarrow \lim_{n \rightarrow \infty}|a_n - a| = 0$
+	speciálně $\lim_{n \rightarrow \infty} a_n = 0 \Leftrightarrow \lim_{n \rightarrow \infty} |a_n| = 0$.
+	\label{thm:edl}
+\end{theorem}
+
+\begin{theorem}[Věta o limitě podposloupnosti (VOVP)]
+	Nechť $\lim_{n \rightarrow \infty} a_n = a \in \mathbb{R} \cup \left\{ -\infty, +\infty \right\}$ a $(b_n)$ je posloupnost vybraná z $(a_n)$.
+	Pak $\lim_{n \rightarrow \infty} a_n = \lim_{n \rightarrow \infty} b_n$.
+	\label{thm:veta_o_vybrane_posloupnosti}
+\end{theorem}
+
+\begin{theorem}[Věta o aritmetice limit (VOAL)]
+	Nechť $a, b \in \mathbb{R} \cup \{\pm \infty \}$ a posloupnosti $(a_n), (b_n)$ splňují $\lim a_n = a$ a $\lim b_n = b$.
+	Potom
+	\begin{align*}
+			\lim_{n \rightarrow \infty}(a_n \pm b_n) &= \lim_{n \rightarrow \infty} a_n \pm \lim_{n \rightarrow \infty} b_n = a \pm b \\
+			\lim_{n \rightarrow \infty}a_nb_n &= \lim_{n \rightarrow \infty} a_n \cdot \lim_{n \rightarrow \infty} b_n = ab \\
+			\lim_{n \rightarrow \infty}\frac{a_n}{b_n} &= \frac{\lim_{n \rightarrow \infty} a_n}{\lim_{n \rightarrow \infty} b_n} = \frac{a}{b} \mbox{ pro } b \not= 0
+	\end{align*}
+	pokud má pravá strana těchto rovností smysl.
+	\begin{itemize}
+
+			\item Smysl dává:
+				$$t + \infty = \infty + t = \infty$$
+				$$t - \infty = -\infty + t = -\infty$$
+				$$t / \pm \infty = 0$$
+				$$\infty + \infty = \infty \cdot \infty = \infty$$
+				$$-\infty - \infty = -\infty$$
+				$$(-\infty) \cdot (- \infty) = \infty$$
+				kde $t \in \mathbb{R}$.
+
+				Pro $t \in (0, \infty]$ máme
+				$$t \cdot \infty = \infty \cdot t = \infty$$
+				$$t \cdot (-\infty) = (-\infty) \cdot t = -\infty$$
+				
+				Pro $t \in [-\infty, 0)$ máme
+				$$t \cdot \infty = \infty \cdot t = -\infty$$
+				$$t \cdot (-\infty) = (-\infty) \cdot t = \infty$$
+
+			\item Smysl nedává (a tedy nemůžeme použít tuto větu přímo, ale musíme dál přemýšlet -- laicky řečeno tady záleží jak jsou ta nekonečna velká, případně jak malé jsou ty nuly):
+				$$\pm \infty / \pm \infty$$
+				$$\mbox{cokoliv}/0$$
+				$$\infty - \infty$$
+				$$-\infty - (-\infty)$$
+				$$0 \cdot (\pm \infty)$$
+
+	\end{itemize}
+	\label{thm:veta_o_aritmetice_limit}
+\end{theorem}
+
+\begin{theorem}[Věta o dvou policajtech]
+	Nechť posloupnosti $(a_n), (b_n), (c_n) \subset \mathbb{R}$ splňují, že
+	$$\underset{n \rightarrow \infty}{\lim} a_n = \underset{n \rightarrow \infty}{\lim} b_n = a \in \mathbb{R}$$
+	a nechť existuje $n_0 \in \mathbb{N}$ takové, že pro každé $n > n_0$ platí $a_n \leq c_n \leq b_n$.
+	Pak $(c_n)$ konverguje a navíc $\underset{n \rightarrow \infty}{\lim} c_n = a$.
+	\label{thm:dva_policajti}
+\end{theorem}
+
+\begin{theorem}[Násobení limitní nulou (VOSON)]
+	Nechť posloupnost $(a_n)$ je omezená a posloupnost $(b_n)$ konverguje k nule, pak $\lim_{n \rightarrow \infty} a_n \cdot b_n = 0$.
+	\label{thm:nasobeni_limitni_nulou}
+\end{theorem}
+
+\begin{theorem}
+	Nechť $(a_n) \subset (0, \infty)$ je posloupnost kladných reálných čísel a nechť $N \in \mathbb{N}$ je takové, že $\exists q \in [0,1)$ že pro každé přirozené $n \geq N$ platí:
+	$$\frac{a_{n+1}}{a_n} \leq q < 1.$$
+
+	Pak:
+	\begin{enumerate}
+		\item  Pro každé přirozené $n \geq N$ platí $a_n \leq a_N q^{n - N}$ (matematickou indukcí)
+		\item  v důsledku čehož: $\underset{n\rightarrow\infty}{\lim} a_n = 0$.
+	\end{enumerate}
+
+	Pozor na to, že existuje posloupnost \textbf{kladných} reálných čísel $(b_n)$ taková, že:
+	\begin{itemize}
+		\item  $b_n > 0$ pro všechna přirozená $n$
+		\item  $\frac{b_{n+1}}{b_n} < 1$
+		\item  $\underset{n\rightarrow\infty}{\lim} b_n > 0$
+	\end{itemize}
+	\label{thm:podilove_kriterium_o_konvergenci_k_nule}
+\end{theorem}
+
+\begin{theorem}
+	Pro libovolné $a \in (0,1)$ platí, že $\underset{n\rightarrow\infty}{\lim} n^a = \infty$.
+
+	Pozor, že například $\underset{n\rightarrow\infty}{\lim} \sqrt[n]{n} = \underset{n\rightarrow\infty}{\lim} \left( n^{1/n} \right) = 1$.
+	Takže tato věta nelze přímo použít na nekonstatní odmocniny.
+	\label{thm:veta_o_limite_odmocniny}
+\end{theorem}
+

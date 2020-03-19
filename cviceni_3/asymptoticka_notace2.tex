@@ -1,0 +1,30 @@
+Nechť $f, g \colon \mathbb{N} \rightarrow \mathbb{R}$ jsou dvě funkce, definujeme že $f \in \mathcal{O}(g)$ jestliže
+$$\exists c \in \mathbb{R}^+ \  \exists n_0 \in \mathbb{N} \  \forall n \in \mathbb{N} \colon n \geq n_0 \Rightarrow f(n) \leq cg(n).$$
+
+Rozhodněte, zda platí:
+\begin{enumerate}
+	\item  $2^{3n} \in \mathcal{O}(2^n)$
+		\solution{
+			Rozhodně neplatí! $\frac{2^{3n}}{2^n} = 2^{2n}$ což nemůžeme shora odhadnout konstantou.
+		}
+	\item  $\sqrt{n} \in  \mathcal{O}(n)$
+		\solution{Platí.}
+	\item  $n^3 \in  \mathcal{O}(2^n)$
+		\solution{Platí.}
+	\item  $n \log n \in  \mathcal{O}(n^{1.1})$
+		\solution{Platí.}
+	\item  Co je třída funkcí $\mathcal{O}\left( 2^{\mathcal{O}(\log n)} \right)$?
+		\solution{$\cup_{k \in \mathbb{N}} \mathcal{O}(n^k)$}
+\end{enumerate}
+
+Pro úplnost dodejme, že k velkému O existuje ještě malé, malá a velká omega (asymptotický horní odhad) a velká theta (asymptotickou rovnost).
+My zatím definujeme jen ty velké varianty:
+
+Nechť $f, g \colon \mathbb{N} \rightarrow \mathbb{R}$ jsou dvě funkce, definujeme že $f \in \Omega(g)$ jestliže
+$$\exists c \in \mathbb{R}^+ \  \exists n_0 \in \mathbb{N} \  \forall n \in \mathbb{N} \colon n \geq n_0 \Rightarrow f(n) \geq cg(n).$$
+
+Řekneme, že $f$ patří do třídy $\Theta(g)$, jestliže $f \in \mathcal{O}(g)$ a zároveň $f \in \Omega(g)$.
+
+Jaký je význam těchto notací?
+Definice byly převzaty z \emph{Průvodce labirintem algoritmů} Martin Mareš, Tomáš Valla (pdf dostupné na: \url{http://pruvodce.ucw.cz/static/pruvodce.pdf}).
+

@@ -1,0 +1,10 @@
+Spočtěte součet geometrické řady $\sum_{k=1}^\infty q^k$ (v závislosti na parametru $q$).
+
+\solution{
+	Využitím vztahu $(1+q+\ldots+q^n)(1-q) = 1 - q^{n+1}$ dostáváme pro posl. částečných součtů
+	$G_n = \sum_{k=1}^n q^k = \frac{1-q^{n+1}}{1-q}$. Pro $q \in (-1,1)$ konverguje $q^n$ k $0$
+	a díky aritmetice limit celá posloupnost k $\frac{1-0}{1-q} = \frac{1}{1-q}$. 
+
+	Pro $q \geq 1$ pak posl. částečných součtů jde k $+ \infty$, pro $q \leq -1$ nemá limitu.
+}
+

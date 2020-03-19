@@ -1,0 +1,42 @@
+Nechť $p(k, q) = \frac{\lfloor 10^k q \rfloor}{10^k}$, kde $\lfloor x \rfloor = \max\left\{ n \in \mathbb{Z} \mid n \leq x \right\}$ pro libovolné $x \in \mathbb{R}$.
+Najděte infimum a supremum množiny $P = \left\{ p(n, 4/3) \mid n \in \mathbb{N} \right\} \subseteq \mathbb{R}$, pokud existují najdetě i minimum a maximum.
+
+\solution{
+	Naše množina je $P = \left\{ 1,3; 1,33; 1,333;, 1,3333; \ldots \right\}$.
+	\begin{itemize}
+
+		\item  Infimum a minimum je $1,3$ (zbylé prvky mají více trojek za desetinnou čárkou a tedy jsou větší).
+
+		\item  Supremum je $4/3$ a maximum neexistuje (dokažte).
+
+			\begin{itemize}
+
+				\item  $4/3$ je horní závora:
+					Chceme ukázat, že pro každé $n \in \mathbb{N}$ platí $\frac{\lfloor 10^n \frac{4}{3} \rfloor}{10^n} \leq \frac{4}{3}$.
+
+					Víme, že pro každé $x \in \mathbb{R}$ máme $\lfloor x \rfloor \leq x$.
+					Tedy usoudíme, že $\lfloor 10^n \frac{4}{3} \rfloor \leq 10^n \frac{4}{3}$.
+					Vydělením obou stran $10^n$ dostaneme to, co jsme chtěli.
+				
+				\item  $4/3$ je nejmenší horní závora:
+					Pro spor předpokládejme, že existuje menší horní závora.
+
+					Formalizujeme to následovně: nechť $\varepsilon \in \mathbb{R}$ takové, že $\varepsilon > 0$ (mohli jsme také psát $\varepsilon \in \mathbb{R}^+$ nebo jen nechť je $\varepsilon$ kladné).
+					Pro spor předpokládáme, že $\frac{4}{3} - \varepsilon$ je horní závora.
+
+					Tedy by mělo platit následující (a to dovedeme ke sporu):
+					\begin{align*}
+						\frac{\left\lfloor 10^n \frac{4}{3} \right\rfloor}{10^n} &\leq \frac{4}{3} - \varepsilon \\
+						\left\lfloor 10^n \frac{4}{3} \right\rfloor &\leq 10^n\frac{4}{3} - 10^n\varepsilon \tag{rozmyslíme si, že $\forall x \in \mathbb{R} \colon x - 1 < \lfloor x \rfloor$} \\
+						 10^n \frac{4}{3} -1 &\leq 10^n\frac{4}{3} - 10^n\varepsilon \\
+						-1 &\leq - 10^n\varepsilon \\
+						1 &\geq 10^n\varepsilon \\
+						10^{-n} &\geq \varepsilon
+					\end{align*}
+					Má platit pro každé $n$, což ale nemůže platit (tedy jsme došli ke sporu) pro dostatečně velké (například $n = \lceil \log_{10}(\varepsilon / 2) \rceil$).
+
+			\end{itemize}
+
+	\end{itemize}
+}
+

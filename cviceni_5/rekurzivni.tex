@@ -1,0 +1,21 @@
+Mějme kladné reálné číslo $c$. Spočtěte limitu posloupnosti zadané $a_1 = \sqrt{c}, a_{n+1} = \sqrt{a_n + c}$.
+
+\solution{
+	Pokud limita existuje, pak platí $a = \lim_{n \rightarrow \infty} a_n = \lim_{n \rightarrow \infty} a_{n+1} =
+	\lim_{n \rightarrow \infty} \sqrt{a_n+c} = \sqrt{\lim_{n \rightarrow \infty}a_n +c} = \sqrt{a+c}$.
+
+	Z toho dostáváme rovnost $a = \sqrt{a+c}$ s řešením $\frac{1}{2} \pm \sqrt{c + \frac{1}{4}}$. Nás zajímá to kladné řešení,
+	neboť celá poslounost je kladná, označme ho $a = \frac{1}{2} + \sqrt{c + \frac{1}{4}}$.
+
+	V druhé části ukážeme, že posloupnost je kladná (zjevné), rostoucí a shora omezená, tudíž limita existuje.
+
+	Nerovnost $a_n < a_{n+1}$ je pro kladná čísla ekvivalentní $a_n^2 < a_{n+1}^2 = a_n +c$ a to platí pro 
+	$a_n \in (\frac{1}{2} - \sqrt{c + \frac{1}{4}}, \frac{1}{2} + \sqrt{c + \frac{1}{4}})$, takže
+	je vše v pořádku pro $a_n \in (0,a)$.
+
+	Zbývá ukázat omezenost a jako horní závora se nám skvěle hodí číslo $a$. Postupujeme matematickou indukcí, pro $n=1$ je
+	$a_1 = \sqrt{c} < \frac{1}{2} + \sqrt{c + \frac{1}{4}} = a$.
+
+	Indukční krok: $a_{n+1} = \sqrt{a_n+c} < \sqrt{a+c} = \sqrt{a^2} = a$.
+}
+

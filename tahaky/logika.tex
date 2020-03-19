@@ -1,0 +1,14 @@
+Negace výroků:
+\begin{multicols}{2}
+\begin{enumerate}
+	\item  $\neg (\neg A) \equiv A$
+	\item  $\neg (A \wedge B) \equiv (\neg A) \vee (\neg B)$
+	\item  $\neg (A \vee B) \equiv (\neg A) \wedge (\neg B)$
+	\item  $\neg (A \Rightarrow B) \equiv A \wedge (\neg B)$
+	\item  $\neg (A \Leftrightarrow B) \equiv A \Leftrightarrow (\neg B)$
+	\item  $\neg \left( \forall x \colon \varphi(x) \right) \equiv \exists x \colon \neg \varphi(x)$
+	\item  $\neg \left( \exists x \colon \varphi(x) \right) \equiv \forall x \colon \neg \varphi(x)$
+\end{enumerate}
+\end{multicols}
+Pozor na ``existuje právě jedno'': $\neg \left( \exists! x \colon \varphi(x) \right) \equiv \left( \forall x \colon \neg \varphi(x) \right) \vee \left( \exists x \exists y \colon x \neq y \wedge \varphi(x) \wedge \varphi(y) \right)$
+

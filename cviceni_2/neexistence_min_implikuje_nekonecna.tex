@@ -1,0 +1,29 @@
+Nechť $A$ je neprázdná podmnožina reálných čísel ($A \subseteq \mathbb{R}$, navíc $A \neq \emptyset$).
+Víte, že neexistuje minimum $A$.
+Zapište formálně pomocí matematických symbolů výrok \uv{$A$ má minimum} a pak ho znegujte.
+Dokažte, že $A$ je nekonečně velká (aspoň spočetně velká).
+
+\solution{
+  \uv{$A$ má minimum}:
+	$$\exists m \in A \  \forall a \in A \colon m \leq a$$
+
+	Negace \uv{$A$ má minimum}:
+	$$\forall m \in A \  \exists a \in A \colon m > a$$
+
+	Víme, že $A$ je neprázdná, vezmeme tedy $a_0 \in A$ libovolné.
+	\begin{itemize}
+		\item  Z předpokladu víme, že $a_0$ není minimum, existuje tedy $a_1 \in A$ takové, že $a_1 < a_0$.
+		\item  Z předpokladu víme, že $a_1$ není minimum, existuje tedy $a_2 \in A$ takové, že $a_2 < a_1$.
+		\item  Z předpokladu víme, že $a_2$ není minimum, existuje tedy $a_3 \in A$ takové, že $a_3 < a_2$.
+		\item  Z předpokladu víme, že $a_3$ není minimum, existuje tedy $a_4 \in A$ takové, že $a_4 < a_3$.
+		\item  \ldots
+	\end{itemize}
+	Navíc podle tranzitivity platí $a_j < a_k$ pro každé dvě $j<k \in \mathbb{N}$.
+	Takto jsme našli spočetně mnoho (pro každé přirozené číslo jedno) různých prvků $a_i$, které náleží do $A$.
+	Množina $A$ má tedy nekonečně velkou podmnožinu a je tedy sama aspoň spočetně velká.
+
+	Lze také dokazovat sporem.
+	Nechť je konečná, pak má minimum (plyne z toho, že máme lineární uspořádání).
+	Ale důkaz předchozí věty je stejně většinou stejný jako předchozí důkaz.
+}
+

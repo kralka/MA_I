@@ -1,0 +1,16 @@
+Formálně dokažte, že pro každé $a, b \in \mathbb{R}$ takové, že $a < b$ existuje $q \in \mathbb{Q}$ takové, že $a < q < b$.
+
+\solution{
+	Nechť $a < b \in \mathbb{R}$.
+	Chceme zvolit racionální číslo, které bude dostatečně blízko prostředku, tedy reálnému číslu $c = a + \frac{b-a}{2}$.
+
+	Jak na to přijdeme (pozor, že teď provádíme výpočet, kterým se dobereme k požadovanému racionálnímu číslu).
+	Důkaz provádíme pouze pokud mezi $a, c$ není celé číslo (jinak už jsme hotoví), tedy $0 < c - a < 1$.
+	\begin{align*}
+		a &< c < b \tag{předpoklad, vynásobíme} \\
+		10^k a &< 10^k c < 10^k b \tag{volme $k = 10 - \log_{10}(c - a)$} \\
+		10^k a &< \lfloor 10^k c \rfloor < 10^k b \tag{rozdíl mezi $a, c$ je vždy víc než 10} \\
+		a &< \frac{\left\lfloor 10^k c \right\rfloor}{10^k} < b \tag{náš výsledek je podíl dvou celých čísel a jmenovatel je nenulový}
+	\end{align*}
+}
+

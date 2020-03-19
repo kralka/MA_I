@@ -1,0 +1,139 @@
+\documentclass[a4paper,10pt]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[czech]{babel}
+\usepackage{fontenc}
+\usepackage{fancyhdr} %zahlavi a zapati
+\usepackage{a4wide} % širší stránka
+\usepackage{float} % obrázky na jedno místo
+\usepackage{tikz}
+\usepackage{listings}  % for source code (python\dots)
+\usetikzlibrary {positioning}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{calc,patterns}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows,automata,shapes,quotes,decorations.markings}
+\usepackage{tikz-3dplot}
+\usepackage{newclude} % include bez clearpage
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage[all]{hypcap}
+\usepackage[parfill]{parskip}
+
+% umožní vícestránkový align
+\allowdisplaybreaks
+
+% rejstřík
+\usepackage{makeidx}
+\makeindex
+
+\title{Řešená cvičení z Matematické analýzy I}
+\author{Jaroslav Hančl, Karel Král, Ondřej Pangrác}
+\date{\today}
+
+% theory macro
+\newcommand{\theory}[1]{
+	%\begin{center}
+		%\line(1,0){250}
+	%\end{center}
+	%\newline % tady to dělá neplechu
+	#1
+}
+
+\begin{document}
+% Definitions
+\newtheorem{theorem}{Věta}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Domněnka}
+\newtheorem{observation}[theorem]{Pozorování}
+\newtheorem{corollary}[theorem]{Důsledek}
+\newtheorem*{definition}{Definice}
+%\theoremstyle{definition}\newtheorem*{define}{Definice}
+
+ \maketitle
+
+ \vskip 1cm
+
+ Tento text není určen k šíření.
+ Všechny chyby v tomto textu jsou samozřejmě záměrné. Reportujte je prosím na adresu
+ {\tt kralka@iuuk.mff.cuni\ldots}.
+
+ \vskip 2cm
+ \tableofcontents
+
+ \newcommand{\dif}{\, \mathrm{d}} % put at the beginning of document
+ \newcommand{\id}{\, \mathrm{id}} % put at the beginning of document
+ \newcommand{\sgn}{\, \mathrm{sgn}} % put at the beginning of document
+ \newcommand{\med}{\, \mathrm{med}} % put at the beginning of document
+ \newcommand{\conv}{\, \mathrm{conv}} % put at the beginning of document
+ \newcommand{\supp}{\, \mathrm{Supp}} % put at the beginning of document
+ \newcommand{\Ker}{\, \mathrm{Ker}} % put at the beginning of document
+ \renewcommand{\Im}{\, \mathrm{Im}} % put at the beginning of document
+ \newcommand{\R}{\, \mathcal{R}} % put at the beginning of document
+ % nastavíme použití toho stylu
+  %\pagestyle{fancy}
+ % fakt hloupý nápad, když chci rejstřík
+ %\pagenumbering{gobble} % bez čísel stránek
+
+	\eject
+
+\chapter{Zadání}
+	% solution macro, this does NOT prints the solution
+	\newcommand{\solution}[1]{}
+	\newcommand{\exercise}[2]{ % file, label
+		\input{#1}
+
+		Řešení: \ref{sol:#2}
+	}
+	\section[1. Cvičení]{Cvičení}
+ \include*{s1}
+	\section[2. Cvičení]{Cvičení}
+ \include*{s2}
+	\section[3. Cvičení]{Cvičení}
+ \include*{s3}
+	\section[4. Cvičení]{Cvičení}
+ \include*{s4}
+	\section[5. Cvičení]{Cvičení}
+ \include*{s5}
+
+\chapter{Tahák}
+	\section{Základní vlastnosti funkcí}
+	\section{Logika}
+		\input{tahaky/logika.tex}
+	\section{Limity}
+		\input{tahaky/def_limita.tex}
+		\input{tahaky/vety_o_limitach.tex}
+	\section{Hromadné body}
+	  \input{tahaky/hromadne_body.tex}
+	\section{Řady}
+	  \input{tahaky/rady.tex}
+
+\chapter{Řešení}
+	% solution macro, this prints the solution
+	\renewcommand{\solution}[1]{
+		\emph{Řešení:}
+		#1
+	}
+	\renewcommand{\exercise}[2]{ % file, label
+		\label{sol:#2}
+		\input{#1}
+		\newpage
+	}
+	\section[1. Cvičení]{Cvičení}
+ \include*{s1}
+	\section[2. Cvičení]{Cvičení}
+ \include*{s2}
+	\section[3. Cvičení]{Cvičení}
+ \include*{s3}
+	\section[4. Cvičení]{Cvičení}
+ \include*{s4}
+	\section[5. Cvičení]{Cvičení}
+ \include*{s5}
+
+\end{document}

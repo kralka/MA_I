@@ -1,0 +1,133 @@
+Spočtěte následující limity posloupností:
+\begin{itemize}
+
+    \item[(a)] $\underset{n\rightarrow\infty}{\lim}\frac{2n^2+n-3}{n^3-1}$ 
+			\solution{
+				Používáme následující zkratky:
+				\begin{itemize}
+					\item  Věta o aritmetice limit = VOAL (Věta~\ref{thm:veta_o_aritmetice_limit}),\\
+					\item  Věta o součinu omezené posloupnosti a posloupnosti jdoucí do 0 = VOSON (Věta~\ref{thm:nasobeni_limitni_nulou}),\\
+					\item  Věta o limitě odmocniny = VOLO (Věta~\ref{thm:veta_o_limite_odmocniny}),\\
+					\item  Podílové kriterium o konvergenci k nule = PK (Věta~\ref{thm:podilove_kriterium_o_konvergenci_k_nule}).
+				\end{itemize}
+
+				Čitatel i jmenovatel vynásobíme $\frac{1}{n^{3}}$ a použijeme VOAL.
+
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \frac{2n^2+n-3}{n^3-1} &= \lim_{n \rightarrow \infty} \frac{2n^{-1}+n^{-2}-\frac{3}{n^3}}{1-\frac{1}{n^3}}
+					= \frac{0}{1}
+				\end{align*}
+
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \left( 2n^{-1}+n^{-2}-\frac{3}{n^3} \right) &= 0
+				\end{align*}
+				
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \left( 1-\frac{1}{n^3} \right) = 1
+				\end{align*}
+			
+				Výsledek je $0$.
+			}
+
+    \item[(b)] $\underset{n\rightarrow\infty}{\lim}\frac{2n^3+6n}{n^3-7n+7},$ 
+			\solution{
+				Čitatel i jmenovatel vynásobíme $\frac{1}{n^{3}}$ a použijeme VOAL.
+	
+				Výsledek je $2$.
+			}
+
+    \item[(c)] $\underset{n\rightarrow\infty}{\lim}\frac{2n^5+3n-2}{n^5-3n^3+1},$ 
+			\solution{
+				Čitatel i jmenovatel vynásobíme $\frac{1}{n^{5}}$ a použijeme VOAL.
+				
+				Výsledek je $2$.
+			}
+
+    \item[(d)] $\underset{n\rightarrow\infty}{\lim}\frac{2^{100}n}{n^{2}+1},$ 
+			\solution{
+				Čitatel i jmenovatel vynásobíme $\frac{1}{n^{2}}$ a použijeme VOAL.
+		
+				Výsledek je $0$.
+			}
+
+		\item[(e)] $\underset{n\rightarrow\infty}{\lim}\frac{4(n+2)^{18}}{2n^{18}+7n^{17}+3n^{7}+6n+11},$ 
+			\solution{
+				Čitatel i jmenovatel vynásobíme $\frac{1}{n^{18}}$ a použijeme VOAL.
+				
+				Výsledek je $2$.
+			}
+
+		\item[(f)] $\underset{n\rightarrow\infty}{\lim}\frac{n^{k}}{a^{n}},\,a>1,\,k\in\mathbb{R},$ 
+			\solution{
+				Přímo použijeme PK a pro ověření limitní podmínky použijeme VOAL.
+
+				Výsledek je $0$.
+			}
+
+		\item[(g)] $\underset{n\rightarrow\infty}{\lim}\frac{a^{n}}{n!},\,a\in\mathbb{R},$ 
+			\solution{
+				Přímo použijeme PK a pro ověření limitní podmínky použijeme VOAL.
+				
+				Výsledek je $0$.
+			}
+
+		\item[(h)] $\underset{n\rightarrow\infty}{\lim}\frac{\sqrt[3]{n^{2}}\sin(n!)}{n+1},$ 
+			\solution{
+				Použijeme VOSON, kde posloupnost $\sin(n!)$ je omezená a $\frac{\sqrt[3]{n^{2}}}{n+1}$ jde k nule, což se ukáže vynásobením čitatele i jmenovatele $\frac{1}{n}$ a VOLO pro $\frac{1}{\sqrt[3]{n}}\rightarrow0$.
+		
+				Výsledek je $0$.
+			}
+
+		\item[(i)] $\underset{n\rightarrow\infty}{\lim}\left(\sqrt{n+1}-\sqrt n\right),$ 
+			\solution{
+				Vhodně rozšíříme pomocí vzorce $a^{2}-b^{2}=(a+b)(a-b)$, kde $a=\sqrt{n+1}$ a $b=\sqrt{n}$. Upravíme, čitatel i jmenovatel vynásobíme $\frac{1}{\sqrt{n}}$ a dopočteme použitím VOAL a VOLO pro $\frac{1}{\sqrt{n}}\rightarrow0$ a $\sqrt{1+\frac{1}{n}}\rightarrow0$.
+		
+				Výsledek je $0$.
+			}
+
+		\item[(j)] $\underset{n\rightarrow\infty}{\lim}\left(\root 3\of{n+11}-\root 3\of n\right),$ 
+			\solution{
+				Vhodně rozšíříme pomocí vzorce $a^{3}-b^{3}=(a-b)(a^{2}+ab+b^{2})$, kde $a=\sqrt[3]{n+11}$ a $b=\sqrt[3]{n}$. Upravíme, čitatel i jmenovatel vynásobíme $\frac{1}{\sqrt[3]{n^{2}}}$ a dopočteme použitím VOAL a VOLO pro $\frac{1}{\sqrt[3]{(1+\frac{11}{n})^{2}}}\rightarrow0$ a $\frac{1}{\sqrt[3]{1+\frac{11}{n}}}\rightarrow0$.
+
+				Výsledek je $0$.
+			}
+
+		\item[(k)] $\underset{n\rightarrow\infty}{\lim}\frac{3^n+n^5}{n^6+n!},$ 
+			\solution{
+
+				Čitatel i jmenovatel rozšíříme $\frac{1}{n!}$ a použijeme PK na $\frac{3^{n}}{n!}$, $\frac{n^{6}}{n!}$ a $\frac{n^{5}}{n!}$ a několikrát VOAL.
+
+				Výsledek je $0$.
+			}
+
+		\item[(l)] $\underset{n\rightarrow\infty}{\lim}\frac{1+2+\dots+n}{n^2}.$				
+			\solution{
+				Použijeme součtový vzorec $\frac{n(n+1)}{2}=1+2+\dots+n=\sum_{k=1}^{n}k$ a VOAL.
+		
+				Výsledek je $\frac{1}{2}$.
+			}
+
+
+		\item  $\lim_{n \rightarrow \infty} \frac{\frac{1}{n^2} + 50}{\frac{1}{n}}$
+
+			\solution{
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \frac{\frac{1}{n^2} + 50}{\frac{1}{n}} &= \lim_{n \rightarrow \infty} \frac{ \frac{1}{n} + 50n }{1} \\
+					&= \frac{\infty}{1} = \infty
+				\end{align*}
+
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \left( \frac{1}{n} + 50n \right) &= \lim_{n \rightarrow \infty} \frac{1}{n} + \lim_{n \rightarrow \infty} 50n \\
+					&= 0 + \infty \\
+					&= \infty
+				\end{align*}
+
+			 Jenom pro příklad:
+
+				\begin{align*}
+					\lim_{n \rightarrow \infty} \frac{\frac{1}{n^2}}{\frac{1}{n}} &= \lim_{n \rightarrow \infty} \frac{ \frac{1}{n}}{1} \\
+					&= \frac{0}{1} = 0
+				\end{align*}
+			}
+\end{itemize}
+

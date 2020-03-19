@@ -1,0 +1,50 @@
+Dokažte následující tvrzení:
+
+\begin{enumerate}
+
+	\item  Množina všech podmnožin přirozených čísel $\left\{ X \mid X \subseteq \mathbb{N} \right\}$ je nespočená.
+
+		\solution{
+			Pro spor předpokládejme, že existuje nějaká bijekce $f\colon \mathbb{N} \rightarrow \left\{ X \subseteq \mathbb{N} \right\}$.
+			Tedy například $f(1) = \left\{ 1, 42 \right\}, f(2) = \left\{ 2k \mid k \in \mathbb{N} \right\}$, $f(3) = \left\{ 100 \right\}$, $f(4) = \mathbb{N} \setminus \left\{ 58 \right\}$\ldots
+
+			Definujme množinu $M = \left\{ n \in \mathbb{N} \mid n \not\in f(n) \right\}$.
+			Tato sebereference je základem Cantorovy diagonální metody (často na každém prvku změníme něco).
+			Tuto množinu můžeme definovat dle schéma vydělení Zermelovy-Frankelovy teorie množin
+			\url{https://cs.wikipedia.org/wiki/Zermelova\%E2\%80\%93Fraenkelova_teorie_mno\%C5\%BEin\#Sch\%C3\%A9ma_axiom\%C5\%AF_vyd\%C4\%9Blen\%C3\%AD}
+
+			Co je předobrazem $M$?
+			Množina $M \subseteq \mathbb{N}$ a $f$ je bijekce, tedy musí existovat nějaké $k \in \mathbb{N}$ takové, že $f(k) = M$.
+
+			Podívejme se, jestli $k \in M$ nebo ne:
+			\begin{itemize}
+				\item  Pokud $k \in M = f(k)$, pak dostáváme spor s definicí $M$ (ta obsahuje jen taková přirozená čísla, že $k \not\in f(k)$).
+				\item  Pokud $k \not\in M = f(k)$, pak dostáváme spor s definicí $M$ (ta obsahuje všechna taková přirozená čísla, že $k \not\in f(k)$).
+			\end{itemize}
+			V obou případech jsme dostali spor.
+			Principem vyloučeného třetího (jedno z $k\in M$ nebo $k \not\in M$ musí platit) usoudíme, že naše $M$ nemá žádný předobraz.
+
+			Pár poznámek:
+			\begin{itemize}
+				\item  Sice jsme nikde nevyužili přímo vlastností $f$, například toho, co je $f(1)$.
+					Ale tuto funkci jsme potřebovali.
+					Kde?
+				\item  Proč takovou množinu $M$ nemůžeme sestrojit i pro bijekci mezi přirozenými čísli a konečně velkými množinami $\left\{ X \subseteq \mathbb{N} \mid |X| \in \mathbb{N} \right\}$ jako v další části tohoto příkladu?
+					Kde tento důkaz selže?
+				\item  Jak souvisí tento důkaz s důkazem z přednášky, kde jste dokazovali, že reálných čísel je víc než přirozených?
+			\end{itemize}
+		}
+	
+	\item  Množina všech konečných podmnožin přirozených čísel $\left\{ X \subseteq \mathbb{N} \mid |X| \in \mathbb{N} \right\}$ je spočená.
+
+		\solution{
+			Jednoduché s pomocí Cantor-Bernsteinovy věty (viz \url{https://cs.wikipedia.org/wiki/Cantorova\%E2\%80\%93Bernsteinova_v\%C4\%9Bta}).
+
+			Z definice můžeme použít následující bijekci: $f\colon \mathbb{N} \rightarrow \left\{ X \subseteq \mathbb{N} \mid |X| \in \mathbb{N} \right\}$ definovanou:
+			$$f(n) = \left\{ d \in \mathbb{N} \mid \text{ $d$-tá nejvýznamnější číslice binárního zápisu $n-1$ je rovna jedné} \right\}.$$
+
+			Umíte modifikovat tuto funkci, aby každá $X \subseteq \mathbb{N}$ byla obrazem nekonečně mnoha přirozených čísel?
+		}
+
+\end{enumerate}
+

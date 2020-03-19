@@ -1,0 +1,42 @@
+Přečtěte následující a zjistěte, co znamenají:
+\begin{enumerate}
+
+	\item  Pro dané $x \in \mathbb{Z}$ definujeme
+		$y \in \mathbb{Z}\colon
+		(y \leq x \  \vee \  y \leq -x) \wedge
+		\left( \forall z \in \mathbb{Z}\colon (z \leq x \vee z \leq -x) \Rightarrow z \leq y \right)
+		$
+		Co je $y$?
+
+		\solution{ Absolutní hodnota $y = |x|$. }
+
+	\item  Pro dané $a, b \in \mathbb{N}$ definujme $c \in \mathbb{N}$:
+		\begin{align*}
+			((\exists d \in \mathbb{N}\colon cd = a) \wedge (\exists d \in \mathbb{N}\colon cd = b)) \wedge
+			\forall d \in \mathbb{N}\colon \left(
+			((\exists e \in \mathbb{N}\colon de = a) \wedge (\exists e \in \mathbb{N}\colon de = b))
+			\Rightarrow d \leq c \right)
+		\end{align*}
+		Co je $c$?
+
+		\solution{
+			Největší společný dělitel.
+			Výrok $x$ je dělitelné $y$ zapíšeme jako: $\exists z\colon xz=z$.
+		}
+
+	\item  $A = \left\{ 1, 2, 3, \ldots, |A| \right\}$ Co je $A$?
+
+		\solution{
+			Nesmysl, taková množina není dobře definovaná.
+			Respektive tuto definici splňuje libovolná množina prvních $k$ přirozených čísel.
+		}
+
+	\item  $\forall n \in \mathbb{N}\colon \exists! B \subseteq \mathbb{N}\colon n = \sum_{d \in B} 2^d$
+		Co je $B$?
+
+		\solution{
+			Množina pozic s jedničkami v binárním zápisu čísla $n$.
+		}
+
+\end{enumerate}
+

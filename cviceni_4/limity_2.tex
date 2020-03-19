@@ -1,0 +1,167 @@
+\begin{enumerate}
+
+	\item[(a)] $\underset{n\rightarrow\infty}{\lim}\frac{6n^{6}+7n^{3}-5}{50n^{5}-24n^{2}},$
+
+		\solution{
+			Vytknutím $n^{5}$ z čitatele i jmenovatele a použitím VOAL dostáváme výraz $\frac{6\cdot\infty+7\cdot0^{2}-5\cdot0^{5}}{50-24\cdot0^{3}}$,
+			což po vyhodnocení podle pravidel dává $\infty$.
+		
+			Výsledek je $\infty$.
+		}
+
+	\item[(b)] $\underset{n\rightarrow\infty}{\lim}\frac{n^{2}7^{n}+n^{3}5^{n}}{-3n\cdot7^{n}+\sqrt{n}6^{n}},$
+
+		\solution{
+			Zlomek rozšíříme výrazem $\frac{1}{n7^{n}}$. Poté použitím PK na $n^{2}(\frac{5}{7})^{n}$ a $\frac{1}{\sqrt{n}}(\frac{6}{7})^{n}$,
+			kde se pro ověření podmínek použije VOAL a VOLO a použitím VOAL na celkovou limitu dostáváme výraz $\frac{\infty+0}{-3+0}=-\infty$.
+
+			Výsledek je $-\infty$.
+		}
+
+	\item[(c)] $\underset{n\rightarrow\infty}{\lim}n\left(\sqrt{1+\frac{1}{n}}-\sqrt{1-\frac{1}{n}}\right),$
+
+		\solution{
+			Použijeme vzorec $a^{2}-b^{2}=(a-b)(a+b)$, poté VOLO a VOAL.
+		
+			Výsledek je 1.
+		}
+
+	\item[(d)] $\underset{n\rightarrow\infty}{\lim}n(\sqrt{n^2+2}-\sqrt[3]{n^3+1}),$
+
+		\solution{
+			Obě odmocniny převedeme na šestou odmocninu a použijeme vzorec
+			$$a^{6}-b^{6}=(a-b)(a^{5}+a^{4}b+a^{3}b^{2}+a^{2}b^{3}+ab^{4}+b^{5}).$$
+			Poté rozšíříme zlomek výrazem $\frac{1}{n^{5}}$ a použijeme několikrát VOLO a VOAL.
+
+			Výsledek je 1.
+		}
+
+	\item[(e)] $\underset{n\rightarrow\infty}{\lim}\frac{2n^{2}+2n+n\sin(2n)}{n\cos(3n)+(2n+\sin(4n))^{2}},$
+
+		\solution{
+			Vynásobíme čitatel i jmenovatel $\frac{1}{n^{2}}$ a poté několikrát použijeme VOAL a VOSON.
+
+			Výsledek je $\frac{1}{2}$.
+		}
+
+	\item[(f)] $ \underset{n\rightarrow\infty}{\lim}\root n\of{a^n+b^n+c^n},\,(a,b,c>0),$
+
+		\solution{
+			Použijeme VODP + $\sqrt[n]{(\max\{a,b,c\})^{n}}\leq\sqrt[n]{a^{n},b^{n},c^{n}}\leq\sqrt[n]{3(\max\{a,b,c\})^{n}}$.
+
+			Výsledek je $\max\{a,b,c\}$.
+		}
+
+	\item[(g)] $\underset{n\rightarrow\infty}{\lim}\sum\limits_{k=1}^n\frac{1}{\sqrt{n^2+k}},$
+
+		\solution{
+			Použijeme $\frac{1}{\sqrt{n^{2}+n}}\leq\frac{1}{\sqrt{n^{2}+k}}\leq\frac{1}{\sqrt{n^{2}}}$, VODP a VOLO.
+
+			Výsledek je $1$.
+		}
+
+	\item[(h)] $\underset{n\rightarrow\infty}{\lim}\root n\of a,\,(a\ge 0),	$
+
+		\solution{
+			Rozdělíme na případy:
+	    \begin{itemize}
+
+				\item [$\bullet$]$a=0$\\ Triviálně odvodíme, že limita je $0$.
+
+				\item [$\bullet$]$a\in(1,\infty)$\\ Použijeme VODP, známou limitu $\sqrt[n]{n}\rightarrow1$ a $\exists n_{0}=[a]+2\ \forall n>n_{0} : 1\leq\sqrt[n]{a}\leq\sqrt[n]{n}$, kde $\sqrt[n]{n}\rightarrow 1$ víme.
+
+				\item [$\bullet$]$a\in(0,1)$\\ Pomocí $\frac{1}{a}=a'\in(1,\infty)$, 
+																$$\underset{n\rightarrow\infty}{\lim}\root n\of a=\frac{1}{\underset{n\rightarrow\infty}{\lim}\sqrt[n]{\frac{1}{a}}}$$
+															a předchozího případu snadno ukážeme rovnost $1$.
+		\end{itemize}
+		Výsledek je $0$ pro $a=0$ a $1$ pro $a>1$.}
+
+	\item[(i)] $\underset{n\rightarrow\infty}{\lim}(-1)^n\sqrt{n}(\sqrt{n+1}-\sqrt{n}),$
+
+		\solution{Vhodně rozšíříme pomocí vzorce $a^{2}-b^{2}=(a+b)(a-b)$, kde $a=\sqrt{n+1}$ a $b=\sqrt{n}$. Upravíme a pomocí VOLO a VOAL ukážeme,
+										 že podposloupnost se sudými indexy ($a_{2n}=\frac{1}{1+\sqrt{1+\frac{1}{2n}}}$) jde k $\frac{1}{2}$ a podposloupnost s lichými indexy ($a_{2n+1}=\frac{1}{1+\sqrt{1+\frac{1}{2n+1}}}$) k $-\frac{1}{2}$.
+										 To implikuje, že limita neexistuje, neboť, pokud by existovala, tak z VOVP by obě podposloupnosti musely mít stejnou limitu, a to nemají.\\
+										 Výsledek je limita neexistuje.}
+
+	\item[(j)] $\underset{n\rightarrow\infty}{\lim}\sqrt[n]{\sqrt{3^{n}+2\cdot2^{n}}-\sqrt{3^{n}+2^{n}}},	$
+
+		\solution{Rozšíříme vnitřek $n$-té odmocniny podle vzorce $(a-b)(a+b)=a^{2}-b^{2}$, kde $a=\sqrt{3^{n}+2\cdot2^{n}}$ a $b=\sqrt{3^{n}+2^{n}}$.
+										 Po lehké úpravě využijeme ve jmenovateli VODP s odhadem 
+										 	$$\sqrt{3}=\sqrt[n]{\sqrt{3^{n}}}\leq\sqrt[n]{\sqrt{3^{n}+2\cdot2^{n}}+\sqrt{3^{n}+2^{n}}}\leq\sqrt[n]{\sqrt{3\cdot3^{n}}+\sqrt{2\cdot3^{n}}}
+										 						=\sqrt[n]{\sqrt{2}+\sqrt{3}}\cdot\sqrt{3},$$
+										 což spolu s VOAL a známými limitami dává, že jmenovatel jde k $\sqrt{3}$.\\
+										 Výsledek je $\frac{2}{\sqrt{3}}$.}
+
+	\item[(k)] $\underset{n\rightarrow\infty}{\lim}\sqrt[n]{(\frac{2n+1}{n+2})^{n}+(\frac{3n+1}{n+3})^{n}},	$
+
+		\solution{Pomocí VOAL a VODP s odhady 
+											\begin{align*}
+												&\frac{3n+1}{n+3}=\sqrt[n]{\left(\frac{3n+1}{n+3}\right)^{n}}\leq\sqrt[n]{\left(\frac{2n+1}{n+2}\right)^{n}+\left(\frac{3n+1}{n+3}\right)^{n}}			\\
+												&\sqrt[n]{\left(\frac{2n+1}{n+2}\right)^{n}+\left(\frac{3n+1}{n+3}\right)^{n}}\leq\sqrt[n]{\left(\frac{2n+4}{n+2}\right)^{n}+\left(\frac{3n+9}{n+3}\right)^{n}}=\sqrt[n]{2^{n}+3^{n}}\leq3\sqrt[n]{2}
+											\end{align*}
+										 snadno dostáváme výsledek $3$.\\
+										 Výsledek je $3$.}
+
+	\item[(l)] $\underset{n\rightarrow\infty}{\lim}\sqrt[n]{\frac{4^{n}+3^{n}\sin(2^{n})}{5^{n}+4^{n}\cos(n!)}},	$
+
+		\solution{Pomocí VOAL a VODP s odhadem 
+												$$\sqrt[n]{\frac{4^{n}-3^{n}}{5^{n}+5^{n}}}\leq\sqrt[n]{\frac{4^{n}+3^{n}\sin(2^{n})}{5^{n}+4^{n}\cos(n!)}}\leq\sqrt[n]{\frac{4^{n}+4^{n}}{5^{n}-4^{n}}},$$
+										 kde se v horním i dolním odhadu vytkne z čitatele uvnitř odmocniny $4^{n}$, což se dá odmocnit na 4, a ze jmenovatele uvnitř odmocniny $5^{n}$, což se dá odmocnit na 5.
+										 Pro ukázání, že horní i dolní odhad jdou oba k $\frac{4}{5}$ se dále využije VOAL a VODP s odhadem $1-(\frac{3}{4})^{n}\leq\sqrt[n]{1-(\frac{3}{4})^{n}}\leq 1$ a 	
+										 $1-(\frac{4}{5})^{n}\leq\sqrt[n]{1-(\frac{4}{5})^{n}}\leq 1$, kde na $(\frac{3}{4})^{n}$ a $(\frac{4}{5})^{n}$ se například aplikuje PK.\\
+										 Výsledek je $\frac{4}{5}$.}
+
+	\item[(m)] $\underset{n\rightarrow\infty}{\lim}\cos(\frac{n\pi}{2}+\pi)\cdot n,	$
+
+		\solution{Nalezněte dvě vybrané podposloupnosti, kde každá jde k jinému číslu, což díky větě o vybrané posloupnosti dokazuje neexistenci limity.
+										 Například můžeme brát 
+										$$a_{4n}=\cos\left(\frac{4n\pi}{2}+\pi\right)4n=\cos(2\pi+\pi)4n=-1\cdot4n\rightarrow-\infty$$
+										a 
+										$$a_{4n-1}=\cos\left(\frac{(4n-1)\pi}{2}+\pi\right)(4n-1)=\cos(2\pi+\frac{\pi}{2})(4n-1)=0\cdot(4n-1)=0.$$}
+
+	\item[(n)] $\underset{n\rightarrow\infty}{\lim}\frac{5+\sqrt[3]{n^{3}+n^{2}}-\sqrt{n^{2}+n}}{\sqrt{n}-\sqrt[4]{n}},	$
+
+		\solution{Nejprve vytknutím $\sqrt{n}$ a použitím VOLO zvlášť ukažme $\frac{5}{\sqrt{n}-\sqrt[4]{n}}\rightarrow0$. Díky tomu a VOAL dostáváme, na dluh existence pravé strany, že 
+											$$\lim_{n\rightarrow\infty}a_{n}=\lim_{n\rightarrow\infty}\frac{\sqrt[3]{n^{3}+n^{2}}-\sqrt{n^{2}+n}}{\sqrt{n}-\sqrt[4]{n}}.$$
+										 Nyní z obou odmocnin v čitateli vytkneme $n$, abychom dostali pod odmocninou stejný výraz a lépe se nám rozšiřovalo. Poté čitatel rozšíříme podle vzorce 			
+									 $a^{6}-b^{6}=(a-b)\sum_{k=0}^{5}a^{k}b^{5-k}$, kde například $a=\sqrt[6]{(1+\frac{1}{n})^{2}}$ a $b=\sqrt[6]{(1+\frac{1}{n})^{3}}$ a ze jmenovatele vytkneme $\sqrt{n}$.
+										 Po lehkých úpravách dostáváme 
+										 	$$\frac{-\frac{1}{\sqrt{n}}-\frac{2}{n^{\frac{3}{2}}}-\frac{1}{n^{\frac{5}{2}}}}{(1-n^{-\frac{3}{4}})\sum_{k=0}^{5}(1+n^{-1})^{\frac{10+k}{6}}}.$$
+										 Jmenovatel jde podle VOAL a VOLO k 5 a čitatel podle VOAL a případně VOLO k 0. Celkem podle VOAL $a_{n}\rightarrow 0+\frac{0}{5}=0$.\\
+										 Výsledek je 0.}
+
+	\item[(o)] $\underset{n\rightarrow\infty}{\lim}\frac{\sqrt{n+\sin^{2}(n)}-\sqrt{n-\cos^{2}(n)}}{\sqrt{n+1}-\sqrt{n-1}}.$
+
+		\solution{Čitatel i jmenovatel rozšíříme podle vzorce $(a-b)(a+b)=a^{2}-b^{2}$. Dostaneme limitu ze zlomku
+												$$\frac{1}{2}\cdot\frac{\sqrt{n+1}+\sqrt{n-1}}{\sqrt{n+\sin^{2}(n)}+\sqrt{n-\cos^{2}(n)}}.$$\\
+										 Dále použitím VODP s odhadem 
+										 		$$\frac{\sqrt{n-1}}{\sqrt{n+1}}\leq\frac{\sqrt{n}+\sqrt{n-1}}{\sqrt{n+1}+\sqrt{n}}\leq\frac{\sqrt{n+1}+\sqrt{n-1}}{\sqrt{n+\sin^{2}(n)}+\sqrt{n-\cos^{2}(n)}}
+																											 \leq\frac{\sqrt{n+1}+\sqrt{n}}{\sqrt{n}+\sqrt{n-1}}\leq\frac{\sqrt{n+1}}{\sqrt{n-1}}$$
+										 a dopočítáním horního a dolního odhadu rozšířením zlomku výrazem $\frac{1}{\sqrt{n}}$ a použitím VOLO dostáváme výsledek $\frac{1}{2}\cdot1$.\\
+										 Jiná možnost by byla nepoužívat VODP a rovnou rozšířit výrazem $\frac{1}{\sqrt{n}}$. Poté by se ovšem muselo využít věty VOSON.\\
+										 Výsledek je $\frac{1}{2}$.}
+
+	\item[(p)] $\underset{n\rightarrow\infty}{\lim}\frac{\sqrt[4]{n^{5}+2}-\sqrt[3]{n^{2}+1}}{\sqrt[5]{n^{4}+2}-\sqrt{n^{3}+1}},$
+
+		\solution{Rozšíříme zlomek výrazem $\frac{1}{n^{3/2}}$ a použijeme VOLO a VOAL.\\
+										 Výsledek je 0.}
+
+	\item[(q)] $\underset{n\rightarrow\infty}{\lim}\sqrt n(\root n\of 3-\root n \of 2),$
+
+		\solution{Použijeme vzorec $a^{n}-b^{n}=(a-b)\sum_{k=0}^{n-1}a^{k}b^{n-1-k}$, kde $a=\sqrt[n]{3}$ a $b=\sqrt[n]{2}$. Poté použijeme
+											$$\frac{\sqrt{n}}{3n}=\frac{\sqrt{n}}{\sum_{k=0}^{n-1}3}\leq\frac{\sqrt{n}}{\sum_{k=0}^{n-1}(\sqrt[n]{3})^{k}(\sqrt[n]{2})^{n-1-k}}
+														\leq\frac{\sqrt{n}}{\sum_{k=0}^{n-1}1}=\frac{\sqrt{n}}{n}$$
+										 a třeba pomocí VL/(iv) a případným použitím VOAL ukážeme $\frac{1}{\sqrt{n}}\rightarrow0$.\\
+										 Výsledek je $0$.}
+
+	\item[(r)] $\underset{n\rightarrow\infty}{\lim}\frac{(2+\frac{1}{n})^{100}-(4-\frac{3}{n})^{50}}{(8-\frac{1}{n})^{34}-(4+\frac{1}{n})^{51}}.$
+
+		\solution{Tento příklad nelze řešit vytknutím vhodného členu, neboť klíčovou roli hrají postupně podle priority členy $(\frac{1}{n})^{1}$, $(\frac{1}{n})^{2}$, $(\frac{1}{n})^{3},\ldots$.
+										 Tyto členy obsahuje každá umocněná závorka a pro vysoká $n$ mají největší vliv na to, jak blízko je každá umocněná závorka svojí limitě. Proto postupujeme následovně:
+										 Mocniny rozepíšeme pomocí Binomické věty, odečteme členy s nultou mocninou $\frac{1}{n}$, ze všech sum si vytáhneme členy s mocninou $(\frac{1}{n})^{1}$,
+										 čitatel i jmenovatel vynásobíme $\frac{n}{2^{98}}$. V sumách jsou nyní členy, které obsahuji alespoň první mocninu $\frac{1}{n}$, a tedy jdou k nule.
+										 Mimo sumu máme v čitateli $2\cdot100+3\cdot50$ a ve jmenovateli $-2\cdot34-4\cdot51$. Použijeme VOAL a jsme hotovi.\\
+										 Výsledek je $\frac{-175}{136}$.}
+
+\end{enumerate}
+

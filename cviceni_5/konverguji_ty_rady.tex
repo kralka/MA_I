@@ -1,0 +1,41 @@
+Rozhodněte, jestli dané řady konvergují nebo divergují
+\begin{enumerate}
+
+	\item  $$ \sum_{n=1}^{\infty} (-2)^n $$
+
+		\solution{
+			Není spňena NPK (Věta~\ref{thm:konvergence_kriterium_nutna_podminka_konvergence}), neboť $\lim (-2)^n$ neexistuje.
+		}
+
+	\item  $$ \sum_{n=1}^{\infty} \frac{n^2+1}{n^3-5} $$
+
+		\solution{
+			Odhadneme 
+			$$
+					\frac{n^2+1}{n^3-5} > \frac{n^2}{n^3} = \frac1{n}
+			$$
+			a použijeme SK (Věta~\ref{thm:konvergence_kriterium_SK}), druhou variantu, s řadou $\sum n^{-1}$, o které už víme, že diverguje.
+		}
+
+	\item  $$ \sum_{n=1}^{\infty} \frac{1}{n(n+1)} $$
+
+		\solution{
+			Buď opět použijeme SK (Věta~\ref{thm:konvergence_kriterium_SK}) s $\sum n^{-2}$, tentokrát první variantu.
+			Nebo rozepíšeme
+			$$
+					\frac1{n(n+1)} = \frac1{n} - \frac1{n+1} = x_n + y_n
+			$$
+			při značení $x_n = 1/n$ a $y_n = 1/(n+1)$, a všimneme si, že $x_{n+1} = y_n$. To při následné sumaci dává
+			$$
+					\sum \frac1{n(n+1)} = \sum (x_n - y_n) = 1 + \sum (x_{n+1} - y_n) = 1. 
+			$$
+			A proto řada konverguje. Ba dokonce umíme říci, že konverguje k $1$.
+		}
+
+	\item  $$ \sum_{n=1}^{\infty} \sqrt[n]{\frac{1}{1000}}  $$
+
+		\solution{
+			Není splněna NPK (Věta~\ref{thm:konvergence_kriterium_nutna_podminka_konvergence}), neboť $\lim \sqrt[n]{\frac1{1000}} = 1$.
+		}
+
+\end{enumerate}

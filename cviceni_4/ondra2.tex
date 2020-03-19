@@ -1,0 +1,32 @@
+Spočtěte limity:
+\begin{itemize}
+
+	\item $\lim_{n \rightarrow \infty} \frac{\sqrt{n}+1}{\sqrt{n}-1}$ (pro $n\geq 2$),
+
+		\solution{
+			Výraz můžeme upravit 
+			$$\frac{\sqrt{n}+1}{\sqrt{n}-1} = \frac{\sqrt{n}/\sqrt{n}+1/\sqrt{n}}{\sqrt{n}/\sqrt{n}-1/\sqrt{n}} =
+			\frac{1+1/\sqrt{n}}{1-1/\sqrt{n}}\ ,$$
+			takže s aritmetikou limit dostáváme
+			$$\lim_{n \rightarrow \infty} \frac{\sqrt{n}+1}{\sqrt{n}-1} =
+			\lim_{n \rightarrow \infty} \frac{1+1/\sqrt{n}}{1-1/\sqrt{n}} = \frac{1+0}{1-0} = 1 \ .$$
+		}
+
+	\item $\lim_{n\rightarrow \infty} \sqrt{n+1}-\sqrt{n-1}$ \ ,
+
+		\solution{
+			Překvapivě nejprve převedeme na zlomek a pak využijeme aritmetiku limit
+			$$\lim_{n\rightarrow \infty} \sqrt{n+1}-\sqrt{n-1} =
+			\lim_{n\rightarrow \infty} \frac{(\sqrt{n+1}-\sqrt{n-1})(\sqrt{n+1}+\sqrt{n-1})}{\sqrt{n+1}+\sqrt{n-1}} = $$
+			$$\lim_{n\rightarrow \infty} \frac{(n+1)-(n-1)}{\sqrt{n+1}+\sqrt{n-1}} = 
+			\lim_{n\rightarrow \infty} \frac{2}{\sqrt{n+1}+\sqrt{n-1}} = 
+			\frac{2}{\infty+\infty}=0 \ .$$
+		}
+
+	\item $\lim_{n\rightarrow \infty} \frac{\sqrt{n+2}-\sqrt{n+1}}{\sqrt{n+2}+\sqrt{n+1}}$ \ .
+
+		\solution{
+		}
+
+\end{itemize}
+

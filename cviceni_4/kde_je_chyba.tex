@@ -1,0 +1,54 @@
+Nalezněte chybu:
+
+\begin{enumerate}
+
+	\item
+		\begin{align}
+				2 &= \lim_{n \rightarrow \infty} 2 \\
+				&= \lim_{n \rightarrow \infty} \frac{\frac{2}{n}}{\frac{1}{n}} \\
+				&= \lim_{n \rightarrow \infty} \frac{\frac{1}{n} + \frac{1}{n}}{\frac{1}{n}} \\
+				&= \frac{\lim_{n \rightarrow \infty} \frac{1}{n} + \lim_{n \rightarrow \infty} \frac{1}{n}}{\lim_{n \rightarrow \infty} \frac{1}{n}} \label{cv4:chyba_a_A} \\
+				&= \frac{\lim_{n \rightarrow \infty} \frac{1}{n} + 0}{\lim_{n \rightarrow \infty} \frac{1}{n}} \\
+				&= \lim_{n \rightarrow \infty} \frac{\frac{1}{n} + 0}{\frac{1}{n}} \label{cv4:chyba_a_B} \\
+				&= \lim_{n \rightarrow \infty} 1 \\
+				&= 1
+			\label{cv4:chyba_a}
+		\end{align}
+
+		\solution{
+			V~rovnostech~\ref{cv4:chyba_a_A},~\ref{cv4:chyba_a_B} je ilegálně použita věta o aritmetice limit. Limita jmenovatele i čitatele je 0.
+		}
+	
+	\item
+		\begin{align}
+			\frac{1}{2} &= \lim_{n \rightarrow \infty} \frac{n^2 - n}{2n^2} \\
+			&= \lim_{n \rightarrow \infty} \frac{\frac{n(n-1)}{2}}{n^2} \\
+			&= \lim_{n \rightarrow \infty} \frac{1 + 2 + 3 + \dots + (n-1)}{n^2} \\
+			&= \lim_{n \rightarrow \infty} \left( \frac{1 + 2 + 3 + \dots + (n-1)}{n^2} \right) \\
+			&= \lim_{n \rightarrow \infty} \frac{1}{n^2} + \lim_{n \rightarrow \infty}\frac{2}{n^2} + \lim_{n \rightarrow \infty}\frac{3}{n^2} + \dots + \lim_{n \rightarrow \infty}\frac{n-1}{n^2} \label{cv4:chyba_b_here} \\
+			&= 0 + 0 + 0 + \dots + 0 \\
+			&= 0
+			\label{cv4:chyba_b}
+		\end{align}
+
+		\solution{
+			V rovnosti~\ref{cv4:chyba_b_here} je ilegálně použita věta o aritmetice limit.
+			Nelze použít na součty, jejichž počet je závislý na proměnné přes kterou limitíme.
+		}
+	
+	\item
+		\begin{align}
+				e &= \lim_{n \rightarrow \infty} \left( 1 + \frac{1}{n} \right)^{n} \\
+				&= \lim_{n \rightarrow \infty} \left( 1 + \lim_{n \rightarrow \infty}\frac{1}{n} \right)^{n} \label{cv4:chyba_c_here} \\
+				&= \lim_{n \rightarrow \infty} \left( 1 + 0 \right)^{n} \\
+				&= \lim_{n \rightarrow \infty} 1 \\
+				&= 1
+			\label{cv4:chyba_c}
+		\end{align}
+
+		\solution{
+			Částečné limitění v rovnosti~\ref{cv4:chyba_c_here} není povolené.
+		}
+
+\end{enumerate}
+

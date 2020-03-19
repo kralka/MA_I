@@ -1,0 +1,22 @@
+Definujme asymptotickou notaci (v angličtině známou jako \uv{big O notation}), česky asymptotický horní odhad:
+
+Nechť $f, g \colon \mathbb{N} \rightarrow \mathbb{R}$ jsou dvě funkce, definujeme že $f \in \mathcal{O}(g)$ jestliže
+$$\exists c \in \mathbb{R}^+ \  \exists n_0 \in \mathbb{N} \  \forall n \in \mathbb{N} \colon n \geq n_0 \Rightarrow f(n) \leq cg(n).$$
+
+Často se píše $f = \mathcal{O}(g)$ namísto $f \in \mathcal{O}(g)$, není to zcela formální, ale je to velice rozšířené v~literatuře o algoritmech.
+Rozhodněte, zda platí:
+\begin{enumerate}
+	\item  $100 \log_2 n \in \mathcal{O}(n)$
+		\solution{Platí.}
+	\item  $100 n \in  \mathcal{O}(n^2)$
+		\solution{Platí.}
+	\item  Pokud $f \in \mathcal{O}(g)$, pak $\forall c \in \mathbb{R}^+ \colon cf \in \mathcal{O}(g)$.
+		\solution{Platí.}
+	\item  Pokud pro každé $n$ platí $f(n) = f_1(n) + f_2(n)$ a navíc $f_1 \in \mathcal{O}(f_2)$, pak $f \in \mathcal{O}(f_2)$.
+		\solution{Platí.}
+	\item  Pokud dokážete, že $\log_2 f \in \mathcal{O}(\log_2 g)$, znamená to, že $f \in \mathcal{O}(g)$?
+		\solution{
+			Rozhodně ne! Uvažme například funkce $f(n) = n^2$ a $g(n) = n$.
+		}
+\end{enumerate}
+

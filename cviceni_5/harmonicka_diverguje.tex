@@ -1,0 +1,73 @@
+Ukažte, že harmonická řada diverguje, tj. $\sum_{k=1}^{\infty} \frac{1}{k} = + \infty$.
+
+\solution{
+	Matematickou indukcí dokážeme pro $n=2^m$ odhad $1+\frac{m}{2} \leq H_n \leq 1+m$.
+	Pro neomezenost $H_n$ je podstatný dolní odhad.
+
+	Je-li $m=1$, je $n=2$ a $H_2= 1 + \frac{1}{2} = \frac{3}{2}$. Pak dolní odhad $1 + \frac{1}{2} = \frac{3}{2}$ a horní odhad 
+	$1+1=2$ jsou ok.
+
+	Indukční krok: $H_{2^{m+1}} = H_{2^m} + \sum_{k=2^m+1}^{2^{m+1}} \frac{1}{k} \geq 
+	H_{2^m} + 2^m \cdot \frac{1}{2^{m+1}} = H_{2^m} + \frac{1}{2} \geq 1+\frac{m}{2}+\frac{1}{2} = 1 + \frac{m+1}{2}$.
+	Podobně $\ldots \leq H_{2^m} + 2^m \cdot \frac{1}{2^m} = H_{2^m} +1 \leq 1+m+1=1+(m+1)$.
+
+	\vskip1cm
+	\hrule
+	\vskip1cm
+
+	Alternující harmonická řada je zajímavá:
+	$$\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \ldots$$
+	ukážeme o ní, že konverguje, ale že nemůžeme libovolně přeuspořádat její členy!
+
+	\begin{enumerate}
+
+		\item  \textbf{Alternující harmonická řada konverguje:}
+			Ukážeme ideu důkazu (na několika místech tiše využíváme spojitosti exponenciály atd), že $$\sum_{k=1}^{\infty} \frac{(-1)^{k+1}}{k} = \ln 2$$
+
+			Pomocí Bernoulliho nerovnosti ukážeme, že
+			\begin{align}
+				\left( \frac{2n + 1}{n + 1} \right)^{\frac{n}{n+1}}
+				\leq \left( 1 + \frac{1}{n} \right)^{n \left( \frac{1}{n+1} + \frac{1}{n+2} + \frac{1}{n+3} + \ldots + \frac{1}{2n} \right)}
+				\leq \frac{2n + 1}{n + 1}
+				\label{eq:alternating_harmonic_series_bernoulli}
+			\end{align}
+
+			Pak použijeme větu o dvou policajtech a předchozí:
+			\begin{align}
+				e^{\lim_{n \rightarrow \infty} \left( \frac{1}{n+1} + \frac{1}{n+2} + \frac{1}{n+3} + \ldots + \frac{1}{2n} \right)} = 2
+				\label{eq:alternating_harmonic_series_exponent}
+			\end{align}
+
+			To znamená, že:
+			\begin{align}
+				\lim_{n \rightarrow \infty} &\left( 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \ldots - \frac{1}{2n} \right) = \\
+				&= \lim_{n \rightarrow \infty} \left( \frac{1}{n+1} + \frac{1}{n+2} + \frac{1}{n+3} + \ldots + \frac{1}{2n} \right) \\
+				&= \ln(2)
+				\label{eq:alternating_harmonic_series_final}
+			\end{align}
+		
+		\item  \textbf{Nemůžeme libovolně přeuspořádat její členy:}
+			Zkusíme přeuspořádat její členy a nakonec dostaneme jiný výsledek.
+
+			Místo
+			$$1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \frac{1}{6} + \frac{1}{7} - \frac{1}{8} + \frac{1}{9} - \frac{1}{10} + \ldots$$
+			přeuspořádejme:
+			$$1 - \frac{1}{2} - \frac{1}{4} + \frac{1}{3} - \frac{1}{6} - \frac{1}{8} + \frac{1}{5} - \frac{1}{10} - \frac{1}{12} + \frac{1}{7} - \frac{1}{14} - \ldots$$
+
+			Každé liché číslo se tam objeví jednou s kladným znaménkem, každé sudé jednou se záporným znaménkem (polovina z nich jako dvojnásobek lichého čísla a polovina jako dvojnásobek sudého).
+			Obecně máme po trojicích:
+			$$\frac{1}{2k - 1} - \frac{1}{2(2k - 1)} - \frac{1}{4k}$$
+			Pokud první dva sečteme dostaneme po dvojicích:
+			$$\frac{1}{2(2k-1)} - \frac{1}{4k}$$
+
+			Tedy dostáváme:
+			\begin{align*}
+				\frac{1}{2} &- \frac{1}{4} + \frac{1}{6} - \frac{1}{8} + \frac{1}{10} - \ldots \ldots + \frac{1}{2(2k-1)} - \frac{1}{2(2k)} + \ldots \\
+				&= \frac{1}{2} \left( 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \frac{1}{5} - \ldots \right) = \frac{\ln 2}{2}
+			\end{align*}
+
+			Dodejme ještě, že se vše tato řada dá přeskládat, aby konvergovala k libovolnému číslu (nebo dokonce divergovala).
+
+	\end{enumerate}
+}
+
