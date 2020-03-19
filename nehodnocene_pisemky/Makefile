@@ -37,7 +37,3 @@ $(MyDoc).pdf: $(MyDoc).tex
 clean:
 	latexmk -CA
 
-# print pdf one-sided on nessie-gray
-print: $(MyDoc).pdf
-	lp -d nessie-gray -n 29 -o media=Recycled $(MyDoc).pdf
-
