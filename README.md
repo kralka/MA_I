@@ -12,3 +12,10 @@ Makefile spoustíte příkazem
 make
 ```
 
+## Užitečné programy
+
+Na editování LaTeXu stačí libovolný editor.
+Preferujte ty se zvýrazňováním kódu (například [vim](https://www.vim.org/), [VS Code](https://code.visualstudio.com/), [overleaf](https://www.overleaf.com/), [Kilei](https://kile.sourceforge.io/)).
+
+Na kreslení obrázků doporučuji [IPE](https://en.wikipedia.org/wiki/Ipe_(software))
+
