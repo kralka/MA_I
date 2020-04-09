@@ -1,0 +1,48 @@
+Spočítejte následující limity:
+\begin{enumerate}
+
+	\item  $\underset{x \rightarrow \infty}{\lim} \cos(1/x)$
+
+		\solution{
+			Funkce $\cos$ je spojitá na celém $\mathbb{R}$.
+			Můžeme tedy využít větu o limitě složené funkce (Věta~\ref{thm:limita_slozene_fce}), vnější funkce -- $\cos$ -- je spojitá, využíváme tedy její první případ.
+			$$
+			\lim_{x \rightarrow \infty} \cos\left( 1/x \right)
+			= \cos\left(\lim_{x \rightarrow \infty} 1/x \right)
+			= \cos(0)
+			= 1
+			$$
+		}
+	
+	\item  $\underset{x \rightarrow \infty}{\lim} \sin(1/x^3)$
+	
+	\item  $\underset{x \rightarrow \infty}{\lim} \sqrt[\ln(x)]{e}$
+
+		\solution{
+			Přepíšeme na $\sqrt[\ln(x)]{e} = e^{1/\ln(x)}$ a řešíme jako předchozí.
+		}
+
+	\item  $\underset{x \rightarrow 0}{\lim} \ln(|x|)$
+
+		\solution{
+			Limita vnitřní funkce (absolutní hodnoty) je nula.
+			Přirozený logaritmus v nule není ani definovaný, natož aby tam byl spojitý.
+
+			Ale můžeme použít větu o limitě složené funkce (Věta~\ref{thm:limita_slozene_fce}) a to její druhou část, protože $|x| = 0$ jen pokud $x=0$.
+			Dostáváme výsledek mínus nekonečno, stejně jako kdybychom počítali limitu zprava $\underset{x \rightarrow 0^+}{\lim} \ln(x)$.
+		}
+
+	\item  $\underset{x \rightarrow \frac{\pi}{2}}{\lim} \frac{1}{1 - \sin(x)}$
+
+		\solution{
+			Vnější funkce je $1/x$, vnitřní $1 - \sin(x)$.
+
+			Můžeme použít lehkou modifikaci věty o limitě složené funkce (Věta~\ref{thm:limita_slozene_fce}) a to její druhé části, protože existuje okolí $\pi/2$ na kterém platí $\sin(x) = 1$ právě když $x = \pi/2$.
+			Navíc $1 - \sin(x) \geq 0$, takže můžeme zkoumat
+			$$\lim_{x \rightarrow 0^+} 1/x = \infty$$
+
+			Poznamenejme, že podobnou úvahu bychom mohli udělat i pokud jako vnější funkci bereme $\frac{1}{1 - x}$ a za vnitřní $\sin(x)$.
+		}
+
+\end{enumerate}
+

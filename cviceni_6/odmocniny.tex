@@ -1,0 +1,41 @@
+Spočtěte limity
+\begin{itemize}
+
+	\item $\underset{x \rightarrow +\infty}{\lim} \frac{2x^5+7x+1}{3x^5-4x^3-x^2}$,
+
+		\solution{
+			\begin{align}
+				\lim_{x \rightarrow +\infty} \frac{2x^5+7x+1}{3x^5-4x^3-x^2} &= \lim_{x \rightarrow +\infty} \frac{x^5}{x^5} \cdot \frac{2+7/x^4+1/x^5}{3-4/x^2-1/x^3} \\
+				&= \frac{2+0+0}{3+0+0} = \frac{2}{3}
+			\end{align}
+		}
+
+	\item $\underset{x \rightarrow 2}{\lim} \frac{(x^2-x-2)^2}{x^3-12x+16}$,
+
+		\solution{
+			Pokud bychom pouze dosadili, dostaneme
+			$$\lim_{x \rightarrow 2} \frac{(x^2-x-2)^2}{x^3-12x+16} = \frac{(2^2-2-2)^2}{2^3-12 \cdot 2 +16} = \frac{0}{0},$$
+			což není definovaný výraz.
+			Je z toho však vidět, že $x=2$ je kořenem čitatele i jmenovate.
+
+			Upravíme tedy
+			\begin{align}
+				\lim_{x \rightarrow 2} \frac{(x^2-x-2)^2}{x^3-12x+16} &= \lim_{x \rightarrow 2} \frac{((x-2)(x+1))^2}{(x-2)(x-2)(x+4)} \\
+				&= \lim_{x \rightarrow 2} \frac{(x+1)^2}{x+4} \\
+				&= \frac{3^2}{6} = \frac{3}{2}
+			\end{align}
+		}
+
+	\item $\underset{x \rightarrow +\infty}{\lim} \sqrt{x+\sqrt{x+\sqrt{x}}}-\sqrt{x}$.
+
+		\solution{
+			\begin{align}
+				\lim_{x \rightarrow +\infty} \sqrt{x+\sqrt{x+\sqrt{x}}}-\sqrt{x} &= \lim_{x \rightarrow +\infty} \sqrt{x+\sqrt{x+\sqrt{x}}}-\sqrt{x} \cdot \frac{\sqrt{x+\sqrt{x+\sqrt{x}}}+\sqrt{x}}{\sqrt{x+\sqrt{x+\sqrt{x}}}+\sqrt{x}} \\
+				&= \lim_{x \rightarrow +\infty} \frac{x+\sqrt{x+\sqrt{x}}-x}{\sqrt{x+\sqrt{x+\sqrt{x}}}+\sqrt{x}} \\
+				&= \lim_{x \rightarrow +\infty} \frac{\sqrt{x}}{\sqrt{x}} \cdot\frac{\sqrt{1+\sqrt{1/x}}}{\sqrt{1+\sqrt{1/x+\sqrt{1/x^3}}}+1} \\
+				&= \frac{\sqrt{1+\sqrt{0}}}{\sqrt{1+\sqrt{0+\sqrt{0}}}+1} = \frac{1}{2}
+			\end{align}
+		}
+
+\end{itemize}
+

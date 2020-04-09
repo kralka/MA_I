@@ -1,0 +1,62 @@
+Připomeňte si poučky o derivacích (Věta~\ref{thm:poucky_o_derivacich}).
+Spočítejte derivace následujících funkcí:
+\begin{enumerate}
+
+	\item  $\sqrt{\sin(x)}$
+
+		\solution{
+			Jedná se o složenou funkci, vnější je $\sqrt{x} = x^{1/2}$ kterou zderivujeme pomocí \ref{poucka:derivace_monomu}.
+			Vnitřní podle poučky.
+
+			$\frac{\cos(x)}{2 \sqrt{\sin(x)}}$
+		}
+
+	\item  $\cos^2(x) + \sin^2(x)$
+
+		\solution{
+			Derivujeme součet dvou součinů:
+			$-2 \sin(x)\cos(x) + 2\sin(x)\cos(x) = 0$.
+
+			Tohle dává smysl, protože si pamatujeme, že $\sin^2(x) + \cos^2(x) = 1$ a derivace konstanty je nula.
+		}
+
+	\item  Dle věty o derivaci inverzní funkce ověřte výsledek derivace $\ln(x)$.
+
+		\solution{
+			Logaritmus je inverzní funkce exponenciály, tedy platí $\ln\left( e^x \right) = x$.
+			Exponenciála je spojitá a ryze monotónní.
+			Tedy máme:
+			$$(\ln(e^x))' = \frac{1}{e^x}$$
+			Pro konkrétní $x = e^y$ dostaneme:
+			$$(\ln(x))' = \frac{1}{x}$$
+		}
+
+	\item  $\frac{x^2 + 1}{3x}$
+
+		\solution{
+			Dle derivace podílu máme:
+			\begin{align*}
+				\left( \frac{x^2 + 1}{3x} \right)' &= \frac{ (x^2 + 1)'(3x) - (3x)'(x^2 + 1)}{(3x)^2} \\
+				&= \frac{ 6x^2 - 3x^2 - 3}{9x^2} \\
+				&= \frac{ x^2 - 1}{3x^2}
+			\end{align*}
+		}
+
+	\item  $x^x$
+
+		\solution{
+			Na tuto funkci nemáme tabulku.
+			Ale můžeme ji upravit a pak už máme postup, jak derivovat
+			$$x^x = (e^{\ln(x)})^{x} = e^{x \ln(x)}$$
+
+			Nyní máme spočítat derivaci složené funkce, vnější funkce je $e^y$, vnitřní je $x \ln(x)$, tedy součin funkcí.
+			\begin{align*}
+				\left( e^{x \ln(x)} \right)' &= e^{x \ln(x)} \left( x \ln(x) \right)' \\
+				&= e^{x \ln(x)} \left( \ln(x) + x (\ln(x))' \right) \\
+				&= e^{x \ln(x)} \left( \ln(x) + 1 \right) \\
+				&= x^{x} \left( \ln(x) + 1 \right)
+			\end{align*}
+		}
+
+\end{enumerate}
+

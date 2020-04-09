@@ -1,0 +1,67 @@
+Připomeňte si poučky o derivacích (Věta~\ref{thm:poucky_o_derivacich}).
+Spočítejte derivace následujících funkcí:
+\begin{enumerate}
+
+  \item  $3 x^2 - 25 x + 50$
+
+    \solution{
+			Využijeme~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_monomu} a linearitu derivací~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_je_linearni_operator}.
+			Vyjde:
+      $6x - 25$
+    }
+
+  \item  $\sin(x^5)$
+
+    \solution{
+      Použijeme poučku o derivaci složené
+			funkce~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_slozene_fce} a o derivaci
+			monomu~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_monomu},
+			vnitřní funkce je $x^5$, vyjde:
+      $5x^4 \cos(x^5)$
+    }
+
+  \item  $\sin(x)\cos(x)$
+
+    \solution{
+			Použijeme poznatek o derivaci součinu~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_soucinu} a derivaci $\sin$ a
+			$\cos$~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_sin}, \ref{poucka:derivace_cos}:
+			\begin{align*}
+				(\sin(x)\cos(x))' &= (\sin(x))' \cos(x) + \sin(x)(\cos(x))' \tag{derivace součinu~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_soucinu}} \\
+				&= \cos^2(x) - \sin^2(x)
+			\end{align*}
+    }
+
+  \item  $(\sin(x))^3$
+
+    \solution{
+			\begin{itemize}
+
+				\item[Řešení I]
+					První možnost je použít poznatek o derivaci složené funkce~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_slozene_fce},
+					kde vnitřní funkce je $\sin$, vnější $x^3$:
+					\begin{align*}
+						\left( (\sin(x))^3 \right)' &= 3 \sin^2(x) (\sin(x))' \\
+						&= 3 \sin^2(x) \cos(x)
+					\end{align*}
+
+				\item[Řešení II]
+					Druhou možností je použít poznatek o derivaci součinu~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_soucinu}, vyjde to stejně:
+					\begin{align*}
+						\left( (\sin(x))^3 \right)' &= \left( \sin(x) (\sin(x) \sin(x)) \right)' \\
+						&= \cos(x) \left( \sin(x) \sin(x) \right) + \sin(x) \left( \sin(x) \sin(x) \right)' \\
+						&= \cos(x) \left( \sin(x) \sin(x) \right) + \sin(x) \left( \cos(x)\sin(x) + \sin(x)\cos(x) \right) \\
+						&= 3 \sin^2(x) \cos(x)
+					\end{align*}
+
+			\end{itemize}
+    }
+
+  \item  $\sin(\cos(x))$
+
+    \solution{
+			Použijeme poznatek o derivaci složené funkce~\ref{thm:poucky_o_derivacich}:\ref{poucka:derivace_slozene_fce} kde vnitřní funkce je $\cos$, vnější $\sin$, vyjde:
+      $\cos(\cos(x))(-\sin(x))$
+    }
+
+\end{enumerate}
+

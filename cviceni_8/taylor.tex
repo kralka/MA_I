@@ -1,0 +1,72 @@
+Představte si, že chcete aproximovat funkci v bodě $a \in \mathbb{R}$ polynomem.
+Chcete, aby derivace byly ty samé.
+
+\begin{enumerate}
+		
+	\item  Konstantou, tedy $T(a) = f(a)$.
+
+		\solution{
+			$T(x) = f(a)$
+		}
+
+	\item  Lineárním polynomem (první derivace je stejná, tedy  $T(a) = f(a)$, $T'(a) = f'(a)$).
+
+		\solution{
+			$T(x) = f(a) + f'(a)(x - a)$
+		}
+
+	\item  Kvadratickým polynomem (první i druhá derivace je stejná, tedy $T(a) = f(a)$, $T'(a) = f'(a)$ a také $T''(a) = f''(a)$).
+
+		\solution{
+			$T(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x-a)^2$
+		}
+
+	\item  Kubickým polynomem (první i druhá i třetí derivace je stejná, tedy $T(a) = f(a)$, $T'(a) = f'(a)$ a také $T''(a) = f''(a)$ a také $T'''(a) = f'''(a)$).
+
+		\solution{
+			$T(x) = f(a) + f'(a)(x - a) + \frac{f''(a)}{2!}(x-a)^2 + \frac{f'''(a)}{3!} (x-a)^3$
+		}
+
+	\item  Řadou, tak aby všechny derivace byly stejné:
+
+		\solution{
+			$$\sum_{n = 0}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^n$$
+
+			Kde $f^{(n)}$ značí $n$-krá derivovanou funkci $f$ -- její $n$-tou derivaci.
+		}
+
+	\item  Jak nahradíte následující funkce řadou v $a = 0$?
+
+		\begin{enumerate}
+
+			\item  $e^x$
+
+				\solution{
+					$n$-tá derivace $e^x$ je pořád $e^x$.
+					Speciálně $e^0 = 1$, tedy i každá derivace v nule bude mít hodnotu 1.
+
+					Dostáváme:
+					$$e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots$$
+				}
+
+			\item  $\sin(x)$
+
+				\solution{
+					$\sin(0) = 0$, derivace $\sin$ je $\cos$, $\cos(0) = 1$, derivace $\cos$ je $-\sin$.
+
+					Dostáváme:
+					$$\sin(x) = 0 + x - 0 - \frac{x^3}{3!} + 0 + \frac{x^5}{5!} + \ldots$$
+				}
+
+			\item  $\ln(1+x)$
+
+		\end{enumerate}
+
+		Poznamenejme, že jsme právě vymysleli Taylorův polynom, respektive Taylorovu řadu.
+
+		Zkusme pomocí Taylorova polynomu v nule stupně tři aproximovat $\sin(0.1)$.
+		$$T(0.1) = 0.1 - \frac{0.1^3}{6} = 0.09983333333333$$
+		$$\sin(0.1) = 0.0998334$$
+
+\end{enumerate}
+

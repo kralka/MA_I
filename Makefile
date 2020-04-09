@@ -32,7 +32,8 @@ all: $(MyDoc).pdf
 #missing file reference and interactively asking you for an alternative.
 
 $(MyDoc).pdf: $(MyDoc).tex
-	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" -use-make $(MyDoc).tex
+	latexmk -pdf -pdflatex="pdflatex -interactive=nonstopmode" --shell-escape -use-make $(MyDoc).tex
+	rm -rf _minted-reseni/
 
 clean:
 	latexmk -CA

@@ -1,8 +1,10 @@
-Mějme kladné reálné číslo $c$. Spočtěte limitu posloupnosti zadané $a_1 = \sqrt{c}, a_{n+1} = \sqrt{a_n + c}$.
+Mějme kladné reálné číslo $c$.
+Spočtěte limitu posloupnosti zadané $a_1 = \sqrt{c}, a_{n+1} = \sqrt{a_n + c}$.
 
 \solution{
 	Pokud limita existuje, pak platí $a = \lim_{n \rightarrow \infty} a_n = \lim_{n \rightarrow \infty} a_{n+1} =
 	\lim_{n \rightarrow \infty} \sqrt{a_n+c} = \sqrt{\lim_{n \rightarrow \infty}a_n +c} = \sqrt{a+c}$.
+	Tohle je užitečný trik, jak získat hodnotu limity (za předpokladu, že limita existuje můžeme využít toho, že každá podposloupnost má stejnou limitu).
 
 	Z toho dostáváme rovnost $a = \sqrt{a+c}$ s řešením $\frac{1}{2} \pm \sqrt{c + \frac{1}{4}}$. Nás zajímá to kladné řešení,
 	neboť celá poslounost je kladná, označme ho $a = \frac{1}{2} + \sqrt{c + \frac{1}{4}}$.

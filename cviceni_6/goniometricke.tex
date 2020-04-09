@@ -1,0 +1,53 @@
+S využitím předchozích řešení spočtěte:
+\begin{enumerate}
+
+	\item $\underset{x \rightarrow 0}{\lim} \frac{tg(x)}{x}$,
+
+		\solution{
+			\begin{align}
+				\lim_{x \rightarrow 0} \frac{tg(x)}{x} &= \lim_{x \rightarrow 0} \frac{\frac{\sin(x)}{\cos(x)}}{x} \\
+				&= \lim_{x \rightarrow 0} \frac{\sin(x)}{x}  \cdot \frac{1}{\cos(x)} = 1.
+			\end{align}
+		}
+
+	\item $\underset{x \rightarrow 0}{\lim} \frac{1-\cos x}{x^2}$,
+
+		\solution{
+			\begin{align}
+				\lim_{x \rightarrow 0} \frac{1-\cos x}{x^2} &= \lim_{x \rightarrow 0} \frac{1-\cos x}{x^2} \cdot \frac{\sin^2 x}{\sin^2 x} \\
+				&= \lim_{x \rightarrow 0} \left(\frac{\sin x}{x}\right)^2 \cdot \frac{1-\cos x}{1-\cos^2 x} \\
+				&= \lim_{x \rightarrow 0} \left(\frac{\sin x}{x}\right)^2 \cdot \frac{1}{1+\cos^2 x} = \frac{1}{2}
+			\end{align}
+		}
+
+	\item $\underset{x \rightarrow 0}{\lim} \frac{\ln(x+1)}{x}$.
+
+		\solution{
+			Tentokrát použijeme větu o limitě složené funkce~\ref{thm:limita_slozene_fce}.
+
+			Nejprve zvolíme $y=g(x)=\ln(x+1)$ a převedeme $x=e^y-1$. Tím máme 
+			$$\lim_{x \rightarrow 0} \frac{\ln(x+1)}{x} = \lim_{y \rightarrow Y} \frac{y}{e^y -1},$$
+			kde za $Y$
+			by se měla objevit hodnota $Y=g(0)=\ln(0+1)=0$.
+
+			V takovém případě bychom dopočetli
+			$$\lim_{x \rightarrow 0} \frac{\ln(x+1)}{x} = \lim_{y \rightarrow 0} \frac{y}{e^y -1} = \lim_{y \rightarrow 0} \left(\frac{e^y-1}{y}\right)^{-1} = 1,$$
+			v případě, že první rovnost je skutečně korektní.
+
+			To ukážeme pomocí věty o limitě složené funkce, k def. funkce $g$ si přidáme funkci $f(y) = \frac{y}{e^y-1}$ a
+			$$\lim_{x \rightarrow 0} f(g(x)) = \lim_{x \rightarrow 0} \frac{\ln(x+1)}{e^{\ln(x+1)}-1} = \lim_{x \rightarrow 0}\frac{\ln(x+1)}{x+1-1}.$$
+
+			$\underset{x \rightarrow 0}{\lim} g(x)=0$
+			a
+			$\underset{y \rightarrow 0}{\lim} f(y) =1$,
+			takže
+			$\underset{x \rightarrow 0}{\lim}f(g(x))=1$,
+			pokud je splněna některá z~podmínek věty.
+
+			Spojitost funkce $f$ v bodě $0$ neplatí. Naštěstí např. na intervalu $(-\frac{1}{2},\frac{1}{2})$ má $g(x)=\ln(x+1)=0$ jediné řešení $x=0$
+			a tak na prstencovém okolí je $g(x) \neq 0$ a je to v~pořádku.
+		}
+
+\end{enumerate}
+
+

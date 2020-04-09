@@ -1,0 +1,28 @@
+Pokud mocninná řada konverguje pro každý bod nějakého otevřeného intervalu $I$.
+Pak pro každé $x \in I$ můžeme její derivaci spočítat jako derivaci polynomu:
+$$f'(x) = \left( \sum_{n=0}^{\infty} a_n x^n \right)' = \sum_{n=0}^{\infty} \left( a_n x^n \right)' = \sum_{n=0}^{\infty} n a_n x^{n-1}$$
+
+Spočítejte takto derivace následujících funkcí:
+
+\begin{enumerate}
+
+	\item  $e^x$
+
+		\solution{
+			$$\left( e^x \right)' = \left( 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots \right)' = 0 + \frac{1}{1!} + \frac{2x^1}{2!} + \frac{3x^2}{3!} + \ldots = e^x$$
+		}
+
+	\item  $\sin(x)$
+
+		\solution{
+			$$\left( \sin(x) \right)' = \left( \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} + \ldots \right)' = \frac{1}{1!} - \frac{3x^2}{3!} + \frac{5x^4}{5!} - \ldots = \cos(x)$$
+		}
+
+	\item  $\cos(x)$
+
+		\solution{
+			$$\left( \cos(x) \right)' = \left( 1 -  \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \ldots \right)' = 0 - \frac{2x^1}{2!} + \frac{4x^3}{4!} - \frac{6x^5}{6!} + \ldots = -\sin(x)$$
+		}
+
+\end{enumerate}
+

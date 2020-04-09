@@ -1,0 +1,62 @@
+Nechť $(a_n)_{n=1}^{\infty}$ je omezená posloupnost.
+Dokažte, že $(a_n)_{n=1}^{\infty}$ \emph{nemá} limitu právě tehdy, když existují aspoň dvě její podposloupnosti, které mají různou limitu.
+
+\begin{enumerate}
+
+	\item  víme, že aspoň nějaká podposloupnost má limitu $a$.
+		pokud celá $(a_n)$ nemá limitu $a$, pak $\exists \varepsilon > 0 \  \forall n_0 \in \mathbb{N} \  \exists n > n_0 \colon |a_n - a| \geq \varepsilon$.
+		tedy existuje nekonečně mnoho prvků $(a_n)$, které jsou mimo $(a - \varepsilon, a + \varepsilon)$ a to je omezená podposloupnost, která má podposloupnost, která má limitu.
+
+	\item  pokud existují dvě podposloupnosti, které mají různou limitu, pak $(a_n)$ nemá limitu (lehká modifikace https://iuuk.mff.cuni.cz/~tereza/teaching-files-19/analyza/lecture2.pdf věta 2.7).
+
+\end{enumerate}
+
+\solution{
+	Jde to dokázat pomocí věty z přednášky o hromadných bodech a limitě.
+	Případně jste přišli i na různé kombinace předchozího a následujícího postupu nebo i na další jiné postupy, které sem psát nebudu.
+	Zajímavějším typem důkazu byl ten následující:
+
+	Podle Bolzano-Weierstrassovy věty existuje konvergentní podposloupnost.
+	Značme nějakou takovou $(b_n)$, nechť $b = \lim b_n$.
+
+	Z předpokladu $(a_n)$ nemá limitu, speciálně $b$ není její limitou. tedy:
+	$$\exists \varepsilon > 0 \ \forall n_0 \in \mathbb{N} \  \exists n' \geq n_0\colon  | a_{n'} - b | \geq \varepsilon$$
+	vytvoříme posloupnost $(c_n)$ následovně:
+	$c_1 = a_1$
+	nechť $c_n = a_m$ pro nějaké $m, n$ přirozené.
+	použijeme výrok o neexistenci limity $(a_n)$, za $n_0$ dosadíme $m+1$, pak
+	existuje $n' \geq m+1$, že $| a_{n'} - b | \geq \varepsilon$, položíme $c_{n+1} = n'$ (tedy vybíráme podposloupnost -- indexy které z $(a_n)$ vybereme rostou).
+
+	$(c_n)$ je také omezená posloupnost, dle Bolzano-Weierstrassovy věty má konvergentní podposloupnost,
+	$(d_n)$ a ta je i podposloupností $(a_n)$ a navíc má limitu různou od $b$ (není v intervalu $(b-\varepsilon, b+\varepsilon)$ pro naše pevné epsilon z předchozího odstavce).
+
+	Tedy máme dvě podposloupnosti s různou limitou.
+
+	Na co si dát pozor:
+	\begin{itemize}
+
+		\item  Potřebujete vybrat podposloupnost (tedy nekonečně mnoho prvků $(a)$ a tak aby jejich indexy byly rostoucí).
+
+		\item  Pokud bychom neodrazili zbylé prvky od $b$, může nám vyjít stejná limita jako předtím.
+			Uvažme posloupnost $1, 1/1, 0, 1, 1/2, 0, 1, 1/3, 0, 1, 1/4, 0, 1, 1/5, 0, \ldots$.
+
+			\begin{itemize}
+
+				\item  První aplikace Bolzano-Weierstrassovy věty nám může dát podposloupnost samých nul (limita 0).
+
+				\item  Druhá aplikace Bolzano-Weierstrassovy věty na to, co zbyde, nám může dát podposloupnost
+					$$1/2, 1/4, 1/8, 1/16, \ldots$$
+					(limita 0).
+
+				\item  Třetí aplikace Bolzano-Weierstrassovy věty na to, co zbyde, nám může dát podposloupnost
+					$$1/3, 1/9, 1/27, 1/81, \ldots$$
+					(limita 0).
+
+				\item  A tak až do nekonečna.
+
+			\end{itemize}
+
+	\end{itemize}
+}
+
+

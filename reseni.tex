@@ -21,6 +21,7 @@
 \usepackage{tikz-3dplot}
 \usepackage{newclude} % include bez clearpage
 \usepackage{graphicx}
+\usepackage{minted} % python code
 \usepackage{multicol}
 \usepackage{hyperref}
 \usepackage[all]{hypcap}
@@ -101,6 +102,12 @@
  \include*{s4}
 	\section[5. Cvičení]{Cvičení}
  \include*{s5}
+	\section[6. Cvičení]{Cvičení}
+ \include*{s6}
+	\section[7. Cvičení]{Cvičení}
+ \include*{s7}
+	\section[8. Cvičení]{Cvičení}
+ \include*{s8}
 
 \chapter{Tahák}
 	\section{Základní vlastnosti funkcí}
@@ -113,6 +120,14 @@
 	  \input{tahaky/hromadne_body.tex}
 	\section{Řady}
 	  \input{tahaky/rady.tex}
+	\section{Limity funkcí}
+	  \input{tahaky/okoli.tex}
+	  \input{tahaky/limita_funkce.tex}
+	  \input{tahaky/aritmetika_limit_funkci.tex}
+	  \input{tahaky/limita_slozene_fce.tex}
+	\section{Derivace}
+	  \input{tahaky/derivace_definice.tex}
+	  \input{tahaky/derivace.tex}
 
 \chapter{Řešení}
 	% solution macro, this prints the solution
@@ -135,5 +150,18 @@
  \include*{s4}
 	\section[5. Cvičení]{Cvičení}
  \include*{s5}
+	\section[6. Cvičení]{Cvičení}
+ \include*{s6}
+	\section[7. Cvičení]{Cvičení}
+ \include*{s7}
+	\section[8. Cvičení]{Cvičení}
+ \include*{s8}
+
+\chapter{Řešení vybraných domácích úkolů}
+
+\begin{enumerate}
+	\item  \exercise{homework/charakterizace_kdy_omezena_nema_limitu.tex}{charakterizace_nema_limitu}
+	%\item  \exercise{homework/rekurentni.tex}{rekurentni}
+\end{enumerate}
 
 \end{document}

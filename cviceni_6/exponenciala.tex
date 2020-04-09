@@ -1,0 +1,24 @@
+Exponenciálu jste definovali následovně: 
+$$e^x = \sum_{n=0}^\infty \frac{x^n}{n!} = 1+x+\frac{x^2}{2}+\frac{x^3}{6}+ \ldots$$
+Speciálně jste měli tvrzení bez důkazu, že tato řada konverguje pro každé reálné číslo $x \in \mathbb{R}$.
+
+Přesvědčete se o tom, že
+$\lim_{x \rightarrow 0} \frac{e^x -1}{x} =1$ (speciálně budete muset věřit, že operace s nekonečnou řadou jsou ok).
+
+\solution{
+	Teď budeme věřit, že operace s nekonečnou řadou jsou ok (zrovna tyhle se dají rozmyslet jednoduše, pokud věříme, že $e^x$ tak jak jsme ho definovali konverguje pro libovolné reálné~$x$).
+
+	Vadí nám, že \uv{dělíme nulou}.
+	Vyjdeme z definice exponenciely a upravíme
+	$$\frac{e^x -1}{x} = \frac{1+x+\frac{x^2}{2}+\frac{x^3}{6}+ \ldots -1}{x} = \frac{x+\frac{x^2}{2}+\frac{x^3}{6}+ \ldots}{x} =  1+\frac{x}{2}+\frac{x^2}{6}+ \ldots$$
+	a nyní dosadíme $x=0$ a dostaneme řadu, která triviálně konverguje k 1.
+
+	O výsledku se můžeme přesvědčit i numericky:
+	$$\frac{e^{0,1} - 1}{0,1} = 1,05171$$
+	$$\frac{e^{0,01} - 1}{0,01} = 1,00502$$
+	$$\frac{e^{0,001} - 1}{0,001} = 1,0005$$
+	$$\frac{e^{-0,1} - 1}{-0,1} = 0,951626$$
+	$$\frac{e^{-0,01} - 1}{-0,01} = 0,995017$$
+	$$\frac{e^{-0,001} - 1}{-0,001} = 0,9995$$
+}
+

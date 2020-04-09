@@ -1,0 +1,81 @@
+Nechť $f, g\colon D \rightarrow \mathbb{R}$, ukažte, že následující funkce jsou spojité:
+\begin{enumerate}
+
+	\item  $(f + g)(x) = f(x) + f(x)$
+
+		\solution{
+			Dle definice je funkce $f$ spojitá v bodě $a \in \mathbb{R}$, pokud:
+			$$\lim_{x \rightarrow a} f(x) = f(a)$$
+
+			Nyní už můžeme jednoduše použít větu o aritmetice limit funkcí~\ref{thm:aritmetika_limit_funkci}: 
+			\begin{align*}
+				(f+g)(a) &= f(a) + g(a) \\
+				&= \lim_{x \rightarrow a} f(x) + \lim_{x \rightarrow a} g(x) \tag{spojitost $f, g$} \\
+				&= \lim_{x \rightarrow a} f(x) + g(x) \tag{věta o aritmetice limit funkcí} \\
+				&= \lim_{x \rightarrow a} (f+g)(x)
+			\end{align*}
+		}
+
+	\item  $(f \cdot g)(x) = f(x) g(x)$
+
+		\solution{
+			Obdobně, akorát použijeme součinovou část věty o aritmetice limit funkcí~\ref{thm:aritmetika_limit_funkci}.
+		}
+
+\end{enumerate}
+
+Nechť $g \colon D_g \rightarrow \mathbb{R}$, $f \colon D_f \rightarrow R_f \subseteq D_g$, pak jejich složení je spojitá funkce:
+$$(g \circ f)(x) = g(f(x))$$
+
+\solution{
+	Tady budeme chtít použít větu o limitě složené funkce~\ref{thm:limita_slozene_fce}, využijeme toho, že vnější funkce $g$ je spojitá (tedy první podmínka je splněná).
+
+	\vskip3mm
+	\hrule
+	\vskip3mm
+	Předchozí tvrzení je jen implikace, protože složení dvou nespojitých funkcí může být spojité.
+	Jako příklad definujme funkci $f \colon \mathbb{R} \rightarrow \mathbb{R}$, která není spojitá, ale složení sama se sebou je spojitá funkce:
+	$$f(x) =
+	\begin{cases}
+		1 & \text{pokud } x \in \mathbb{Q} \\
+		0 & \text{pokud } x \in \mathbb{R} \setminus \mathbb{Q}
+	\end{cases}
+	$$
+	Pak ale funkce $(f\circ f)(x) = f(f(x)) = 1$ neboť výsledek první aplikace $f$ je buď jedna nebo nula (obojí je racionální číslo).
+	To že $f$ není spojitá si rozmyslete sami.
+
+	Obdobně poznamenejme, že i součet nespojitých funkcí může být spojitá funkce (například předchozí funkce plus její negace).
+	Sami vymyslete příklad dvou nespojitých funkcí, jejichž součin je spojitý.
+	\vskip3mm
+	\hrule
+	\vskip3mm
+}
+
+S pomocí předchozího dokažte, že následující funkce jsou spojité:
+
+\begin{enumerate}
+
+	\item  $\sin(x) \sqrt{x} - 28 \ln(x)$
+
+		\solution{
+			Definiční obor funkce $\sin(x)$ jsou všechna reálná čísla.
+			Definiční obor funkce $\sqrt{x}$ jsou všechna nezáporná reálná čísla.
+			Definiční obor funkce $\ln(x)$ jsou všechna kladná reálná čísla.
+			Definiční obor celé funkce jsou tedy všechna kladná reálná čísla.
+
+			Konstanta $-28$ je spojitá funkce.
+			Zbytek je součet dvou součinů spojitých funkcí.
+		}
+
+	\item  $e^{\sin(\ln(x))}$
+
+		\solution{
+			Exponenciála i $\sin(x)$ jsou definované pro všechna reálná čísla.
+			Funkce $\ln(x)$ je definovaná jen pro kladná reálná čísla.
+			Definiční obor celé funkce jsou tedy všechna kladná reálná čísla.
+
+			Složení spojitých funkcí je spojitá funkce (a tady máme složení spojité funkce a složení dvou spojitých funkcí).
+		}
+
+\end{enumerate}
+

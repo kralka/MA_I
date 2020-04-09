@@ -1,0 +1,19 @@
+\begin{theorem}[Limita složené funkce]
+	Nechť $A, B, C \in \mathbb{R}^*$,
+	nechť $g(x)$ je funkce splňující
+	$$\lim_{x \rightarrow A} g(x) = B,$$ 
+	a $f(x)$ je funkce splňující
+	$$\lim_{x \rightarrow B} f(x) = C.$$ 
+	Navíc nechť je splněna aspoň jedna z následujících podmínek:
+	\begin{itemize}
+
+		\item[\textbf{P1}]  Funkce $f(x)$ je spojitá v $B$ (tedy $f(B) = \underset{x \rightarrow B}{\lim} f(x) = C)$.
+		
+		\item[\textbf{P2}]  Na nějakém prstencovém okolí $P(A, \eta)$ funkce $g(x)$ nenabývá hodnotu $B$, tj. $B \not\in g(P(A, \eta))$.
+
+	\end{itemize}
+	Pak
+	$$\lim_{x \rightarrow A} f(g(x)) = C.$$
+	\label{thm:limita_slozene_fce}
+\end{theorem}
+
