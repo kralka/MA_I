@@ -1,0 +1,23 @@
+Spočtěte limitu posloupnosti zadané $a_1 = 1, a_{n+1} = \frac{a_n^2}{4}+1$.
+
+\solution{
+	Je velice důležité ukázat, že ta posloupnost skutečně má limitu.
+	Viz následující \uv{odstrašující} příklad:
+
+	Mějme posloupnost zadanou: $a_1 = 1$, $a_{n+1} = 3 - a_n$.
+	Tedy se jedná o posloupnost
+	$$1, 2, 1, 2, 1, 2, \ldots,$$
+	která zjevně nemá limitu.
+
+	Co se stane, když předpokládáme, že limitu má?
+	Pak odvodíme, že:
+	\begin{align*}
+		A &= \lim_{n \rightarrow \infty} a_n \\
+		&= \lim_{n \rightarrow \infty} a_{n+1} \tag{limita podposloupnosti je ta samá} \\
+		&= \lim_{n \rightarrow \infty} 3 - a_n \tag{VOAL~\ref{thm:veta_o_aritmetice_limit}} \\
+		&=  3 - \lim_{n \rightarrow \infty} a_n \\
+		&=  3 - A 
+	\end{align*}
+	tedy $A = \frac{3}{2}$, což vypadá jako dobrý výsledek, ale jen do té doby, než si uvědomíme, že ta limita nemá existovat.
+}
+

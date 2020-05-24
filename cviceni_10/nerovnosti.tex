@@ -1,0 +1,41 @@
+Dokažte následující užitečné odhady:
+
+\begin{enumerate}
+
+	\item  $\forall x \in \mathbb{R} \colon e^x \geq 1 + x$
+
+		\solution{
+			Mohli bychom se kouknout na Taylorovu řadu a něco z ní zkusit vykoukat.
+			Ale pro záporná $x$ to spolu s lichými mocninami není tak zřejmé.
+			Pravděpodobně bychom chtěli použít (například) Lagrangeův tvar zbytku na to, že zbytek je kladný.
+
+			Nebo můžeme zkusit jinak.
+			Pro $x = 0$ platí rovnost $1 = e^0 = 1 + 0$.
+
+			Zkusme dokázat ekvivalentní tvrzení a to že $e^x - (1+x) \geq 0$.
+			\begin{itemize}
+
+				\item  Můžeme se kouknout na derivaci: $(e^x - (1+x))' = e^x - 1$.
+
+				\item  Derivace všude existuje a je nulová jen v $x = 0$.
+
+				\item  Druhá derivace v nule je $(e^x - (1+x))'' = e^x = 1$, tedy funkce je v nule konvexní.
+
+				\item  V nule je tedy globální minimum $e^x - (1+x)$, tudíž všude jinde je aspoň tolik.
+
+				\item  Ekvivalentně jsme mohli říct, že první derivace $(e^x - (1+x))' = e^x - 1$ na intervalu $(-\infty, 0]$ je záporná a na intervalu $[0, \infty)$ je kladná.
+					Tedy původní funkce $e^x - (1+x)$ napřed klesá a pak roste a v nule má minimum.
+
+			\end{itemize}
+
+			Spoustu dalších hezkých důkazů najdete tady: \url{https://math.stackexchange.com/questions/504663/simplest-or-nicest-proof-that-1x-le-ex}
+		}
+	
+	\item  $\forall x \in (-1, \infty) \colon \ln(x+1) \leq x$
+
+	\item  $\forall x \in (-1, \infty) \colon 1+x \geq e^{\frac{x}{1+x}}$ nebo ekvivalentně $\forall x \in (-1, \infty) \colon \ln(1+x) \geq \frac{x}{x+1}$
+
+	\item  $\forall x \geq 0 \colon \sin(x) \leq x$
+
+\end{enumerate}
+

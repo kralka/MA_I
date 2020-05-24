@@ -1,0 +1,47 @@
+Vyřešte následující limity (poctivě rozepište a vždy napište, kterou větu z přednášky používáte):
+\begin{enumerate}
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \left( \sqrt{n+1} - \sqrt{n - 5} \right)$
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \left( \sqrt{n+1} - \sqrt{n - 5} \right) \sqrt{n}$
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \frac{(-1)^{n} \sin(n)}{n}$
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \frac{n!}{n^n}$
+
+		\solution{
+			Dolní odhad je jasný, posloupnost je nezáporná.
+			Tedy můžeme použít větu o dvou policajtech.
+
+			Pro horní odhad $0 \leq \frac{n!}{n^n} = \frac{1}{n} \cdot \frac{2}{n} \cdot \ldots \cdot \frac{n-1}{n} \cdot \frac{n-1}{n} \leq
+			\frac{1}{n} \cdot 1 \cdot \ldots \cdot 1 \cdot 1 = \frac{1}{n}$ a posloupnost konverguje k $0$.
+
+			Dalo by se také napsat:
+
+			$$
+				\lim_{n \rightarrow \infty} \frac{n!}{n^n}
+				= \lim_{n \rightarrow \infty} \left(  \frac{1}{n} \frac{n!}{n^{n-1}} \right)
+				= 0
+			$$
+
+			První rovnost je jen vytknutí, druhá rovnost je pomocí VOSON věty o součinu omezené a funkce jdoucí k nule.
+			Můžeme to použít, protože $0 \leq \frac{n!}{n^{n-1}} = \frac{2 \cdot 3 \cdot \ldots \cdot n}{n \cdot n \cdot \ldots \cdot n} \leq 1$.
+		}
+
+	\item  $\underset{n\rightarrow\infty}{\lim} \frac{n^3}{3^n}$
+
+		\solution{
+			Posloupnost je nezáporná tedy můžeme použít větu o dvou policajtech.
+
+			Například pomocí matematické indukce můžeme dokázat, že pro $n \geq 10$ platí $n^3 \leq 2^n$.
+
+			Pak můžeme psát:
+			$$
+			0 \leq \lim_{n \rightarrow \infty} \frac{n^3}{3^n} \leq \lim_{n \rightarrow \infty} \frac{2^n}{3^n} = \lim_{n \rightarrow \infty} \left(\frac{2}{3}\right)^n = 0
+			$$
+
+			Ekvivalentně bychom mohli použít podílové kritérium pro $q = 2/3$ (Věta~\ref{thm:podilove_kriterium_o_konvergenci_k_nule}).
+		}
+
+\end{enumerate}
+

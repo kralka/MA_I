@@ -1,0 +1,29 @@
+\begin{theorem}
+	Nechť $F$ je primitivní funkce k $f$
+	a nechť $G$ je primitivní funkce k funkci $g$
+	na nějakém intervalu $I$.
+	Nechť $\alpha, \beta \in \mathbb{R}$ jsou dvě čísla.
+	Pak:
+	$$\int \alpha f(x) + \beta g(x) \dx = \alpha F(x) + \beta G(x)$$
+	\label{thm:integral_linearni_kombinace}
+\end{theorem}
+
+\begin{theorem}[O substituci]
+	Mějme funkce
+	$$\varphi \colon (\alpha, \beta) \rightarrow (a, b)$$
+	$$f \colon (a, b) \rightarrow \mathbb{R}$$
+	přičemž $\varphi$ má na $(\alpha, \beta)$ vlastní derivaci.
+
+	Nechť $F \colon (a, b) \rightarrow \mathbb{R}$ je primitivní funkcí k $f$ na intervalu $(a, b)$.
+	Pak na intervalu $(\alpha, \beta)$ platí, že
+	$$\int f(\varphi(t)) \varphi'(t) \dt = F(\varphi(t)) + c$$
+	\label{thm:integral_veta_o_substituci}
+\end{theorem}
+
+\begin{theorem}[Integrace per partes]
+	Nechť jsou funkce $f, g$ spojité na intervalu $(a, b)$ a funkce $F, G$ jsou k nim na $(a, b)$ primitivní.
+	Potom i funkce $Fg$, $fG$ mají na intervalu $(a, b)$ primitivní funkci a tamtéž platí identita:
+	$$\int f(x) G(x) \dx + \int F(x) g(x) \dx = F(x) G(x) + c$$
+	\label{thm:integrace_per_partes}
+\end{theorem}
+

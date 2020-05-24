@@ -1,0 +1,353 @@
+\subsection{Problém, který budeme řešit}
+
+Naše neuronka bude řešit klasický problém, z daného obrázku (28 krát 28 pixelů, 256 odstínů šedé) budeme chtít určit, která ručně psaná číslice je na něm napsaná.
+
+Data si můžeme stáhnout z \url{http://yann.lecun.com/exdb/mnist/} kde máme popis formátu dat a některé známé metody strojového učení a jejich výsledky.
+My se nebudeme snažit dosáhnout co nejlepšího výsledku (ale dostaneme celkem dobrý výsledek).
+
+Data jsou rozdělena do 60000 obrázků a příslušných 60000 labelů (správných číslic) na trénování a 10000 obrázků a labelů na testování.
+To je důležité, nakonec chceme zjistit, jak dobře naše neuronka odpovídá na datech, která ještě před tím nikdy neviděla (nechceme memorizovat, ale generalizovat naučené).
+
+\subsection{Struktura neuronové sítě}
+
+\paragraph{Vstup}
+Vstupem bude obrázek $28 \times 28$ pixelů.
+Pro lepší manipulaci si ho přeuspořádáme do vektoru $x \in \mathbb{R}^{784}$ (například po jednotlivých řádcích).
+
+\paragraph{Výstup}
+Výstupem by intuitivně měla být ta číslice, která je na obrázku na vstupu.
+Ale co když nebude jasné, jestli na vstupu je jednička nebo sedmička (ručně psané se mohou plést).
+Asi bychom nechtěli, aby síť vystoupila \uv{něco mezi}, tedy třeba čtyřku.
+Proto bude síť vystupovat pravděpodobnostní distribuci $y \in \mathbb{R}^{10}$ (kde $0 \leq y_i \leq 1$ a navíc $\sum_{i = 0}^{9} y_i = 1$).
+Interpretujeme to tak, že na obrázku je nula s pravděpodobností $y_0$, na obrázku je jednička s pravděpodobností $y_1$, \ldots, devítka s pravděpodobností $y_9$.
+Pokud chceme výsledek jedno číslo, tak zvolíme ten index, který má největší pravděpodobnost (argmax).
+
+Často se nám hodí \uv{zmenšit} velká čísla na malá (nebudeme mít chyby způsobené tím, že některé číslo bude příliš velké).
+Dále pak potřebujeme nějakou nelinearitu (afinní zobrazení nejsou dostatečně obecná).
+Na to se hodí následující funkce, které se říká sigmoid:
+$$\sigma(x) = \frac{1}{1 + e^{-x}}$$
+\todo{obrázek sigmoid}
+
+Vstup ještě můžeme \uv{zmáčknout} jednoduše tím, že vydělíme 255.
+
+Jak tedy vypadá naše síť?
+
+\begin{itemize}
+
+  \item  Reprezentace vstupního obrázku:
+    $$x \in \mathbb{R}^{784}$$
+
+  \item  První afinní funkce:
+    $$z^{(1)} = W^{(1)} x + b^{(1)} \in \mathbb{R}^{100}$$
+    kde indexujeme nahoře, protože dolní indexy se nám budou hodit, tedy $W^{(1)} \in \mathbb{R}^{100 \times 784}$ je jen obyčejná matice a $b^{(1)} \in \mathbb{R}^{100}$ je vektor.
+
+  \item  Jedna skrytá vrstva neuronů:
+    $$a^{(1)} = \sigma(z^{(1)}) \in \mathbb{R}^{100}$$
+    kde jen aplikujeme sigmoid na každé číslo vektoru $z^{(1)}$.
+
+  \item  Druhá afinní funkce:
+    $$z^{(2)} = W^{(2)} x + b^{(2)} \in \mathbb{R}^{10}$$
+    kde $W^{(2)} \in \mathbb{R}^{10 \times 100}$ a $b^{(2)} \in \mathbb{R}^{10}$.
+
+  \item  Z výsledku druhé afinní funkce uděláme pravděpodobnostní distribuci pomocí softmax:
+    $$(\hat{y})_i = \frac{e^{z^{(2)}_i}}{ \sum_{i=1}^{10} e^{z^{(2)}_i} }$$
+    Tedy $\hat{y} \in \mathbb{R}^{10}$ je pravděpodobnostní distribuce ($e^x$ je nezáporná, podělíme to součtem).
+
+\end{itemize}
+
+Známe obrázek $x$, známe příslušný 1-hot vektor, který měl vyjít jako $\hat{y}$ (pokud číslice byla tři, mělo vyjít $\hat{y} = (0, 0, 0, 1, 0, 0, 0, 0, 0, 0)^T$).
+Jak ale určíme parametry $W^{(1)}, b^{(1)}, W^{(2)}, b^{(2)}$?
+Můžeme je zvolit náhodně a pak zkusit minimalizovat vzdálenost $\hat{y}$ od skutečného $y$.
+
+Budeme minimalizovat něco, čemu se říká cross-entropy (protože to je zajímavá vzdálenost dvou pravděpodobnostních distribucí a máme rádi teorii informace a Claude Shannon to nevymyslel zbytečně).
+$$L(y, \hat{y}) = -\sum_{i = 1}^{10} y_i \log(\hat{y_i})$$
+
+Výhodou je, že $L(y, \hat{y})$ je jedno reálné číslo, které můžeme minimalizovat.
+
+\subsection{Učení}
+
+Pokud číslo $L(y, \hat{y})$ bereme jako funkci například $W^{(1)}_{1, 1}$ (tj. číslo $W^{(1)}_{1, 1}$ je proměnná, zbytek parametrů jsou konstanty).
+Teď se můžeme ptát, jak moc se změní $L$, když o trošku změníme $W^{(1)}_{1, 1}$.
+Tedy nás zajímá derivace $L$ podle $W^{(1)}_{1, 1}$ tu budeme zapisovat Leibnitzovou notací jako $\frac{dL}{dW^{(1)}_{1, 1}}$.
+
+Protože máme spoustu složených funkcí, budeme využívat poučku o derivaci složené funkce.
+Tvar, na který jsme zvyklí je:
+$$(f(g(x)))' = f'(g(x))g'(x)$$
+v Leibnitzově notaci to bude pak:
+$$\frac{dz}{dx} = \frac{dz}{dy}\frac{dy}{dx}$$
+kde $x$ je proměnná, podle které derivujeme, $y = g(x)$, $z = f(y)$.
+
+No a tohle chceme spočítat pro každý parametr a pak udělat gradient descend.
+
+\subsection{Učení, když bychom měli jen pár parametrů}
+
+Mohli bychom rovnou zkusit odvodit pro každý parametr zvlášť jak ho změnit, ale jednodušší to bude, když budeme vše držet ve vektorech a maticích.
+
+Představme si, že vstupní obrázek má jen dva pixely, výstup jsou jen dvě třídy (tedy pravděpodobnost $p, 1-p$) a vnitřní vrstva je taky dva neurony.
+Postupně odvodíme derivace.
+
+\begin{itemize}
+
+  \item  Reprezentace vstupního obrázku:
+    $$x =
+    \begin{pmatrix}
+      x_1 \\
+      x_2
+    \end{pmatrix}
+    \in \mathbb{R}^{2}$$
+
+  \item  První afinní funkce:
+    $$z^{(1)} =
+    \begin{pmatrix}
+      z^{(1)}_1 \\
+      z^{(1)}_2
+    \end{pmatrix}
+    = W^{(1)} x + b^{(1)} =
+    \begin{pmatrix}
+      W^{(1)}_{1, 1} & W^{(1)}_{1, 2} \\
+      W^{(1)}_{2, 1} & W^{(1)}_{2, 2} 
+    \end{pmatrix}
+    \begin{pmatrix}
+      x_1 \\
+      x_2
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      b^{(1)}_1 \\
+      b^{(1)}_2
+    \end{pmatrix}
+    $$
+
+  \item  Jedna skrytá vrstva neuronů:
+    $$a^{(1)} = \sigma(z^{(1)}) =
+    \begin{pmatrix}
+      \sigma(z^{(1)}_1) \\
+      \sigma(z^{(1)}_2)
+    \end{pmatrix}
+    \in \mathbb{R}^{2}$$
+
+  \item  Druhá afinní funkce:
+    $$z^{(2)} = W^{(2)} x + b^{(2)} = 
+    \begin{pmatrix}
+      W^{(2)}_{1, 1} & W^{(2)}_{1, 2} \\
+      W^{(2)}_{2, 1} & W^{(2)}_{2, 2} 
+    \end{pmatrix}
+    \begin{pmatrix}
+      a^{(1)}_1 \\
+      a^{(1)}_2
+    \end{pmatrix}
+    +
+    \begin{pmatrix}
+      b^{(2)}_1 \\
+      b^{(2)}_2
+    \end{pmatrix}
+    \in \mathbb{R}^{2}$$
+
+  \item  Z výsledku druhé afinní funkce uděláme pravděpodobnostní distribuci pomocí softmax:
+    $$(\hat{y})_i = 
+    \begin{pmatrix}
+     \frac{e^{z^{(2)}_1}}{ \sum_{i=1}^{2} e^{z^{(2)}_i} } \\
+     \frac{e^{z^{(2)}_2}}{ \sum_{i=1}^{2} e^{z^{(2)}_i} }
+    \end{pmatrix}
+    \in \mathbb{R}^2
+    $$
+
+  \item  Chceme minimalizovat ztrátu:
+    $$L(\hat{y}, y) =
+    -y_1 \log(\hat{y_1}) - y_2 \log(\hat{y_2})
+    \in \mathbb{R}
+    $$
+
+\end{itemize}
+
+Připomeňme, že $x, y$ je obrázek a daný label, tedy čísla, která známe.
+
+\subsubsection{Derivování a skládání do matic a vektorů}
+
+Vektorový kalkulus sice ještě neznáme, ale nebude tak těžké ho odvodit.
+Pro řetízkové pravidlo bychom chtěli vědět, jak moc máme pohnout vektor
+$
+\begin{pmatrix}
+  z^{(2)}_1 \\
+  z^{(2)}_2
+\end{pmatrix}
+$
+abychom zmenšili ztrátu $L$.
+
+\begin{itemize}
+
+  \item  Pro řetízkové pravidlo chceme \uv{derivaci $L$ podle $z^{(2)}$}.
+    Tedy chceme spočítat
+    $
+    \begin{pmatrix}
+      \frac{dL}{d z^{(2)}_1} \\
+      \frac{dL}{z^{(2)}_2}
+    \end{pmatrix}
+    $
+    \begin{align*}
+    \begin{pmatrix}
+      \frac{dL}{d z^{(2)}_1} \\
+      \frac{dL}{z^{(2)}_2}
+    \end{pmatrix}
+    &=
+    \begin{pmatrix}
+      \frac{dL}{d\hat{y_1}}\frac{d\hat{y_1}}{d z^{(2)}_1} + \frac{dL}{d\hat{y_2}}\frac{d\hat{y_2}}{d z^{(2)}_1} \\
+      \frac{dL}{d\hat{y_1}}\frac{d\hat{y_1}}{z^{(2)}_2} + \frac{dL}{d\hat{y_2}}\frac{d\hat{y_2}}{z^{(2)}_2}
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+      -\frac{y_1}{\hat{y_1}} \left( \hat{y_1}(1 - \hat{y_1}) \right) + \frac{y_2}{\hat{y_2}} \left( - \hat{y_1}\hat{y_2} \right) \\
+      -\frac{y_1}{\hat{y_1}} \left( - \hat{y_1}\hat{y_2} \right) + \frac{y_2}{\hat{y_2}} \left( \hat{y_2}(1 - \hat{y_2}) \right)
+    \end{pmatrix} \\
+    &=
+    \begin{pmatrix}
+      \hat{y_1}(y_1 + y_2) - y_1 \\
+      \hat{y_2}(y_1 + y_2) - y_2 
+    \end{pmatrix} \tag{$y_1 + y_2 = 1$ prst. distrib.} \\
+    &=
+    \begin{pmatrix}
+      \hat{y_1} - y_1 \\
+      \hat{y_2} - y_2 
+    \end{pmatrix}
+    \end{align*}
+
+  \item  Ale $z^{(2)}$ není parametr, ten nemůžu změnit, ale $W^{(2)}$ můžu změnit pomocí gradient descend, tedy chci \uv{derivaci $L$ podle $W^{(2)}$}.
+    Pomocí řetízkového pravidla tedy spočítám gradient.
+    V následujícím píšu $w_{i,j}$ místo $w^{(2)}_{i,j}$ a $z_i$ místo $z^{(2)}_i$ a $a_i$ místo $a^{(1)}_i$, abych tam neměl tolik indexů.
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{dw_{1,1}}  & \frac{dL}{dw_{1,2}} \\
+        \frac{dL}{dw_{2,1}}  & \frac{dL}{dw_{2,2}}
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{dz_1}\frac{dz_1}{dw_{1,1}}  & \frac{dL}{dz_1}\frac{dz_1}{dw_{1,2}} \\
+        \frac{dL}{dz_2}\frac{dz_2}{dw_{2,1}}  & \frac{dL}{dz_2}\frac{dz_2}{dw_{2,2}}
+      \end{pmatrix} \tag{$z_2$ není funkcí $w_{1,2}$} \\
+      &=
+      \begin{pmatrix}
+        (\hat{y_1} - y_1)a_1 & (\hat{y_1} - y_1) a_2 \\
+        (\hat{y_2} - y_2)a_1 & (\hat{y_2} - y_2) a_2
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        \hat{y_1} - y_1 \\
+        \hat{y_2} - y_2 
+      \end{pmatrix}
+      \begin{pmatrix}
+        a_1 & a_2
+      \end{pmatrix}
+    \end{align*}
+
+  \item  Další parametr, který můžeme měnit dle gradient descend je $b^{(2)}$ opět vynechávám horní indexy.
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{db_1} \\
+        \frac{dL}{db_2} 
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{dz_1}\frac{dz_1}{db_1} \\
+        \frac{dL}{dz_2}\frac{dz_2}{db_2} 
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        \hat{y_1} - y_1 \\
+        \hat{y_2} - y_2 
+      \end{pmatrix} 
+    \end{align*}
+
+  \item  Opět výpočet čistě pro řetízkové pravidlo \uv{derivace $L$ podle $a^{(1)}$}.
+    Pozor na to, že $L$ závisí na $z^{(2)}_1$ i $z^{(2)}_2$ a oboje závisí na $a^{(1)}_1$, tedy použijeme linearitu
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{da_1} \\
+        \frac{dL}{da_2}
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{dz1}\frac{dz_1}{da_1} + \frac{dL}{dz_2}\frac{dz_2}{da_1} \\
+        \frac{dL}{dz1}\frac{dz_1}{da_2} + \frac{dL}{dz_2}\frac{dz_2}{da_2}
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        (\hat{y_1} - y_1)w_{1,1} + (\hat{y_2} - y_2)w_{2,1} \\
+        (\hat{y_1} - y_1)w_{1,2} + (\hat{y_2} - y_2)w_{2,2}
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        w_{1,1} & w_{2,1} \\
+        w_{1,2} & w_{2,2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        \hat{y_1} - y_1 \\
+        \hat{y_2} - y_2 
+      \end{pmatrix} \\
+      &=
+      (W^{(1)})^T
+      \begin{pmatrix}
+        \hat{y_1} - y_1 \\
+        \hat{y_2} - y_2 
+      \end{pmatrix}
+    \end{align*}
+
+  \item  Teď spočítáme podle $z^{(1)}$, na to napřed potřebujeme zderivovat sigmoid:
+    $$\left( \frac{1}{1+e^{-x}} \right)' = \frac{e^{-x}}{1 + e^{-x}} = \sigma(x)(1-\sigma(x))$$
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{dz_1} \\
+        \frac{dL}{dz_2}
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{da_1}\frac{da_1}{dz_1} \\
+        \frac{dL}{da_2}\frac{da_2}{dz_2}
+      \end{pmatrix} \\
+      &=
+      \begin{pmatrix}
+        \frac{dL}{da_1} \sigma(z_1)(1-\sigma(z_1)) \\
+        \frac{dL}{da_2} \sigma(z_2)(1-\sigma(z_2))
+      \end{pmatrix}
+    \end{align*}
+    Ten poslední výraz by se dal zapsat pomocí Hadamardova násobení matic (tam násobíme jen příslušné prvky).
+
+  \item  Analogicky spočítáme gradient pro $W^{(1)}$:
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{dw_{1,1}} & \frac{dL}{dw_{1,2}} \\
+        \frac{dL}{dw_{2,1}} & \frac{dL}{dw_{2,2}} \\
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{dz_1} \\
+        \frac{dL}{dz_2}
+      \end{pmatrix}
+      \begin{pmatrix}
+        x_1 & x_2
+      \end{pmatrix}
+    \end{align*}
+
+  \item  Analogicky spočítáme gradient pro $b^{(1)}$:
+    \begin{align*}
+      \begin{pmatrix}
+        \frac{dL}{db_1} \\
+        \frac{dL}{db_2}
+      \end{pmatrix}
+      &=
+      \begin{pmatrix}
+        \frac{dL}{dz_1} \\
+        \frac{dL}{dz_2}
+      \end{pmatrix}
+    \end{align*}
+
+\end{itemize}
+
+Příslušné gradienty můžeme odčítat v gradient descend.
+
+\subsection{Kód}
+
+Jednoduchý python kód.
+Používáme jen numpy, vynechali jsme čtení vstupu a vyhodnocování přesnosti.
+
+\inputminted{python}{bonus/nn_jen_uceni.py}
+

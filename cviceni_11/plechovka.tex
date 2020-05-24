@@ -1,0 +1,33 @@
+Víte, že plechovka má tvar válce a má mít objem jeden litr.
+Chcete použít co nejméně plechu.
+Jaký nejmenší povrch může taková plechovka mít?
+
+\solution{
+	\begin{itemize}
+
+		\item  \textbf{Zavedeme značení:}
+			\begin{itemize}
+				\item  $v$ je výška
+				\item  $r$ je poloměr podstavy
+				\item  $P$ je plocha -- dvě podstavy a plášť: $P = 2\pi r^2 + 2\pi r v$
+				\item  $V = 1$ je objem, který máme zadaný, ze střední víme, že $V = \pi r^2 v$.
+			\end{itemize}
+
+		\item  \textbf{Vyjádříme výšku jako funkci poloměru} (nebo naopak).
+			$$v = \frac{1}{\pi r^2}$$
+			kde $v, r \in [0, \infty)$.
+
+		\item  \textbf{Minimalizujeme plochu jako funkci poloměru}
+			$$P(r) = 2 \pi r^2 + 2 \pi r \frac{1}{\pi r^2}$$
+
+			Derivujeme a najdeme nulové body derivace:
+			$$P'(r) = 4 \pi r - \frac{2}{r^2} = 0$$
+			$$r = \sqrt[3]{\frac{1}{2\pi}}$$
+
+		\item  \textbf{Vyšetříme krajní body a nulové body derivace}
+			Pokud se poloměr blíží nule nebo nekonečnu, pak se plocha také blíží nekonečnu.
+			Minimum tedy nastává pro $v = 2r$ (takových plechovek moc není).
+
+	\end{itemize}
+}
+

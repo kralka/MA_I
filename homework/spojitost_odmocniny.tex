@@ -1,0 +1,25 @@
+Dokažte dle definice, že $\sqrt{x}$ je spojitá v každém $a \in (0, \infty)$.
+Bez důkazu můžete používat, že odmocnina je na $(0, \infty)$ kladná a rostoucí.
+
+\textit{(Motivace tohoto příkladu: spolu s větou o limitě složené funkce získáváte silný nástroj, jak počítat s limitami, kde jsou odmocniny.
+Tohle rozepisovat nemusíte.)}
+
+\solution{
+	Je celkem jedno, jak jsem vyčetl $\delta$ (i kdyby to bylo ze starých aztéckých spisů), ale měl bych vyzkoušet, že co tvrdím je pravdivé.
+	Pokud zvolíme $\delta = \varepsilon^2$, pak
+	$x \in P(a, \delta)$, tedy $x \neq a$ a zároveň $|x - a| < \delta = \varepsilon^2$.
+
+	\begin{align*}
+		0 &< 2 \varepsilon  \sqrt{a} \tag{ $\varepsilon > 0$, $\sqrt{a} > 0$} \\
+		a + \varepsilon^2 &< \varepsilon^2 + 2 \varepsilon \sqrt{a} + a \tag{obě strany jsou kladné, můžu odmocnit a nezměnit znaménko nerovnosti} \\
+		\sqrt{a + \varepsilon^2} &< \varepsilon + \sqrt{a} \\
+		\sqrt{a + \varepsilon^2} - \sqrt{a} &< \varepsilon \\
+		\sqrt{x} - \sqrt{a} &< \sqrt{a + \varepsilon^2} - \sqrt{a} < \varepsilon
+	\end{align*}
+	Poslední řádek jsme dostali z toho, že $|x-a| < \delta$ a toho, že odmocnina je rostoucí funkce.
+
+	Ještě bychom ale měli zajistit, aby $x \geq 0$ (jinak odmocnina není definovaná).
+	Tím, že jsme si vyzkoušeli, že naše tvrzení je pravdivé jsme dostali správnou volbu $\delta$:
+	$$\delta = \min(\varepsilon^2, a)$$
+}
+

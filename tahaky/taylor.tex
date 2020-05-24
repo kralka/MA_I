@@ -1,0 +1,14 @@
+\begin{definition}[Taylorův polynom]
+	Nechť $a \in \mathbb{R}$, $n \in \mathbb{N}$, $f$ je funkce definovaná na nějakém okolí $a$, která má v $a$ vlastní $n$-tou derivaci $f^{(n)}(a) \in \mathbb{R}$.
+	Taylorův polynom řádu $n$ v bodě $a$ je následující polynom:
+	$$T_n^{f,a}(x) = f(a) + \sum_{i = 1}^{n} \frac{f^{(i)}(a)}{i!} (x - a)^{i}$$
+	\label{def:tayloruv_polynom}
+\end{definition}
+
+\begin{definition}[Taylorova řada]
+	Nechť funkce $f$ definovaná na nějakém okolí $a \in \mathbb{R}$ má vlastní derivaci všech řádů v $a$.
+	Pak Taylorovou řadou v $x \in \mathbb{R}$ rozumíme následující řadu:
+	$$T^{f,a}(x) = f(a) + \sum_{n = 1}^{\infty} \frac{f^{(n)}(a)}{n!} (x - a)^{n}$$
+	\label{def:taylorova_rada}
+\end{definition}
+

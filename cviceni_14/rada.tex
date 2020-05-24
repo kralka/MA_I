@@ -1,0 +1,42 @@
+Vyšetřete konvergenci nebo divergenci řad (pokud konvergují, tak co možno nejpřesněji odhadněte):
+\begin{enumerate}
+
+	\item  $$\sum_{n = 1}^{\infty} \ln\left( 1 + \frac{1}{n} \right)$$
+
+		\solution{
+			Napřed pomocí per partes spočítáme neurčitý integrál:
+			\begin{align*}
+				\int \ln\left( 1 + \frac{1}{x} \right) \dx &= x \ln\left( 1 + \frac{1}{x} \right) - \int x \frac{1}{1 + \frac{1}{x}} \left( - \frac{1}{x^2} \right) \dx \\
+				&= x \ln\left( 1 + \frac{1}{x} \right) + \int \frac{1}{x + 1} \dx \\
+				&= x \ln\left( 1 + \frac{1}{x} \right) + \ln(x + 1) + c
+			\end{align*}
+
+			Vidíme tedy, že podle integrálního kritéria konvergence (Věta~\ref{thm:integralni_kriterium_konvergence}) řada nekonverguje, protože
+			$$\lim_{b \rightarrow \infty} \int_{1}^{b} \ln\left( 1 + \frac{1}{x} \right) \dx = + \infty$$
+		}
+
+	\item  $$\sum_{n = 1}^{\infty} \frac{1}{n^2}$$
+
+		\solution{
+			Dle tvrzení z přednášky řada konverguje (triviální použití integrálního kritéria konvergence -- Věta~\ref{thm:integralni_kriterium_konvergence}).
+
+			Zkusme spočítat nějaký odhad, na co se daná řada sečte.
+			Funkce je nerostoucí (tedy prohazujeme nerovnosti ve Větě~\ref{thm:odhad_souctu_integralem}).
+			$$\sum_{k = 2}^{n} f(k) \leq \int_{1}^{n} f(x) \dx \leq \sum_{k = 1}^{n-1} f(k)$$
+
+			Tedy odhadujeme $n$-tý částečný součet odhadujeme jako
+			$$\left( \sum_{k = 1}^{n} \frac{1}{n^2} \right) - 1 \leq \int_{1}^{n} \frac{1}{x^2} \dx \leq \sum_{k = 1}^{n} \frac{1}{n^2} = S_n$$
+			$$S_n - 1 \leq \int_{1}^{n} \frac{1}{x^2} \dx \leq S_n$$
+			(všimněte si, že čím menší je první člen, tím přesnější je náš odhad).
+
+			Dostáváme tedy
+			$$S_n - 1 \leq \left[ -\frac{1}{x} \right]_{1}^{n} \leq S_n$$
+			$$S_n - 1 \leq 1 - \frac{1}{n} \leq S_n$$
+
+			V limitě dostáváme, že $S_n \in [1, 2]$.
+
+			Poznamenejme, že skutečný součet této řady je roven $\frac{\pi^2}{6} \doteq 1.6449$.
+		}
+
+\end{enumerate}
+

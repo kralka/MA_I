@@ -1,0 +1,23 @@
+Spočítejte
+$\lim_{n \rightarrow \infty} \left( \sqrt[n]{n^3 + \log_2(n) \cdot 5^n} \right)$
+		
+\solution{
+	\begin{align*}
+		5 &= \lim_{n \rightarrow \infty} \sqrt[n]{5^n} \\
+		&\leq \lim_{n \rightarrow \infty} \left( \sqrt[n]{n^3 + \log_2(n) \cdot 5^n} \right) \\
+		&\leq \lim_{n \rightarrow \infty} \left( \sqrt[n]{2n^3 \cdot 5^n} \right) \\
+		&=
+			5
+			\left( \lim_{n \rightarrow \infty} \sqrt[n]{2} \right)
+			\left(\lim_{n \rightarrow \infty} \sqrt[n]{n} \right)
+			\left(\lim_{n \rightarrow \infty} \sqrt[n]{n} \right)
+			\left(\lim_{n \rightarrow \infty} \sqrt[n]{n} \right) \\
+		&= 5
+	\end{align*}
+
+	Druhá nerovnost plyne z toho, že pro $n \in \mathbb{N}$ platí $\log_2(n) \leq n^3$.
+	Předposlední rovnost je věta o aritmetice limit.
+	Poslední rovnost jsou známé limity ze cvičení.
+	Tedy dle věty o dvou policajtech výsledná limita je 5.
+}
+

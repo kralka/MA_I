@@ -1,0 +1,69 @@
+Najděte primitivní funkci:
+\begin{enumerate}
+
+	\item $\int \frac{1}{x+\alpha} \dx$
+
+		\solution{
+			Jak dobře víme, funkce $\frac{1}{x}$ má primitivní funkci $\ln |x|$ (jinak řečeno derivace logaritmu absolutní hodnoty je hledaný zlomek
+			$$\left( \ln(|x|) \right)' = \frac{1}{x}$$
+			na $\mathbb{R} \setminus \left\{ 0 \right\}$).
+				
+			Použijeme větu o substituci (Věta~\ref{thm:integral_veta_o_substituci}), kde vnější funkce je logaritmus a vnitřní funkce $x + \alpha$.
+			Položme
+			\begin{align*}
+				t &= x + \alpha \\
+				\dt &= \dx
+			\end{align*}
+			Kde $x \neq - \alpha$, tedy v původním $t \neq 0$ (protože $\ln(|t|)$ není v nule definován).
+
+			Což můžeme brát jako zkrácený zápis faktu, že
+			$$\int f(\varphi(x)) \varphi'(x) \dx = F(\varphi(x)) + c$$
+			kde nahradíme
+			\begin{align*}
+				t &= \varphi(x) \\
+				\dt &= \varphi'(x) \dx
+			\end{align*}
+			v předchozím výrazu tedy dostaneme:
+			$$\int f(\varphi(x)) \varphi'(x) \dx = \int f(t) \dt = F(t) + c = F(\varphi(x)) + c$$
+			Předchozí zápis se často používá.
+			Formálně jsme si však tuto změnu nedefinovali, formálně bychom chtěli říct, že používáme větu o substituci.
+			Na druhou stranu je to často používaná \uv{pomůcka.}
+			Speciálně v našem případě jsme použili:
+			\begin{align*}
+				t &= x + \alpha \\
+				\dt &= t' \dx = (x + \alpha)' \dx = \dx
+			\end{align*}
+
+			Tak jako tak dostáváme:
+			$$\int \frac{1}{x+\alpha} \dx = \int \frac{1}{t} \ dt = \ln |t| = \ln |x+\alpha| +C$$
+			na intervalu $(-\infty, -\alpha)$ a dokonce i na intervalu $(-\alpha, \infty)$.
+		}
+
+	\item $\int \frac{1}{(x+\alpha)^2} \dx$
+
+		\solution{
+			Použijeme stejnou substituci
+			\begin{align*}
+				t &= x + \alpha \\
+				\dt &= \dx
+			\end{align*}
+			a dostáváme:
+			$$\int \frac{1}{(x+\alpha)^2} \dx = \int \frac{1}{t^2} \ dt = -\frac{1}{t} = -\frac{1}{x+\alpha} +C$$
+			Na intervalu $(-\infty, -\alpha)$ i na $(-\alpha, \infty)$.
+
+			Pro připomenutí, obecně (pro $k>1$)
+			$$\int \frac{1}{x^k} \dx = -\frac{1}{(k-1)x^{k-1}} +C$$
+			na intervalu $(-\infty, 0)$ i na $(0, \infty)$.
+		}
+
+	\item $\int \frac{1}{x^2+1} \dx$
+
+		\solution{
+			Podíváme se do obsáhlejších tabulek derivací a zjistíme, že
+			$$(\arctan x)' = \frac{1}{x^2 + 1}$$
+
+			Poznamenejme, že tento integrál se velmi často hodí, když rozkládáme na parciální zlomky (viz cvičení na parciální zlomky).
+		}
+
+\end{enumerate}
+

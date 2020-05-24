@@ -23,6 +23,7 @@
 \usepackage{graphicx}
 \usepackage{minted} % python code
 \usepackage{multicol}
+\usepackage{todonotes}
 \usepackage{hyperref}
 \usepackage[all]{hypcap}
 \usepackage[parfill]{parskip}
@@ -35,7 +36,7 @@
 \makeindex
 
 \title{Řešená cvičení z Matematické analýzy I}
-\author{Jaroslav Hančl, Karel Král, Ondřej Pangrác}
+\author{Jaroslav Hančl, Karel Král, Ondřej Pangrác a \url{https://kam.mff.cuni.cz/~sbirka/}}
 \date{\today}
 
 % theory macro
@@ -67,6 +68,12 @@
 
  \vskip 2cm
  \tableofcontents
+
+ \newcommand{\dx}{\ dx}
+ \newcommand{\dt}{\ dt}
+ \newcommand{\ds}{\ ds}
+ \newcommand{\du}{\ du}
+ \newcommand{\dv}{\ dv}
 
  \newcommand{\dif}{\, \mathrm{d}} % put at the beginning of document
  \newcommand{\id}{\, \mathrm{id}} % put at the beginning of document
@@ -108,6 +115,18 @@
  \include*{s7}
 	\section[8. Cvičení]{Cvičení}
  \include*{s8}
+	\section[9. Cvičení]{Cvičení}
+ \include*{s9}
+	\section[10. cvičení]{cvičení}
+ \include*{s10}
+	\section[11. cvičení]{cvičení}
+ \include*{s11}
+	\section[12. cvičení]{cvičení}
+ \include*{s12}
+	\section[13. cvičení]{cvičení}
+ \include*{s13}
+	\section[14. cvičení]{cvičení}
+ \include*{s14}
 
 \chapter{Tahák}
 	\section{Základní vlastnosti funkcí}
@@ -128,17 +147,31 @@
 	\section{Derivace}
 	  \input{tahaky/derivace_definice.tex}
 	  \input{tahaky/derivace.tex}
+	\section{Taylor} \label{sec:taylor}
+	  \input{tahaky/taylor.tex}
+	\section{l'Hospital}
+	  \input{tahaky/lhospital.tex}
+	\section{Integrály}
+	  \input{tahaky/integral.tex}
+	\subsection{Délka křivky, objem a povrch rotačních těles}
+	  \input{tahaky/delky_objemy_povrchy.tex}
+	\subsection{Odhady a řady}
+	  \input{tahaky/odhady_a_rady.tex}
 
 \chapter{Řešení}
 	% solution macro, this prints the solution
 	\renewcommand{\solution}[1]{
-		\emph{Řešení:}
-		#1
+		{\normalfont
+			\textbf{\emph{Řešení:}}
+			#1
+		}
 	}
 	\renewcommand{\exercise}[2]{ % file, label
-		\label{sol:#2}
-		\input{#1}
-		\newpage
+		\textbf{
+			\label{sol:#2}
+			\input{#1}
+			\newpage
+		}
 	}
 	\section[1. Cvičení]{Cvičení}
  \include*{s1}
@@ -156,12 +189,33 @@
  \include*{s7}
 	\section[8. Cvičení]{Cvičení}
  \include*{s8}
+	\section[9. Cvičení]{Cvičení}
+ \include*{s9}
+	\section[10. Cvičení]{Cvičení}
+ \include*{s10}
+	\section[11. cvičení]{cvičení}
+ \include*{s11}
+	\section[12. cvičení]{cvičení}
+ \include*{s12}
+	\section[13. cvičení]{cvičení}
+ \include*{s13}
+	\section[14. cvičení]{cvičení}
+ \include*{s14}
 
 \chapter{Řešení vybraných domácích úkolů}
 
 \begin{enumerate}
-	\item  \exercise{homework/charakterizace_kdy_omezena_nema_limitu.tex}{charakterizace_nema_limitu}
-	%\item  \exercise{homework/rekurentni.tex}{rekurentni}
+	\item  \exercise{homework/charakterizace_kdy_omezena_nema_limitu.tex}{hw_charakterizace_nema_limitu}
+	\item  \exercise{homework/rekurentni.tex}{hw_rekurentni}
+	\item  \exercise{homework/spojitost_odmocniny.tex}{hw_spojitost_odmocniny}
+	\item  \exercise{homework/limity.tex}{hw_limity}
 \end{enumerate}
+
+\chapter{Bonus}
+
+\section{Optimalizace -- gradient descend}
+\input{bonus/gradient_descend.tex}
+\section{Nikdo neočekává, že tohle budete číst (a na cvičení se tomu taky nebudeme věnovat): Jednoduchá neuronka}
+\input{bonus/neuronka.tex}
 
 \end{document}

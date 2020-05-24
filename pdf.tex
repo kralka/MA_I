@@ -1,0 +1,76 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[czech]{babel}
+\usepackage{fontenc}
+\usepackage{fancyhdr} %zahlavi a zapati
+\usepackage{a4wide} % širší stránka
+\usepackage{float} % obrázky na jedno místo
+\usepackage{tikz}
+\usetikzlibrary {positioning}
+\usepackage{tkz-euclide}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows,automata}
+\usepackage{tikz-3dplot}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+%\usepackage[dvips,pdftex]{hyperref}
+
+\author{Karel Král}
+
+% solution macro, this does NOT prints the solution
+\newcommand{\solution}[1]{}
+% just input for the pdf
+\newcommand{\exercise}[2]{
+		\input{#1}
+}
+% theory macro
+\newcommand{\theory}[1]{}
+
+\begin{document}
+% Definitions
+\newtheorem{theorem}{Věta}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Domněnka}
+\newtheorem{observation}[theorem]{Pozorování}
+\newtheorem{corollary}[theorem]{Důsledek}
+\newtheorem*{definition}{Definice}
+%\theoremstyle{definition}\newtheorem*{define}{Definice}
+
+  %% záhlaví vlevo
+	\lhead{Matematická analýza I}
+  % záhlaví uprostřed
+  %\chead{Matematická analýza I}
+  % záhlaví vpravo    
+  \rhead{\url{http://iuuk.mff.cuni.cz/~kralka/}}
+
+ \newcommand{\dx}{\ dx}
+ \newcommand{\dt}{\ dt}
+ \newcommand{\ds}{\ ds}
+ \newcommand{\du}{\ du}
+ \newcommand{\dv}{\ dv}
+
+  \newcommand{\dif}{\, \mathrm{d}} % put at the beginning of document
+  \newcommand{\sgn}{\, \mathrm{sgn}} % put at the beginning of document
+  \newcommand{\med}{\, \mathrm{med}} % put at the beginning of document
+  \newcommand{\conv}{\, \mathrm{conv}} % put at the beginning of document
+  \newcommand{\supp}{\, \mathrm{Supp}} % put at the beginning of document
+  \newcommand{\Ker}{\, \mathrm{Ker}} % put at the beginning of document
+  \renewcommand{\Im}{\, \mathrm{Im}} % put at the beginning of document
+  \newcommand{\R}{\, \mathcal{R}} % put at the beginning of document
+  % nastavíme použití toho stylu
+  \pagestyle{fancy}
+  \pagenumbering{gobble} % bez čísel stránek
+  
+	\lhead{10. domácí úkol} % záhlaví vlevo
+	\input{homework/ukol10}
+
+\end{document}
+

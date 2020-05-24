@@ -1,0 +1,25 @@
+Určete hodnoty gama funkce pro přirozená čísla, tj.
+$$\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} \dt$$
+pro $z \in \mathbb{N}$.
+
+\solution{
+	Určitý integrál, který má jednu (nebo více) mezí nekonečných jsme sice definovali, ale nepočítali.
+	Teď je tedy nejvyšší čas.
+	Pro $a \in \mathbb{R}$ a reálnou funkci $f \colon \mathbb{R} \rightarrow \mathbb{R}$ definujeme
+	$$\int_{a}^{\infty} f(x) \dx = \lim_{b \rightarrow \infty} \int_{a}^{b} f(x) \dx$$
+	Tedy se vlastně neliší oproti naší běžné definici Newtonova integrálu (Definice 11.1 v lecturenotes).
+	Obdobně pokud by obě meze byly nekonečné.
+
+	Použijeme per-partes pro určitý integrál:
+	\begin{align*}
+		\int_{0}^{\infty} t^{z-1} e^{-t} \dt &= \left[ -t^{z-1} e^{-t} \right]_{0}^{\infty} + (z-1) \int_{0}^{\infty} t^{z-2} e^{-t} \dt \\
+		&= 0 + (z-1) \int_{0}^{\infty} t^{z-2} e^{-t} \dt \\
+		&= (z-1) (z-2) \int_{0}^{\infty} t^{z-3} e^{-t} \dt \\
+		&= (z-1)!
+	\end{align*}
+
+	Překvapivě jsme tedy pro $z \in \mathbb{N}$ dostali faktoriál.
+	Jen poznamenejme, že tato Gamma funkce je důležitým rozšířením faktoriálu na komplexní čísla (i když není definovaná pro záporná celá čísla).
+	Uplatnění nachází v pravděpodobnosti, statistice i kombinatorice.
+}
+

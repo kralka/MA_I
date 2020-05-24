@@ -1,0 +1,25 @@
+\begin{theorem}[Délka křivky]
+	Nechť $f \colon [a, b] \rightarrow \mathbb{R}$ má na $[a, b]$ spojitou první derivaci.
+	Pak graf funkce $f$ na intervalu $[a, b]$ má délku:
+	$$\text{délka}\left( \left\{ (x, f(x)) \in \mathbb{R}^2 \mid a \leq x \leq b \right\} \right) = \int_{a}^{b} \sqrt{1 + (f'(x))^2} \dx$$
+	\label{thm:delka_krivky}
+\end{theorem}
+
+\begin{theorem}[Objem rotačního tělesa]
+	Nechť $f \colon [a, b] \rightarrow \mathbb{R}$ je Riemannovsky integrovatelná a nezáporná na $[a, b]$.
+	Pak objem rotačního tělesa vzniklého rotací rovinného útvaru mezi $f$ a osou $x$ okolo osy~$x$
+	$$V = \left\{ \left( x, y, z \right) \mid a \leq x \leq b \wedge \sqrt{y^2 + z^2} \leq f(x) \right\}$$
+	je
+	$$\text{objem}(V) = \pi \int_{a}^{b} f^{2}(t) \dt.$$
+	\label{thm:objem_rotacniho_telesa}
+\end{theorem}
+
+\begin{theorem}[Povrch rotačního tělesa]
+	Nechť $f \colon [a, b] \rightarrow \mathbb{R}$ je Riemannovsky integrovatelná a nezáporná na $[a, b]$.
+	Pak povrch pláště rotačního tělesa vzniklého rotací rovinného útvaru mezi $f$ a osou $x$ okolo osy~$x$
+	$$V = \left\{ \left( x, y, z \right) \mid a \leq x \leq b \wedge \sqrt{y^2 + z^2} \leq f(x) \right\}$$
+	je
+	$$\text{povrch pláště}(V) = 2 \pi \int_{a}^{b} f(t) \sqrt{1 + (f'(t))^2} \dt$$
+	\label{thm:povrch_rotacniho_telesa}
+\end{theorem}
+

@@ -1,0 +1,63 @@
+Najdete k následujícím funkcím jejich primitivní funkce (pro danou $f(x)$ najděte $F(x)$ takovou, že $F'(x) = f(x)$).
+
+\begin{enumerate}
+
+	\item  $f(x) = x^2 + 2x - 3$
+
+		\solution{
+			Uhodneme, že $F(x) = \frac{x^3}{3} + x^2 - 3x + c$ (kde $c \in \mathbb{R}$).
+		}
+
+	\item  $f(x) = e^x - e^{-x}$
+
+		\solution{
+			$F(x) = e^x + e^{-x} + c$
+		}
+
+	\item  $f(x) = \sin(x) + \cos(x)$
+
+		\solution{
+			$F(x) = -\cos(x) + \sin(x) + c$
+		}
+
+	\item  $f(x) = x e^{-x^2}$
+
+		\solution{
+			Vzpomeneme si na derivaci složené funkce $\left( f(g(x)) \right)' = f'(g(x)) g'(x)$.
+			Pokud obě strany integrujeme, dostáváme:
+			$$f(g(x)) = \int \left( f(g(x)) \right)' dx = \int f'(g(x)) g'(x) dx$$
+
+			Chceme tedy chytře uhodnout vnitřní a vnější funkci.
+			Nechť $f'(x) = e^x$ a $g(x) = -x^2$.
+			Pak primitivní funkce k $f'(g(x))g'(x) = e^{-x^2} (-2x)$ je funkce $f(g(x)) = e^{-x^2}$.
+
+			Snadno tedy dopočítáme, že
+			$$\int x e^{-x^2} dx = -\frac{1}{2} e^{-x^2} + c$$
+		}
+
+	\item  $f(x) = x \sin(x)$
+
+		\solution{
+			Vzpomeneme si na pravidlo o derivaci součinu:
+			$$(f(x)g(x))' = f(x) g'(x) + f'(x) g(x).$$
+			Zintegrováním obou stran a převedením dostaneme:
+			$$\int f(x) g'(x) dx = f(x) g(x) - \int f'(x) g(x) dx$$
+			Tomuhle se říká integrace per-partes (po částech).
+
+			$$\int x \sin(x) dx = x (-\cos(x)) - \int -\cos(x) dx = - x \cos(x) + \sin(x) + c$$
+		}
+
+	\item  $f(x) = x e^x$
+
+		\solution{
+			$$ \int x e^x dx = x e^x - \int e^x dx = x e^x - e^x + c = (x-1)e^x + c$$
+		}
+
+	\item  $f(x) = \ln(x)$
+
+		\solution{
+			$$ \int \ln(x) \cdot 1 dx = x \ln(x) - \int 1 dx = x \ln(x) - x + c$$
+		}
+
+\end{enumerate}
+

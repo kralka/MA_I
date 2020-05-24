@@ -1,0 +1,100 @@
+Najděte primitivní funkci:
+\begin{enumerate}
+
+	\item $\int \frac{e^x-e^{-x}}{e^x+e^{-x}} \dx$
+
+		\solution{
+			Zavedeme substituci:
+			\begin{align*}
+				t &= e^x+e^{-x} \\
+				\dt &= e^x-e^{-x} \dx
+			\end{align*}
+			a dostaneme:
+			$$\int \frac{e^x-e^{-x}}{e^x+e^{-x}} \dx = \int \frac{1}{t} \ dt = \ln |t| = \ln (e^x+e^{-x}) +C$$
+		}
+
+	\item  $\int \arctan x \dx$
+
+		\solution{
+			Nejprve per partes
+			$$\begin{array}{rlcrl} f=&\arctan x&\qquad&g'=&1 \\ f'=&\frac{1}{1+x^2}&&g=&x \end{array}$$
+			$$\int \arctan x \dx = x \arctan x - \int \frac{x}{1+x^2} \dx = \ldots$$
+			a teď substituce
+			\begin{eqnarray*}
+			t&=&1+x^2 \\
+			dt&=&2x \dx
+			\end{eqnarray*}
+			\begin{align*}
+			 \int \frac{x}{1+x^2} \dx  &=  \frac{1}{2} \int \frac{2x}{1+x^2} \dx \\
+			 &= \frac{1}{2} \int \frac{1}{t} \ dt \\
+			 &= \frac{1}{2} \ln(t) \\
+			 &= \frac{1}{2} \ln(x^2+1) + C
+			\end{align*}
+
+			Tedy dostáváme:
+			$$\int \arctan x \dx = x \arctan x - \frac{1}{2} \ln(x^2+1) + C$$
+		}
+
+	\item $\int \cos^2(x) \dx$
+
+		\solution{
+			Nejprve per partes
+			\begin{align*}
+				f(x) &= \cos(x) \\
+				F(x) &= \sin(x) \\
+				g(x) &= -\sin(x) \\
+				G(x) &= \cos(x)
+			\end{align*}
+			nám dá:
+			\begin{align*}
+				\int \cos^2(x) \dx &= \sin(x) \cos(x) - \int \sin(x)(-\sin(x)) \dx \\
+				&= \sin(x) \cos(x) + \int (1 - \cos^2(x)) \dx \\
+				&= \sin(x) \cos(x) + x + c - \int \cos^2(x) \dx
+			\end{align*}
+			To se zdá, že jsme si moc nepomohli.
+			Mohli jsme zkusit znova per partesit, ale dostali bychom to samé.
+
+			Ale počkat!
+			Víme, že integrál existuje ($\cos^2(x)$ je spojitá funkce), takže můžeme psát:
+			$$ 2\int \cos^2(x) \dx = \sin(x) \cos(x) + x + C$$
+			$$ \int \cos^2(x) \dx = \frac{1}{2}( \sin(x) \cos(x) + x) + C$$
+
+			Poznamenejme, že tohle je možná jeden z nejdůležitějších integrálů (jak uvidíme příště).
+			Navíc tato metoda se v počítání integrálů pomocí per partes hojně využívá (úpravami dostanu stejný integrál, tak ho pak dopočtu).
+		}
+
+	\item $\int \sqrt{1-x^2} \dx$
+
+		\solution{
+			Začneme překvapivou substitucí
+			\begin{eqnarray*}
+			x&=&\sin t \\
+			\dx&=&\cos t \dt
+			\end{eqnarray*}
+			\begin{align*}
+				\int \sqrt{1-x^2} \dx &= \int \cos t \sqrt{1-\sin^2 t} \dt \\
+				&= \int \cos t \sqrt{\cos^2 t} \dt \\
+				&= \int \cos^2 t \dt \\
+				&= \frac{1}{2}\left(t+\sin t \cos t\right) \\
+				&= \frac{1}{2}\left(t+\sin t\sqrt{1- \sin^2 t}\right) \\
+				&= \frac{1}{2}\left(\arcsin x+x \sqrt{1-x^2} \right) +C
+			\end{align*}
+			V posledním kroce jsme vyjádřili $t$ pomocí $x$, respektive $\sin(t)$ pomocí $\arcsin(x)$.
+
+			Tohle byl příklad \uv{zpětného} použití věty o substituci.
+		}
+
+	\item $\int \tan^2 x \dx$
+
+		\solution{
+			Překvapivě nezačneme žádnou substitucí
+			\begin{align*}
+				\int \tan^2 x \dx &= \int \frac{\sin^2 x}{\cos^2 x} \dx \\
+				&= \int \frac{1-\cos^2 x}{\cos^2 x} \dx \\
+				&= \int \frac{1}{\cos^2 x} \dx - \int 1 \dx \\
+				&= \tan x - x + C
+			\end{align*}
+		}
+
+\end{enumerate}
+

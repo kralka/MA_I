@@ -1,0 +1,26 @@
+Spočítejte objem a povrch koule.
+
+\solution{
+	Koule vznikne rotací funkce
+	$$f(x) = \sqrt{r^2 - x^2}$$
+	na intervalu $[-r, r]$.
+
+	Dle Věty~\ref{thm:objem_rotacniho_telesa} a Věty~\ref{thm:povrch_rotacniho_telesa} spočítáme objem respektive povrch koule:
+
+	\begin{align*}
+		\text{objem koule} &= \pi \int_{-r}^{r} \left(\sqrt{r^2 - x^2} \right)^{2} \dx \\
+		&= \pi \int_{-r}^{r} r^2 - x^2 \dx \\
+		&= \pi \left[ x r^{2} - \frac{x^3}{3} \right]_{-r}^{r} \\
+		&= \frac{4}{3}\pi r^3
+	\end{align*}
+
+	Pro povrch spočítáme první derivaci
+	$$\left( \sqrt{r^2 - x^2} \right)' = - \frac{x}{\sqrt{r^2 - x^2}}$$
+	a nyní už můžeme dopočítat podle vzorce:
+	\begin{align*}
+		\text{povrch koule} &= 2\pi \int_{-r}^{r} \sqrt{r^2 - x^2} \sqrt{1 + \frac{x^2}{r^2 - x^2}} \dx \\
+		&= 2\pi \int_{-r}^{r} r \dx \\
+		&= 4 \pi r^2
+	\end{align*}
+}
+

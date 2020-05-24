@@ -1,0 +1,109 @@
+Integrujte $\int \frac{1}{\sin x} \dx$.
+
+\solution{
+	Vyzkoušíme hned tři způsoby (každý ukazuje užitečnou techniku).
+
+	\begin{itemize}
+
+		\item  \textbf{Spousta substitucí:}
+				Začneme jednoduchou substitucí
+				\begin{align*}
+					x &= 2t \\
+					\dx &= 2 \dt
+				\end{align*}
+
+				Ta nám převede integrál na trochu jiný:
+				\begin{align*}
+					\int \frac{1}{\sin x} \dx &= \int \frac{1}{\sin(2t)} \cdot 2 \dt \\
+					&= \int \frac{1}{2\sin t \cos t} \cdot 2 \dt \\
+					&= \int \frac{\sin^2 t + \cos^2 t}{\sin t \cos t} \dt \\
+					&= \int \frac{\sin^2 t}{\sin t \cos t} \dt + \int \frac{\cos^2 t}{\sin t \cos t} \dt
+				\end{align*}
+
+				A zase dvě zpětné substituce.
+				Napřed:
+				\begin{align*}
+					u &= \cos t \\
+					\du &= -\sin t \dt \\
+				\end{align*}
+				dává
+				\begin{align*}
+					\int \frac{\sin^2(t)}{\sin(t) \cos(t)} \dt &= -\int \frac{-\sin(t)}{\cos(t)} \dt \\
+					&= -\int \frac{1}{u} \du \\
+					&= -\ln(|u|) + c
+				\end{align*}
+
+				A pak:
+				\begin{align*}
+					v &= \sin t \\
+					\dv &= \cos t \dt
+				\end{align*}
+				dává
+				\begin{align*}
+					\int \frac{\cos^2 t}{\sin t \cos t} \dt &= \int \frac{\cos(t)}{\sin(t)} \dt \\
+					&= \int \frac{1}{v} \dv \\
+					&= \ln(|v|)
+				\end{align*}
+
+				Dohromady dostáváme po zpětné substituci:
+				$$\int \frac{1}{\sin x} \dx= -\ln|u| + \ln |v| = \ln \left|\frac{v}{u}\right| = \ln \left|\frac{\sin t}{\cos t}\right| = \ln |\tan t| = \ln \left|\tan \frac{x}{2}\right| + C$$
+
+				Schválně zkuste zderivovat výsledek (pro zkoušku).
+
+		\item  \textbf{Superdivná substituce:}
+			Tato varianta je založena na velmi podivné substituci (a související úpravě)
+			\begin{align*}
+				t &= \frac{1}{\sin x}+\frac{\cos x}{\sin x} \\
+				\dt &= \left(\frac{-\cos x}{\sin^2 x}+\frac{-\sin^2 x - \cos^2 x}{\sin^2 x}\right) \dx = -\left(\frac{\cos x}{\sin^2 x}+\frac{1}{\sin^2 x}\right) \dx
+			\end{align*}
+
+			Která nám dá:
+			\begin{align*}
+				\int \frac{1}{\sin x}\dx &= \int \frac{1}{\sin x} \cdot \frac{\frac{1}{\sin x}+\frac{\cos x}{\sin x}}{\frac{1}{\sin x}+\frac{\cos x}{\sin x}} \dx \\
+				&= \int \frac{\frac{\cos x}{\sin^2 x}+\frac{1}{\sin^2 x}}{\frac{1}{\sin x}+\frac{\cos x}{\sin x}} \dx \\
+				&= -\int \frac{1}{t} \ dt \\
+				&= -\ln |t| + c\\
+				&= - \ln \left|\frac{1}{\sin x}+\frac{\cos x}{\sin x}\right|+ c \\
+				&= \ln \left|\frac{1}{\sin x}+\frac{\cos x}{\sin x}\right|^{-1}+ c
+			\end{align*}
+
+			V porovnání s předchozím výsledkem vypadá řešení jinak, ale to je jen jiný zápis téhož
+			\begin{align*}
+				\left(\frac{1}{\sin x}+\frac{\cos x}{\sin x}\right)^{-1} &= \frac{\sin x}{1+\cos x} \\
+				&= \frac{2 \sin(x/2) \cos(x/2)}{1+\cos^2(x/2)-\sin^2(x/2)}  \\
+				&=\frac{2 \sin(x/2) \cos(x/2)}{\sin^2(x/2)+\cos^2(x/2)+\cos^2(x/2)-\sin^2(x/2)} \\
+				&= \frac{2 \sin(x/2) \cos(x/2)}{2\cos^2(x/2)} \\
+				&= \frac{ \sin(x/2)}{\cos(x/2)} \\
+				&= \tan(x/2)
+			\end{align*}
+
+		\item  \textbf{Weierstrassova substituce:}
+			Velmi silný nástroj, který funguje, když vše ostatní selže
+			\begin{align*}
+				t &= \tan \left(\frac{x}{2}\right) \\
+				\dt &= \frac{1}{2} \cdot \frac{1}{\cos^2(x/2)} \dx % = \frac{1}{2/(1+t^2)} \dx
+			\end{align*}
+
+			Vyjádříme
+			\begin{align*}
+				\sin x &= 2 \sin(x/2) \cos (x/2) \\
+				&= 2 \frac{\frac{\sin(x/2)}{\cos(x/2)}}{\frac{1}{\cos^2(x/2)}} \\
+				&= 2 \frac{\frac{\sin(x/2)}{\cos(x/2)}}{\frac{\cos^2(x/2)+\sin^2(x/2)}{\cos^2(x/2)}}\\
+				&= 2 \frac{\frac{\sin(x/2)}{\cos(x/2)}}{1+\frac{\sin^2(x/2)}{\cos^2(x/2)}}\\
+				&=2 \frac{\tan(x/2)}{1+\tan^2(x/2)} \\
+				&= \frac{2t}{1+t^2} 
+			\end{align*}
+
+			Podobně vyjádříme
+			$$\cos x = \ldots = \frac{1-t^2}{1+t^2}$$
+
+			Konečně dostáváme
+			$$\dx = \frac{2}{1+t^2} \ dt$$
+
+			Nyní se vrátíme k původnímu příkladu
+			$$\int \frac{1}{\sin x} \dx = \int \frac{1+t^2}{2t} \cdot \frac{2}{1+t^2} \ dt = \int \frac{1}{t} \ dt 
+			=\ln |t| = \ln \left| \tan \left(\frac{x}{2}\right)\right| +C$$
+
+	\end{itemize}
+}
+

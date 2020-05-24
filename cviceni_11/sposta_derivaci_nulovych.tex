@@ -1,0 +1,29 @@
+Nechť funkce $f \colon I \rightarrow \mathbb{R}$ je spojitá na otevřeném intervalu $I$ a má prvních $n$ derivací spojitých.
+Navíc předpokládejme, že pro nějaké $a \in I$ platí:
+$$f'(a) = f''(a) = \cdots = f^{(n-1)}(a) = 0$$
+a navíc
+$$f^{(n)}(a) \neq 0.$$
+Dokažte, že $f$ má v $a$ lokální extrém právě tehdy když $n$ je sudé.
+Navíc
+\begin{itemize}
+
+	\item  Pokud $n$ je sudé a $f^{(n)}(a) > 0$, pak $a$ je lokální minimum $f$.
+	
+	\item  Pokud $n$ je sudé a $f^{(n)}(a) < 0$, pak $a$ je lokální maximum $f$.
+
+\end{itemize}
+
+\solution{
+	Použijeme Taylorův polynom a Lagrangeův odhad zbytku.
+	Jak vypadá Taylorův polynom stupně $n$?
+	Prvních $n-1$ derivací je nulových, takže
+	$$T^{f, a}_{n}(x) = f(a) + \frac{f^{(n)}(a)}{n!}(x-a)^n$$
+
+	Předpokládejme, že $f^{(n)}(a) > 0$ (druhý bod je podobný) $n$-tá derivace je spojitá, takže víme že na nějakém otevřeném okolí $a \in J \subseteq I$ je pořád $f^{(n)}(b) > 0$ pro každé $b \in J$.
+
+	Lagrangeův odhad zbytku dává že pro libovolné $x \in J$ existuje $c$ ostře mezi $x$ a $a$ (buď $x < c < a$ nebo $a < c < x$) takové, že
+	$$f(x) - f(a) = \frac{f^{(n)}(c)}{n!}(x-a)^n$$
+	$$f(x) - f(a) = \frac{>0}{n!}(x-a)^n > 0$$
+	Jelikož $\sgn(f^{(n)}(a)) = \sgn(f^{(n)}(c))$, tak vidíme, že právě když $n$ je sudé, tak $f(x) > f(a)$.
+}
+

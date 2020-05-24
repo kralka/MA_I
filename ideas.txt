@@ -1,0 +1,6 @@
+Odhad sum_{n \in N} 1/n pomoci integralu 1/x (az budou umet integrovat)
+
+asymptoticka notace
+
+oznacovani prikladu nepovinna pisemka -- pdf, nepovinna pisemka, reseni
+

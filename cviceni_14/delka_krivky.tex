@@ -1,0 +1,16 @@
+Spočítejte délku křivky funkce $f(x) = \frac{x^2}{2} - \frac{\ln(x)}{4}$ na intervalu $[2, 4]$.
+
+\solution{
+	Dle Věty~\ref{thm:delka_krivky} napřed jako mezivýpočet zderivujeme
+	$$f'(x) = x - \frac{1}{4x}$$
+	a pak už jen spočítáme délku křivky:
+	\begin{align*}
+		l &= \int_{2}^{4} \sqrt{1 + (f'(x))^2} \dx \\
+		&= \int_{2}^{4} \sqrt{1 + \left( x - \frac{1}{4x} \right)^{2}} \dx \\
+		&= \int_{2}^{4} \sqrt{\left( x + \frac{1}{4x} \right)^{2}} \dx \\
+		&= \int_{2}^{4} \left( x + \frac{1}{4x} \right) \dx \\
+		&= \left[ \frac{x^2}{2} + \frac{\ln(x)}{4} \right]_{2}^{4} \\
+		&= 6 + \frac{\ln(2)}{4}
+	\end{align*}
+}
+

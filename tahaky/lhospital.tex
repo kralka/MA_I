@@ -1,0 +1,28 @@
+\begin{theorem}[l'Hospitalovo pravidlo]
+	Nechť $a \in \mathbb{R}^*$,
+	nechť pro nějaké $\delta > 0$ mají dvě funkce $f, g \colon P(a, \delta) \rightarrow \mathbb{R}$ vlastní derivaci,
+	nechť navíc $g'(x) \neq 0$ pro všechna $x \in P(a, \delta)$.
+	\label{thm:lhospital}
+
+	\begin{enumerate}
+
+		\item  \emph{\uv{Případ $\frac{0}{0}$}}
+			Jestliže
+			$$\lim_{x \rightarrow a}f(x) = \lim_{x \rightarrow a}g(x) = 0$$
+			a navíc
+			$$\lim_{x \rightarrow a} \frac{f'(x)}{g'(x)} = A \in \mathbb{R}^*$$
+			(limita podílu derivací existuje) pak platí:
+			$$\lim_{x \rightarrow a} \frac{f(x)}{g(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}.$$
+
+		\item  \emph{\uv{Případ $\frac{\pm \infty}{\pm \infty}$}}
+			Nebo pokud
+			$$\lim_{x \rightarrow a}|g(x)| = \infty$$
+			a navíc
+			$$\lim_{x \rightarrow a} \frac{f'(x)}{g'(x)} = A \in \mathbb{R}^*$$
+			(limita podílu derivací existuje) pak platí:
+			$$\lim_{x \rightarrow a} \frac{f(x)}{g(x)} = \lim_{x \rightarrow a} \frac{f'(x)}{g'(x)}.$$
+
+	\end{enumerate}
+
+	Totéž platí pro jednostranné limity $x \rightarrow a^+$, $x \rightarrow a^-$.
+\end{theorem}

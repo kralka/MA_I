@@ -1,0 +1,72 @@
+Pomocí l'Hospitalova pravidla vypočítejte následující limity
+\begin{enumerate}
+
+	\item  Pro $m, n \in \mathbb{N}$ spočítejte $\underset{x \rightarrow 1}{\lim} \left( \frac{m}{1 - x^m} - \frac{n}{1-x^n} \right)$.
+
+		\solution{
+			Máme limitu, kde je rozdíl nekonečno minus nekonečno, tedy nemůžeme rovnou použít l'Hospitalovo pravidlo (Věta~\ref{thm:lhospital}).
+			Převedeme proto na společný jmenovatel (to můžeme udělat, neboť v limitě se zajímáme o prstencová okolí, kde $x \neq 1$ a tedy jmenovatele jsou nenulové):
+			\begin{align*}
+				\lim_{x \rightarrow 1} \left( \frac{m}{1 - x^m} - \frac{n}{1-x^n} \right) &= \lim_{x \rightarrow 1} \frac{m - mx^n - n + nx^m}{1 - x^m - x^n + x^{m+n}}
+			\end{align*}
+			Což po dosazení $x = 1$ dává podíl nula děleno nulou.
+			Můžeme tedy doufat, že budeme moct použít l'Hospitalovo pravidlo (potřebujeme ověřit, že limita podílů derivací skutečně existuje a navíc, že derivace jmenovatele je na nějakém \emph{prstencovém} okolí jedničky všude nenulová).
+
+			\begin{itemize}
+
+				\item  \textbf{Derivace jmenovatele je na nějakém prstencovém okolí limitního bodu nenulová:}
+					Derivace jmenovatele je
+					$$\left( 1 - x^m - x^n + x^{m+n} \right)' = -mx^{m-1} -nx^{n-1} + (m+n)x^{m+n-1}$$
+					V jedničce je toto sice nula, ale to nám moc nevadí.
+					Chceme ukázat, že derivace jmenovatele je na nějakém \emph{prstencovém} okolí jedničky nenulová!
+					Nejjednodušší bude říct něco o monotonii a z definice derivace dostat, že na nějakém okolí jedničky je tato funkce rostoucí nebo klesající (tedy nulu může protnout jen jednou).
+					$$\left( 1 - x^m - x^n + x^{m+n} \right)'' = -m(m-1)x^{m-2} -n(n-1)x^{n-2} + (m+n)(m+n-1)x^{m+n-2}$$
+
+					V jedničce je hodnota
+					$$-m(m-1) -n(n-1) + (m+n)(m+n-1) = -m^2 +m -n^2 + n + m^2 + 2mn + n^2 -m -n = 2mn$$
+					Tedy druhá derivace jmenovatele je kladná v jedničce.
+					Tedy první derivace jmenovatele je na nějakém malém okolí jedničky rostoucí (a nulu proběhne jen v jedničce), tedy na nějakém malém prstencovém okolí jedničky je derivace jmenovatele nenulová.
+
+				\item  \textbf{Limita podílu derivací existuje:}
+					Limita podílu derivací je:
+					\begin{align*}
+						\lim_{x \rightarrow 1} \frac{(m - mx^n - n + nx^m)'}{(1 - x^m - x^n + x^{m+n})'} &= \lim_{x \rightarrow 1} \frac{-mnx^{n-1} +mnx^{m-1}}{-mx^{m-1} -nx^{n-1} + (m+n)x^{m+n-1}} \\
+						&= \lim_{x \rightarrow 1} \frac{mn\left( x^{m-1} - x^{n-1} \right)}{(m+n)x^{m+n-1} - mx^{m-1} - nx^{n-1}}
+					\end{align*}
+					Což je opět nula děleno nulou.
+					Neztratíme naději a zkusíme ještě jednou l'Hospitalovat (a znovu ověřit podmínky).
+
+					\begin{itemize}
+
+						\item  \textbf{Derivace jmenovatele je na nějakém prstencovém okolí limitního bodu nenulová (druhý l'Hospital):}
+
+							Derivace jmenovatele je:
+							\begin{align*}
+								&\left( (m+n)x^{m+n-1} - mx^{m-1} - nx^{n-1} \right)' = \\ &= -m(m-1)x^{m-2} -n(n-1)x^{n-2} + (m+n)(m+n-1)x^{m+n-2}
+							\end{align*}
+							Zde máme jednodušší práci, protože vyšla spojitá funkce, která má navíc v~jedničce hodnotu $2mn > 0$, tedy z definice spojitosti existuje prstencové okolí jedničky, na kterém je tato derivace jmenovatele vždy nenulová.
+
+						\item  \textbf{Limita podílu derivací existuje (druhý l'Hospital):}
+							\begin{align*}
+								&\lim_{x \rightarrow 1} \frac{mn\left( x^{m-1} - x^{n-1} \right)}{(m+n)x^{m+n-1} - mx^{m-1} - nx^{n-1}} \\
+								&= \lim_{x \rightarrow 1} \frac{mn\left( (m-1)x^{m-2} - (n-1)x^{n-2} \right)}{-m(m-1)x^{m-2} -n(n-1)x^{n-2} + (m+n)(m+n-1)x^{m+n-2}} \\
+								&= \frac{mn((m-1) -(n-1))}{2mn} \\
+								&= \frac{m-n}{2}
+							\end{align*}
+
+					\end{itemize}
+			\end{itemize}
+
+			Tedy v druhém případě jsme skutečně mohli použít l'Hospitalovo pravidlo.
+			To ale znamená, že i v prvním případě limita existovala a mohli jsme l'Hospitalovo pravidlo použít poprvé.
+			Dohromady dostáváme:
+			\begin{align*}
+				\lim_{x \rightarrow 1} \left( \frac{m}{1 - x^m} - \frac{n}{1-x^n} \right) &= \lim_{x \rightarrow 1} \frac{m - mx^n - n + nx^m}{1 - x^m - x^n + x^{m+n}} \\
+				&= \lim_{x \rightarrow 1} \frac{(m - mx^n - n + nx^m)'}{(1 - x^m - x^n + x^{m+n})'} \\
+				&= \lim_{x \rightarrow 1} \frac{(m - mx^n - n + nx^m)''}{(1 - x^m - x^n + x^{m+n})''} \\
+				&= \frac{m-n}{2}
+			\end{align*}
+		}
+
+\end{enumerate}
+
