@@ -18,9 +18,102 @@
 
 	\item  Funguje věta 10.6 i pokud $I = [a, b]$ pro nějaká $a, b \in \mathbb{R}$ (tedy je uzavřený)?
 
-	\item  \textbf{Původní, příliš těžké zadání} Změní se nějaká vaše odpověď pro $I = [a, b]$?
+	\item  \textbf{Původní, příliš těžké zadání:} Změní se nějaká vaše odpověď pro $I = [a, b]$?
 
 	\item  \textbf{Náhradní:} Umíte sestrojit funkci $f$, která má na intervalu $[0, 1]$ Darbouxovu vlastnost, ale zobrazí ho na otevřený interval ($f([0, 1]) = (a, b)$ pro $a, b \in \mathbb{R}$, $a < b$)?
+
+		\solution{
+			Prvně pořádně definujme Darbuoxovu vlastnost:
+
+			\begin{definition}[Darbouxova vlastnost]
+				Nechť $I \subseteq \mathbb{R}$ je interval a nechť $f \colon I \rightarrow \mathbb{R}$ je funkce.
+				Řekneme, že $f$ má \emph{Darbouxovu vlastnost}, pokud:
+				$$
+				\forall x, y \in I
+				\forall \alpha \in \left(  \min(f(x), f(y)), \max(f(x), f(y)) \right)
+				\exists z \in \left( \min(x, y), \max(x, y) \right) \colon
+				f(z) = \alpha$$
+				\label{def:darbouxova_vlastnost}
+			\end{definition}
+
+			V přednášce jsme viděli, že spojitost implikuje Darbouxovu vlastnost.
+			Naopak to neplatí (jak jste taky viděli na přednášce).
+			Dokonce platí, že každá funkce (jakkoliv nespojitá) jde zapsat jako součet dvou funkcí s Darbouxovou vlastností!
+
+			Více na \url{https://encyclopediaofmath.org/wiki/Darboux_property}
+
+			Speciálně několik z vás mělo pravdu, že pokud $f$ je spojitá, tak obraz uzavřeného intervalu je uzavřený interval.
+			Rozmyslete si, že to můžete odvodit z dvou vět z přednášky -- principu maxima pro spojité funkce (Věta~6.8 z přednášky) a Darbouxovy věty (Věta~6.3 z přednášky).
+
+			\textbf{První pokus:}
+			Pokus, který jsem myslel že funguje (předtím než jsem se pořádně podíval na definici):
+			$f \colon [0,1] \rightarrow (0,1)$
+			$$
+			f(x) = 
+			\begin{cases}
+				0.5 & x \in \left\{ 0,1 \right\} \\
+				x & x \in (0,1)
+			\end{cases}
+			$$
+			Laskavý čtenář ověří, že tento pokus nefunguje při následující volbě:
+			\begin{align*}
+				x &= 0.9 \\
+				y &= 1 \\
+				\alpha&=0.7
+			\end{align*}
+
+			\textbf{Pokus, který konečně funguje:}
+			$f \colon [0,1] \rightarrow (-1,1)$ definovaná jako:
+			$$
+			f(x) = 
+			\begin{cases}
+				0 & x = 0 \\
+				(1-x) \sin(1/x) & x \in (0,1]
+			\end{cases}
+			$$
+
+			\begin{enumerate}
+
+				\item  \textbf{Obraz je otevřený interval:}
+					tedy chci ukázat, že pro každé $x \in [0,1]$ bude $f(x) \in (-1, 1)$
+					a navíc, že $\sup\left\{ f(x) \mid x \in [0,1] \right\} = 1$ (infimum se ukáže obdobně).
+					\begin{enumerate}
+
+						\item  Chci ukázat, že $\forall x \in [0,1] \colon f(x) \in (-1,1)$:
+							\begin{itemize}
+								\item  Pro krajní body to platí
+								\item  $\forall x \in (0,1) \colon |\sin(1/x)| \leq 1$
+								\item  $\forall x \in (0,1) \colon |1-x| < 1$
+								\item  Tedy $\forall x \in (0,1) \colon |(1-x) \sin(1/x)| < 1$
+							\end{itemize}
+
+						\item  Chci ukázat, že pro každé $\varepsilon > 0$ existuje $z \in (0,1)$ takové, že $f(z) \geq 1-\varepsilon$
+							(tedy, že supremum $f(x)$ je rovné jedné, infimum se ukáže obdobně).
+							Vím, že $\sin(2k \pi + \frac{\pi}{2}) = 1$.
+							Pro pohodlí zvolím dost malé $z$ tvaru $z = \frac{1}{ 2k\pi + \frac{\pi}{2}}$ (tedy volím dostatečně velké $k \in \mathbb{N}$).
+							Pro dané $\varepsilon > 0$ volím $k = \left\lceil \frac{1}{\varepsilon} \right\rceil \in \mathbb{N}$ takže $z \leq \varepsilon$.
+							Dostáváme tedy $\sin(z) = 1$ a tudíž $f(z) = (1 - z) \sin(z) = 1-z \geq 1 - \varepsilon$.
+
+							Poznamenejme, že jsme teď našli posloupnost $a_n = \frac{2}{n \pi}$ takovou, že $\lim_{n \rightarrow \infty} a_n = 0$ a navíc $\lim_{n \rightarrow \infty} f(a_n) = 1$.
+							Tím jsme dokázali, že supremum $f$ na intervalu $[0,1]$ je rovné jedné.
+							Nic jsme tím neřekli o limitě $\lim_{x \rightarrow 0^+} f(x)$ (porovnejte s Heineho definicí limity, která chce aby $\lim f(a_n)$ byla stejná pro libovolnou takovou $a_n$).
+
+					\end{enumerate}
+
+				\item  \textbf{Funkce má Darbouxovu vlastnost:}
+					\begin{enumerate}
+
+						\item  Na $(0,1]$ je $f$ spojitá, tedy dle Darbouxovy věty o nabývání mezihodnot (Věta~6.3) z přednášky má také Darbouxovu vlastnost.
+
+						\item  Pro $x = 0, y \in (0,1]$ převedeme na předchozí případ.
+							Volíme $n = \left\lceil \frac{1}{\pi y} \right\rceil \in \mathbb{N}$ tedy $\sin(n \pi) = 0$.
+							A tedy $t = \frac{1}{\pi n} > 0$ ale pořád $t < y$ nám dá $\left( 1 - t \right) \sin(1/t) = 0$.
+							Použijeme předchozí případ pro $t$ a $y$, tedy $0 = f(0) = f(t)$ a $f(y)$.
+
+					\end{enumerate}
+
+			\end{enumerate}
+		}
 
 \end{enumerate}
 
